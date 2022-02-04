@@ -8,6 +8,8 @@
     import facebook from "./icons/facebook.vue"
     import twitter from "./icons/twitter.vue"
 
+    import Drawer from "./Drawer.vue"
+
     export default {
         
         name: "Landing",
@@ -17,16 +19,23 @@
             telegram,
             mail,
             facebook,
-            twitter
+            twitter,
+            Drawer
         },
         setup() {
 
+            const drawer = ref('closed')
+            
             const heroTitleSection = ref(null)
             const heroTitleSectionWidth = ref(0)
             const width = ref(window.innerWidth)
             
             function updateWidth() {
                 width.value = window.innerWidth
+            }
+
+            function toggleDrawer() {
+                drawer.value === 'closed' ? drawer.value = 'opened' : drawer.value = 'closed'
             }
 
             watch(width, () => {
@@ -39,7 +48,8 @@
             })
 
             return {
-                width, heroTitleSection, heroTitleSectionWidth
+                width, heroTitleSection, heroTitleSectionWidth,
+                toggleDrawer, drawer
             }
         }
     }
@@ -48,7 +58,10 @@
 
 <template>
 
-    <div class="min-h-screen w-full flex">
+    <Drawer class="lg:hidden" @close="toggleDrawer" :class="[drawer === 'opened' ? '' : 'hidden']"/>
+
+    <div class="min-h-screen w-full flex lg:blur-none"
+        :class="[drawer === 'opened' ? 'blur-xl' : '']">
 
         <!-- left padding -->
         <div class="grow"></div>
@@ -134,7 +147,7 @@
                 </section>
 
                 <!-- right content -->
-                <section class="my-12 lg:my-0 lg:flex lg:col-span-4 lg:flex-col">
+                <section class="my-8 md:my-12 lg:my-0 lg:flex lg:col-span-4 lg:flex-col">
                     
                     <!-- navigation -->
                     <nav class="hidden md:flex md:justify-around lg:justify-end">
@@ -193,7 +206,7 @@
                                     <go class="group-hover:inline hidden"/>
                                 </a>
                             </li>
-                            <li class="lg:hidden items-center justify-end">
+                            <li :onclick="toggleDrawer" class="lg:hidden items-center justify-end drawer-button">
                                 <div class="flex items-end justify-center flex-col gap-1 w-9 h-9">
                                     <div class="h-1 bg-programs-100 w-full"></div>
                                     <div class="h-1 bg-resources-100 w-4/5"></div>
@@ -204,12 +217,13 @@
                         </ul>
                     </nav>
                     
-                    <div class="flex justify-between">
+                    <!-- hero-title-(<=sm) -->
+                    <div class="flex justify-between items-start md:hidden">
                         <div class="flex flex-col justify-start md:hidden text-3xl">
                             <h1 class="font-hero uppercase leading-tight">Ankeboot Books</h1>
                             <h1 class="font-amh leading-tight">አንከቡት መጻህፍት</h1>
                         </div>
-                        <div class="lg:hidden items-center justify-end">
+                        <div :onclick="toggleDrawer" class="lg:hidden items-center justify-end drawer-button">
                             <div class="flex items-end justify-center flex-col gap-1 w-9 h-9">
                                 <div class="h-1 bg-programs-100 w-full"></div>
                                 <div class="h-1 bg-resources-100 w-4/5"></div>
