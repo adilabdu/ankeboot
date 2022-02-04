@@ -1,9 +1,11 @@
 <script setup>
-    import Layout from "./components/Layout.vue"
+    import Home from "./components/Home.vue"
+    import Landing from "./components/Landing.vue"
 </script>
 
 <template>
-    <Layout/>
+    <Landing/>
+    <!-- <Home/> -->
 </template>
 
 <style></style>
