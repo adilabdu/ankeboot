@@ -25,8 +25,8 @@ export default {
     <div class="flex flex-col items-center justify-start w-full h-screen fixed font-hero uppercase text-xl">
 
         <!-- hero-title-(<=sm) -->
-        <div class="flex justify-between items-start md:hidden w-full p-8">
-            <div class="flex flex-col justify-start md:hidden text-3xl">
+        <div class="flex justify-between items-start lg:hidden w-full p-8">
+            <div class="flex flex-col justify-start lg:hidden text-3xl">
                 <h1 class="font-hero uppercase leading-tight">Ankeboot Books</h1>
                 <h1 class="font-amh leading-tight">አንከቡት መጻህፍት</h1>
             </div>
