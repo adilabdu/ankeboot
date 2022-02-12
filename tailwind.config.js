@@ -53,17 +53,25 @@ module.exports = {
                     50: 'rgba(171, 8, 155, 0.50)',
                     100: '#AB089B'
                 }
-            }
-        },
-        fontFamily: {
-            'hero': ['Rakkas'],
-            'amh': ['Fantuwua'],
-            'sans': ['Roboto']
+            },
+            fontFamily: {
+                'hero': ['Rakkas'],
+                'amh': ['Fantuwua'],
+                'sans': ['Roboto']
+            },
         },
         screens: {
             'xs': '475px',
             ...defaultTheme.screens,
+        },
+        variants: {
+            scrollbar: ['rounded'],
         }
     },
-    plugins: [],
+    plugins: [
+        require('tailwind-scrollbar'),
+        require('tailwindcss-scoped-groups')({
+            groups: ['one', ]
+        })
+    ],
 }
