@@ -72,7 +72,7 @@ import Twitter from '../components/icons/twitter.vue'
                     </p>
                 </div>
 
-                <div class="p-8 outline-dotted outline-2 rounded-lg bg-white drop-shadow-sm">
+                <div class="p-8 border-2 border-dotted border-black rounded-lg bg-white drop-shadow-sm">
 
                     <h1 class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-maps-100 to-publishing-100"> Join our mailing list </h1>
                     <h1 class="text-sm"> Get our Catalogues + News on programs. </h1>
