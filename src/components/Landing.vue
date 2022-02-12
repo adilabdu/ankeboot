@@ -9,6 +9,7 @@
     import twitter from "./icons/twitter.vue"
 
     import Drawer from "./Drawer.vue"
+    import NavLinks from "./NavLinks.vue"
 
     export default {
         
@@ -20,7 +21,8 @@
             mail,
             facebook,
             twitter,
-            Drawer
+            Drawer,
+            NavLinks
         },
         setup() {
 
@@ -34,6 +36,11 @@
                 width.value = window.innerWidth
             }
 
+            const hoverState = ref(false)
+            function changeHoverState(state) {
+                hoverState.value = state
+            }
+
             function toggleDrawer() {
                 drawer.value === 'closed' ? drawer.value = 'opened' : drawer.value = 'closed'
             }
@@ -45,11 +52,15 @@
             onMounted(() => {
                 window.addEventListener('resize', updateWidth)
                 heroTitleSectionWidth.value = heroTitleSection.value.clientWidth
+                nav.value.addEventListener('mouseover', () => { changeHoverState(true) })
+                nav.value.addEventListener('mouseout', () => { changeHoverState(false) })
             })
+
+            const nav = ref(null);
 
             return {
                 width, heroTitleSection, heroTitleSectionWidth,
-                toggleDrawer, drawer
+                toggleDrawer, drawer, nav, hoverState
             }
         }
     }
@@ -60,7 +71,7 @@
 
     <Drawer class="lg:hidden" @close="toggleDrawer" :class="[drawer === 'opened' ? '' : 'hidden']"/>
 
-    <div class="min-h-screen w-full flex lg:blur-none"
+    <div class="min-h-screen w-full flex lg:blur-none scrollbar scroll-thumb-rounded"
         :class="[drawer === 'opened' ? 'blur-xl' : '']">
 
         <!-- left padding -->
@@ -75,19 +86,19 @@
                 <!-- socials-(<=md) -->
                 <div class="py-4 text-right flex items-center justify-center gap-6 font-normal text-lg lg:hidden">
                     <div class="flex justify-end items-center opacity-[60%]">
-                        <instagram size="28"/>
+                        <instagram :size="28"/>
                     </div>
                     <div class="flex justify-end items-center opacity-[60%]">
-                        <telegram size="28"/>
+                        <telegram :size="28"/>
                     </div>
                     <div class="flex justify-end items-center opacity-[60%]">
-                        <mail size="28"/>
+                        <mail :size="28"/>
                     </div>
                     <div class="flex justify-end items-center opacity-[60%]">
-                        <facebook size="28"/>
+                        <facebook :size="28"/>
                     </div>
                     <div class="flex justify-end items-center opacity-[60%]">
-                        <twitter size="28"/> 
+                        <twitter :size="28"/> 
                     </div>
                 </div>
 
@@ -99,7 +110,7 @@
                     <div class="grow"></div>
 
                     <!-- hero title -->
-                    <div class="hidden md:flex md:flex-col md:justify-start mb-12 mt-12 lg:mt-0">
+                    <div ref="heroTitleSection" class="hidden md:flex md:flex-col md:justify-start mb-12 mt-12 lg:mt-0">
                         <h1 class="text-6xl font-hero uppercase">Ankeboot Books</h1>
                         <h1 class="text-6xl font-amh">አንከቡት መጻህፍት</h1>
                         <h1 class="text-6xl font-hero">العنكبوت</h1>
@@ -134,11 +145,11 @@
                     <div class="flex flex-col md:flex-row justify-start gap-4 mt-8">
                         <a class="text-2xl font-hero flex items-center max-w-fit bg-books-25 px-2"> 
                             browse our books 
-                            <go size="28" styles="my-1"/>
+                            <go :size="28" styles="my-1"/>
                         </a>
                         <a class="text-2xl font-hero flex items-center max-w-fit bg-publishing-25 px-2"> 
                             view our publications 
-                            <go size="28" styles="mx-1"/>
+                            <go :size="28" styles="mx-1"/>
                         </a>
                     </div>
 
@@ -151,61 +162,17 @@
                     
                     <!-- navigation -->
                     <nav class="hidden md:flex md:justify-around lg:justify-end">
-                        <ul class="w-full flex justify-around lg:justify-end items-center lg:grid lg:gap-2 text-2xl">
-                            <li class="flex justify-end">
-                                <a class="group flex justify-center items-center hover:w-full hover:text-center cursor-pointer px-2 bg-home-25 uppercase font-hero border-dashed border-2 border-home-100">
-                                    Home
-                                    <go class="group-hover:inline hidden"/>
-                                </a>
-                            </li>
-                            <li class="flex justify-end">
-                                <a class="group flex justify-center items-center hover:w-full hover:text-center cursor-pointer px-2 bg-about-25 uppercase font-hero">
-                                    About
-                                    <go class="group-hover:inline hidden"/>
-                                </a>
-                            </li>
-                            <li class="flex justify-end">
-                                <a class="group flex justify-center items-center hover:w-full hover:text-center cursor-pointer px-2 bg-books-25 uppercase font-hero">
-                                    Books
-                                    <go class="group-hover:inline hidden"/>
-                                </a>
-                            </li>
-                            <li class="flex justify-end">
-                                <a class="group flex justify-center items-center hover:w-full hover:text-center cursor-pointer px-2 bg-publishing-25 uppercase font-hero">
-                                    Publishing
-                                    <go class="group-hover:inline hidden"/>
-                                </a>
-                            </li>
-                            <li class="hidden lg:flex justify-end">
-                                <a class="group flex justify-center items-center hover:w-full hover:text-center cursor-pointer px-2 bg-maps-25 uppercase font-hero">
-                                    Maps
-                                    <go class="group-hover:inline hidden"/>
-                                </a>
-                            </li>
-                            <li class="hidden lg:flex justify-end">
-                                <a class="group flex justify-center items-center hover:w-full hover:text-center cursor-pointer px-2 bg-programs-25 uppercase font-hero">
-                                    Programs
-                                    <go class="group-hover:inline hidden"/>
-                                </a>
-                            </li>
-                            <li class="hidden lg:flex justify-end">
-                                <a class="group flex justify-center items-center hover:w-full hover:text-center cursor-pointer px-2 bg-services-25 uppercase font-hero">
-                                    Services
-                                    <go class="group-hover:inline hidden"/>
-                                </a>
-                            </li>
-                            <li class="hidden lg:flex justify-end">
-                                <a class="group flex justify-center items-center hover:w-full hover:text-center cursor-pointer px-2 bg-resources-25 uppercase font-hero">
-                                    Resources
-                                    <go class="group-hover:inline hidden"/>
-                                </a>
-                            </li>
-                            <li class="hidden lg:flex justify-end">
-                                <a class="group flex justify-center items-center hover:w-full hover:text-center cursor-pointer px-2 bg-contact-25 uppercase font-hero">
-                                    Contact Us
-                                    <go class="group-hover:inline hidden"/>
-                                </a>
-                            </li>
+                        <ul ref="nav" class="w-full flex justify-around lg:justify-end items-center lg:grid lg:gap-2 text-2xl"
+                            :class="hoverState ? '' : 'grayscale-custom'">
+                            <NavLinks title="home" active/>
+                            <NavLinks title="about"/>
+                            <NavLinks title="books"/>
+                            <NavLinks title="publishing"/>
+                            <NavLinks title="maps" class="hidden lg:flex"/>
+                            <NavLinks title="programs" class="hidden lg:flex"/>
+                            <NavLinks title="services" class="hidden lg:flex"/>
+                            <NavLinks title="resources" class="hidden lg:flex"/>
+                            <NavLinks title="contact us" colorClass="contact" class="hidden lg:flex"/>
                             <li :onclick="toggleDrawer" class="lg:hidden items-center justify-end drawer-button">
                                 <div class="flex items-end justify-center flex-col gap-1 w-9 h-9">
                                     <div class="h-1 bg-programs-100 w-full"></div>
@@ -238,23 +205,23 @@
                     <div class="text-right hidden lg:grid lg:gap-2 font-normal text-lg">
                         <div class="flex justify-end items-center opacity-[60%]">
                             <a class="mr-2">@ankebootbooks</a>
-                            <instagram size="32"/>
+                            <instagram :size="32"/>
                         </div>
                         <div class="flex justify-end items-center opacity-[60%]">
                             <a class="mr-2">@ankebootbooks</a>
-                            <telegram size="32"/>
+                            <telegram :size="32"/>
                         </div>
                         <div class="flex justify-end items-center opacity-[60%]">
                             <a class="mr-2">contact@ankebootbooks.com</a>
-                            <mail size="32"/>
+                            <mail :size="32"/>
                         </div>
                         <div class="flex justify-end items-center opacity-[60%]">
                             <a class="mr-2">/ankebootbooks</a>
-                            <facebook size="32"/>
+                            <facebook :size="32"/>
                         </div>
                         <div class="flex justify-end items-center opacity-[60%]">
                             <a class="mr-2">@ankebootbooks</a>
-                            <twitter size="32"/> 
+                            <twitter :size="32"/> 
                         </div>
                     </div>
 
@@ -272,4 +239,10 @@
 
 </template>
 
-<style scoped></style>
+<style scoped lang="postcss">
+
+    .grayscale-custom > li {
+        @apply lg:grayscale;
+    }
+
+</style>
