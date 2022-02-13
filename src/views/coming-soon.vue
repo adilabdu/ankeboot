@@ -6,6 +6,7 @@ import { ref } from "vue"
 import Instagram from '../components/icons/instagram.vue'
 import Telegram from '../components/icons/telegram.vue'
 import Twitter from '../components/icons/twitter.vue'
+import Loading from "../components/icons/loading.vue"
 
     export default {
 
@@ -13,32 +14,55 @@ import Twitter from '../components/icons/twitter.vue'
         components: {
                 Instagram,
                 Telegram,
-                Twitter
+                Twitter,
+                Loading
         },
 
         setup() {
 
             const name = ref(null);
             const email = ref(null);
+            const loading = ref(false);
+            const submission = ref(null);
+            const notify = ref(false);
+
+            function clearFormInputs() {
+                name.value = null
+                email.value = null
+            }
+
+            function showNotification() {
+                setTimeout(() => { notify.value = false }, 5000);
+            }
 
             function joinMailingList() {
 
-                axios.post("http://localhost:8000/api/join-mailing-list", {
-                    'name': name.value,
-                    'email': email.value
+                loading.value = true
+                console.log("loading", loading.value)
+
+                axios.post(import.meta.env.VITE_API_BASE_URL + "join-mailing-list", {
+                    name: name.value,
+                    email: email.value
                 })
                 .then((response) => {
                     console.log(response)
+                    clearFormInputs()
+                    submission.value = "success"
                 })
                 .catch((error) => {
                     console.log(error)
+                    submission.value = "error"
                 })
-                .finally()
+                .finally(() => {
+                    loading.value = false
+                    notify.value = true
+                    showNotification();
+                })
 
             }            
 
             return {
-                name, email, joinMailingList
+                name, email, joinMailingList, loading, notify, submission
             }
         }
 
@@ -72,38 +96,53 @@ import Twitter from '../components/icons/twitter.vue'
                     </p>
                 </div>
 
-                <div class="p-8 border-2 border-dotted border-black rounded-lg bg-white drop-shadow-sm">
+                <section v-if="notify" class="flex items-center justify-center">
+
+                    <p v-if="submission === 'success'" class="text-center w-full rounded-lg text-white p-8 py-4 bg-gradient-to-r from-home-50 to-contact-50">
+                        Thank you for signing up!
+                    </p>
+
+                    <p v-else class="text-center w-full rounded-lg text-white p-8 py-4 bg-home-25">
+                        Something went wrong. Please try again later.
+                    </p>
+
+                </section>
+
+                <form v-on:submit.prevent="joinMailingList" class="p-8 border-2 border-dotted border-black rounded-lg bg-white drop-shadow-sm">
 
                     <h1 class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-maps-100 to-publishing-100"> Join our mailing list </h1>
                     <h1 class="text-sm"> Get our Catalogues + News on programs. </h1>
 
-                    <form-group class="flex flex-col mt-4">
+                    <p class="flex flex-col mt-4">
                         <label class="text-sm ml-1 font-medium">name</label>
-                        <input  v-model="name" type="input" placeholder="John Doe" class="border p-2 rounded-lg text-sm h-12"/>
-                    </form-group>
+                        <input  required v-model="name" type="input" placeholder="John Doe" class="border p-2 rounded-lg text-sm h-12"/>
+                    </p>
 
-                    <form-group class="flex flex-col mt-4">
+                    <p class="flex flex-col mt-4">
                         <label class="text-sm ml-1 font-medium ">email</label>
-                        <input v-model="email" type="email" placeholder="your@email.com" class="border p-2 rounded-lg text-sm h-12"/>
-                    </form-group>
+                        <input required v-model="email" type="email" placeholder="your@email.com" class="border p-2 rounded-lg text-sm h-12"/>
+                    </p>
 
-                    <form-group class="flex flex-col mt-4">
-                        <button :onclick="joinMailingList" type="" class="border p-2 rounded-lg font-bold text-sm h-12 bg-black text-white">Submit</button>
-                    </form-group>
+                    <p class="flex mt-4">
+                        <button type="submit" :disabled="!(!!name && !!email)" :class="!(!!name && !!email) ? 'opacity-50' : ''" class="flex items-center justify-center w-full border p-2 rounded-lg font-bold text-sm h-12 bg-black text-white">
+                            <loading :size="20" :styles="['fill-white mx-2 animate-spin', loading ? '' : 'hidden']"/>
+                            Submit
+                        </button>
+                    </p>
 
-                </div>
+                </form>
 
-                <socials class="flex items-center justify-center gap-8">
+                <article class="flex items-center justify-center gap-8">
                     <a href="https://instagram.com/ankeboot" target="_blank">
-                        <instagram :size="24"/>
+                        <instagram styles="fill-white stroke-black hover:fill-black hover:stroke-inherit" :size="24"/>
                     </a>
                     <a href="https://t.me/ankeboot" target="_blank">
-                        <telegram :size="24"/>
+                        <telegram styles="fill-white stroke-black hover:fill-black hover:stroke-none" :size="24"/>
                     </a>
                     <a href="https://twitter.com/ankebootpublish" target="_blank">
-                        <twitter :size="24"/>
+                        <twitter styles="fill-white stroke-black hover:fill-black hover:stroke-none" :size="24"/>
                     </a>
-                </socials>
+                </article>
 
             </div>
 
@@ -114,15 +153,14 @@ import Twitter from '../components/icons/twitter.vue'
         <div class="grow min-h-[16px]"></div>
 
         <footer class="flex flex-col items-center justify-center">
-            <copyright class="items-center justify-center flex flex-col sm:flex-row py-2">
+            <article class="items-center justify-center flex flex-col sm:flex-row py-2">
                 <p class="text-sm opacity-75">Online Book Market Coming Soon.</p>
                 <p class="sm:inline hidden mx-1 opacity-75">|</p>
-                <p class="text-sm opacity-50 font-hero uppercase">Ankeboot Books &copy; 2022</p>
-            </copyright>
+                <p class="text-sm opacity-75">Ankeboot Books &copy; 2022</p>
+            </article>
         </footer>
 
     </div>
-
 
 </template>
 
