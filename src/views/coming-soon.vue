@@ -41,8 +41,12 @@ import Loading from "../components/icons/loading.vue"
                 console.log("loading", loading.value)
 
                 axios.post(import.meta.env.VITE_API_BASE_URL + "join-mailing-list", {
-                    name: name.value,
-                    email: email.value
+                    "name": name.value,
+                    "email": email.value
+                }, {
+                    headers: {
+                        "Accept": "application/json"
+                    }
                 })
                 .then((response) => {
                     console.log(response)
@@ -50,8 +54,13 @@ import Loading from "../components/icons/loading.vue"
                     submission.value = "success"
                 })
                 .catch((error) => {
-                    console.log(error)
-                    submission.value = "error"
+                    if(error.response.status === 422) {
+                        if(error.response.data.status === "warn") {
+                            submission.value = "warning"
+                        } else {
+                            submission.value = "error"
+                        }
+                    }
                 })
                 .finally(() => {
                     loading.value = false
@@ -96,50 +105,56 @@ import Loading from "../components/icons/loading.vue"
                     </p>
                 </div>
 
-                <section v-if="notify" class="flex items-center justify-center">
+                <form v-on:submit.prevent="joinMailingList" class="relative overflow-hidden border-2 border-dotted border-black rounded-lg bg-white drop-shadow-sm">
 
-                    <p v-if="submission === 'success'" class="text-center w-full rounded-lg text-white p-8 py-4 bg-gradient-to-r from-home-50 to-contact-50">
-                        Thank you for signing up!
-                    </p>
+                    <Transition name="slide-fade">
+                        <section v-if="notify" class="absolute w-full flex items-center justify-center drop-shadow-md">
 
-                    <p v-else class="text-center w-full rounded-lg text-white p-8 py-4 bg-home-25">
-                        Something went wrong. Please try again later.
-                    </p>
+                            <p v-if="submission === 'success' || submission === 'warning'" class="flex items-center justify-center w-full text-white p-8 py-4 h-20 bg-gradient-to-r from-[#FF9999] to-[#D583CD]">
+                                Thank you for signing up!
+                            </p>
 
-                </section>
+                            <p v-else class="flex items-center justify-center w-full text-white p-8 py-4 bg-[#FFCCCC] h-20">
+                                Something went wrong. Please try again later.
+                            </p>
 
-                <form v-on:submit.prevent="joinMailingList" class="p-8 border-2 border-dotted border-black rounded-lg bg-white drop-shadow-sm">
+                        </section>
+                    </Transition>
 
-                    <h1 class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-maps-100 to-publishing-100"> Join our mailing list </h1>
-                    <h1 class="text-sm"> Get our Catalogues + News on programs. </h1>
+                    <div class="p-8">
 
-                    <p class="flex flex-col mt-4">
-                        <label class="text-sm ml-1 font-medium">name</label>
-                        <input  required v-model="name" type="input" placeholder="John Doe" class="border p-2 rounded-lg text-sm h-12"/>
-                    </p>
+                        <h1 class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-maps-100 to-publishing-100"> Join our mailing list </h1>
+                        <h1 class="text-sm"> Get our Catalogues + News on programs. </h1>
 
-                    <p class="flex flex-col mt-4">
-                        <label class="text-sm ml-1 font-medium ">email</label>
-                        <input required v-model="email" type="email" placeholder="your@email.com" class="border p-2 rounded-lg text-sm h-12"/>
-                    </p>
+                        <p class="flex flex-col mt-4">
+                            <label class="text-sm ml-1 font-medium">name</label>
+                            <input  required v-model="name" type="input" placeholder="John Doe" class="border p-2 rounded-lg text-sm h-12"/>
+                        </p>
 
-                    <p class="flex mt-4">
-                        <button type="submit" :disabled="!(!!name && !!email)" :class="!(!!name && !!email) ? 'opacity-50' : ''" class="flex items-center justify-center w-full border p-2 rounded-lg font-bold text-sm h-12 bg-black text-white">
-                            <loading :size="20" :styles="['fill-white mx-2 animate-spin', loading ? '' : 'hidden']"/>
-                            Submit
-                        </button>
-                    </p>
+                        <p class="flex flex-col mt-4">
+                            <label class="text-sm ml-1 font-medium ">email</label>
+                            <input required v-model="email" type="email" placeholder="your@email.com" class="border p-2 rounded-lg text-sm h-12"/>
+                        </p>
+
+                        <p class="flex mt-4">
+                            <button type="submit" :disabled="!(!!name && !!email)" :class="!(!!name && !!email) ? 'opacity-50' : ''" class="flex items-center justify-center w-full border p-2 rounded-lg font-bold text-sm h-12 bg-black text-white">
+                                <loading :size="20" :styles="['fill-white mx-2 animate-spin', loading ? '' : 'hidden']"/>
+                                Submit
+                            </button>
+                        </p>
+
+                    </div>
 
                 </form>
 
                 <article class="flex items-center justify-center gap-8">
-                    <a href="https://instagram.com/ankeboot" target="_blank">
+                    <a href="https://instagram.com/ankeboot_publishing" target="_blank">
                         <instagram styles="fill-white stroke-black hover:fill-black hover:stroke-inherit" :size="24"/>
                     </a>
                     <a href="https://t.me/ankeboot" target="_blank">
                         <telegram styles="fill-white stroke-black hover:fill-black hover:stroke-none" :size="24"/>
                     </a>
-                    <a href="https://twitter.com/ankebootpublish" target="_blank">
+                    <a href="https://twitter.com/ankeboot_books" target="_blank">
                         <twitter styles="fill-white stroke-black hover:fill-black hover:stroke-none" :size="24"/>
                     </a>
                 </article>
@@ -150,7 +165,7 @@ import Loading from "../components/icons/loading.vue"
 
         </main>
 
-        <div class="grow min-h-[16px]"></div>
+        <div class="grow min-h-[32px]"></div>
 
         <footer class="flex flex-col items-center justify-center">
             <article class="items-center justify-center flex flex-col sm:flex-row py-2">
@@ -166,5 +181,21 @@ import Loading from "../components/icons/loading.vue"
 
 <style scoped lang="postcss">
 
+    .slide-fade-enter-active {
+        transition: all 0.3s ease-out;
+    }
+
+    .slide-fade-leave-active {
+        transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+    }
+
+    .slide-fade-enter-from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    .slide-fade-leave-to {
+        opacity: 0;
+    }
 
 </style>
