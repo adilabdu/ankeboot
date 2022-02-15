@@ -56,6 +56,7 @@ import Loading from "../components/icons/loading.vue"
                 .catch((error) => {
                     if(error.response.status === 422) {
                         if(error.response.data.status === "warn") {
+                            clearFormInputs()
                             submission.value = "warning"
                         } else {
                             submission.value = "error"
@@ -88,14 +89,16 @@ import Loading from "../components/icons/loading.vue"
             <h1 class="font-amh leading-3 text-2xl">አንከቡት መጻህፍት</h1>
         </header>
 
+        <!-- <div class="h-32"></div> -->
+
         <main class="flex h-full">
 
             <div class="grow"></div>
             
-            <div class="mx-2 flex flex-col gap-6">
+            <div class="mx-2 flex flex-col lg:grid lg:grid-cols-2 gap-6">
 
-                <div class="p-8 bg-gradient-to-r from-publishing-50 to-maps-50 rounded-lg drop-shadow-md">
-                    <p class="font-sans font-medium max-w-xl">
+                <div class="flex flex-col items-center justify-center lg:col-span-1 max-w-xl p-8 bg-gradient-to-r from-publishing-50 to-maps-50 rounded-lg drop-shadow-md">
+                    <p class="font-sans font-medium">
                         <span class="uppercase font-hero text-lg">Ankeboot</span> is an Arabic word meaning
                         <i>Spider</i>. We are a women-led company inspired by the 
                         creativity and perseverance of a spider.  
@@ -105,7 +108,7 @@ import Loading from "../components/icons/loading.vue"
                     </p>
                 </div>
 
-                <form v-on:submit.prevent="joinMailingList" class="relative overflow-hidden border-2 border-dotted border-black rounded-lg bg-white drop-shadow-sm">
+                <form v-on:submit.prevent="joinMailingList" class="relative lg:col-span-1 overflow-hidden border-2 border-dotted border-black rounded-lg bg-white drop-shadow-sm">
 
                     <Transition name="slide-fade">
                         <section v-if="notify" class="absolute w-full flex items-center justify-center drop-shadow-md">
@@ -147,7 +150,7 @@ import Loading from "../components/icons/loading.vue"
 
                 </form>
 
-                <article class="flex items-center justify-center gap-8">
+                <article class="flex items-center justify-center gap-8 lg:hidden">
                     <a href="https://instagram.com/ankeboot_publishing" target="_blank">
                         <instagram styles="fill-white stroke-black hover:fill-black hover:stroke-inherit" :size="24"/>
                     </a>
@@ -169,9 +172,11 @@ import Loading from "../components/icons/loading.vue"
 
         <footer class="flex flex-col items-center justify-center">
             <article class="items-center justify-center flex flex-col sm:flex-row py-2">
+                <p class="text-sm opacity-75">&copy; 2022</p>
+                <p class="text-sm opacity-75 mx-1">&bull;</p>
+                <p class="text-sm opacity-75">Ankeboot Books</p>
+                <p class="sm:inline hidden mx-1 opacity-75">&bull;</p>
                 <p class="text-sm opacity-75">Online Book Market Coming Soon.</p>
-                <p class="sm:inline hidden mx-1 opacity-75">|</p>
-                <p class="text-sm opacity-75">Ankeboot Books &copy; 2022</p>
             </article>
         </footer>
 
