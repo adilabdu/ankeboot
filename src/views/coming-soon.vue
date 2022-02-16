@@ -95,10 +95,10 @@ import Loading from "../components/icons/loading.vue"
 
             <div class="grow"></div>
             
-            <div class="mx-2 flex flex-col lg:grid lg:grid-cols-2 gap-6">
+            <div class="mx-2 flex flex-col lg:grid lg:grid-cols-2 gap-6 max-w-6xl">
 
-                <div class="flex flex-col items-center justify-center lg:col-span-1 max-w-xl p-8 bg-gradient-to-r from-publishing-50 to-maps-50 rounded-lg drop-shadow-md">
-                    <p class="font-sans font-medium">
+                <div class="flex flex-col items-center justify-start lg:col-span-1">
+                    <p class="font-sans font-medium p-8 bg-gradient-to-r from-publishing-50 to-maps-50 rounded-lg drop-shadow-md">
                         <span class="uppercase font-hero text-lg">Ankeboot</span> is an Arabic word meaning
                         <i>Spider</i>. We are a women-led company inspired by the 
                         creativity and perseverance of a spider.  
