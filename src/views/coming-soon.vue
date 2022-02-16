@@ -159,30 +159,25 @@ import TextCard from '../components/TextCard.vue'
 
                     </div>
 
-                    <div class="flex flex-col lg:flex-row gap-2 w-full">
+                    <!-- <div class="flex flex-col lg:flex-row gap-2 w-full">
 
-                        <!-- <div class="w-1/2 bg-gradient-to-r from-home-50 to-contact-50 p-1 rounded-lg"> -->
-                            <div class="overflow-hidden rounded-lg max-w-full bg-white p-2 border-2 border-black">
-                                <!-- <iframe class="w-full rounded-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.3230772720103!2d38.76034431523562!3d9.034264291392896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8f7933906a51%3A0x1fef98757fbf9fc9!2sAnkeboot%20Book%20Store!5e0!3m2!1sen!2skr!4v1645016197417!5m2!1sen!2skr" width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
-                                <p class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-home-50 to-contact-50 p-2 bg-white">Visit our shop</p>
-                                <div class="bg-white">
-                                    <iframe class="w-full rounded-b-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.3230772720103!2d38.76034431523562!3d9.034264291392896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8f7933906a51%3A0x1fef98757fbf9fc9!2sAnkeboot%20Book%20Store!5e0!3m2!1sen!2skr!4v1645016197417!5m2!1sen!2skr" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                                </div>
+                        <div class="overflow-hidden rounded-lg max-w-full bg-white p-2 border-2 border-black">
+                            <p class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-home-50 to-contact-50 p-2 bg-white">Visit our shop</p>
+                            <div class="bg-white">
+                                <iframe class="w-full rounded-b-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.3230772720103!2d38.76034431523562!3d9.034264291392896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8f7933906a51%3A0x1fef98757fbf9fc9!2sAnkeboot%20Book%20Store!5e0!3m2!1sen!2skr!4v1645016197417!5m2!1sen!2skr" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                             </div>
-                        <!-- </div> -->
-
-                        <div class="lg:w-1/2 aspect-4/3 lg:aspect-auto w-full bg-gradient-to-r from-home-50 to-contact-50 p-1 rounded-lg">
-
                         </div>
 
-                    </div>
+                        <div class="lg:w-1/2 aspect-4/3 lg:aspect-auto w-full bg-gradient-to-r from-home-50 to-contact-50 p-1 rounded-lg">
+                        </div>
+
+                    </div> -->
 
                 </section>
 
                 <section class="flex flex-col gap-4">
 
                     <div class="overflow-hidden rounded-lg max-w-full bg-white p-2 border-2 border-black border-dotted">
-                        <!-- <iframe class="w-full rounded-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.3230772720103!2d38.76034431523562!3d9.034264291392896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8f7933906a51%3A0x1fef98757fbf9fc9!2sAnkeboot%20Book%20Store!5e0!3m2!1sen!2skr!4v1645016197417!5m2!1sen!2skr" width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
                         <p class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-home-50 to-contact-50 p-2 bg-white">Visit our shop</p>
                         <div class="bg-white">
                             <iframe class="w-full rounded-b-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.3230772720103!2d38.76034431523562!3d9.034264291392896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8f7933906a51%3A0x1fef98757fbf9fc9!2sAnkeboot%20Book%20Store!5e0!3m2!1sen!2skr!4v1645016197417!5m2!1sen!2skr" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
