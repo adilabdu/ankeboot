@@ -109,7 +109,7 @@ import TextCard from '../components/TextCard.vue'
 
                 <section class="flex flex-col gap-4 items-center justify-start lg:col-span-1">
 
-                    <TextCard>
+                    <TextCard class="max-w-full bg-gradient-to-r from-home-50 to-contact-50 text-white relative">
                         <span class="uppercase font-hero text-lg">Ankeboot</span> is an Arabic word meaning
                         <i>Spider</i>. We are a women-led company inspired by the 
                         creativity and perseverance of a spider.  
@@ -118,7 +118,7 @@ import TextCard from '../components/TextCard.vue'
                         readers, into moments of community building and social change.
                     </TextCard>
 
-                    <div class="group hover:scale-105 transition duration-300 max-w-full">
+                    <div class="group lg:hover:scale-105 transition duration-300 max-w-full">
                         
                         <div class="relative">
                             <!-- <div class="w-full rounded-t-lg h-full bg-black blur-b absolute bottom-0 z-0"></div> -->
@@ -163,7 +163,7 @@ import TextCard from '../components/TextCard.vue'
 
                 <section class="flex flex-col gap-4">
 
-                    <form v-on:submit.prevent="joinMailingList" class=" max-w-full relative w-full lg:col-span-1 overflow-hidden border-2 border-dotted border-black rounded-lg bg-white drop-shadow-sm">
+                    <form v-on:submit.prevent="joinMailingList" class="max-w-full relative w-full lg:col-span-1 overflow-hidden border-2 border-dotted border-black rounded-lg bg-white drop-shadow-sm">
 
                         <Transition name="slide-fade">
                             <section v-if="notify" class="absolute w-full flex items-center justify-center drop-shadow-md">
@@ -205,14 +205,14 @@ import TextCard from '../components/TextCard.vue'
 
                     </form>
 
-                    <TextCard class="max-w-full bg-gradient-to-r from-home-50 to-contact-50 text-white relative">
+                    <!-- <TextCard class="max-w-full bg-gradient-to-r from-home-50 to-contact-50 text-white relative">
                         <span class="uppercase font-hero text-lg">Ankeboot</span> is an Arabic word meaning
                         <i>Spider</i>. We are a women-led company inspired by the 
                         creativity and perseverance of a spider.  
                         A weaver’s tenacity & innovation permeates our pluriversal 
                         practice, transforming the simple act of providing books for 
                         readers, into moments of community building and social change.
-                    </TextCard>
+                    </TextCard> -->
 
                 </section>
 
