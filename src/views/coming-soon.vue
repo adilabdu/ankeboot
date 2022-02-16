@@ -134,7 +134,7 @@ import TextCard from '../components/TextCard.vue'
                             </div>
                         </div>
 
-                        <div class="flex flex-col items-center justify-center xl:items-start xl:justify-start gap-2 w-full rounded-b-lg p-8 pt-4 border-x-2 border-b-2 border-dotted border-black">
+                        <div class="flex flex-col items-center justify-center xl:items-start xl:justify-start gap-2 w-full rounded-b-lg p-4 xs:p-8 pt-4 border-x-2 border-b-2 border-dotted border-black">
                             <h1 class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-maps-100 to-publishing-100"> Get in Touch </h1>
                             <address class="flex flex-col xl:flex-row justify-start gap-8">
                                 
@@ -240,9 +240,11 @@ import TextCard from '../components/TextCard.vue'
             </article>
 
             <article class="items-center justify-center flex flex-col sm:flex-row py-2">
-                <p class="text-sm opacity-75">&copy; 2022</p>
-                <p class="text-sm opacity-75 mx-1">&bull;</p>
-                <p class="text-sm opacity-75">Ankeboot Books</p>
+                <div class="flex">
+                    <p class="text-sm opacity-75">&copy; 2022</p>
+                    <p class="text-sm opacity-75 mx-1">&bull;</p>
+                    <p class="text-sm opacity-75">Ankeboot Books</p>
+                </div>
                 <p class="sm:inline hidden mx-1 opacity-75">&bull;</p>
                 <p class="text-sm opacity-75">Online Book Market Coming Soon.</p>
             </article>
