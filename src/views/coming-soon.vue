@@ -3,10 +3,13 @@
 import axios from "axios"
 import { ref } from "vue"
 
+// import "boxicons"
+
 import Instagram from '../components/icons/instagram.vue'
 import Telegram from '../components/icons/telegram.vue'
 import Twitter from '../components/icons/twitter.vue'
 import Mail from '../components/icons/mail.vue'
+import Phone from '../components/icons/phone.vue'
 import Loading from '../components/icons/loading.vue'
 import TextCard from '../components/TextCard.vue'
 
@@ -18,6 +21,7 @@ import TextCard from '../components/TextCard.vue'
                 Telegram,
                 Twitter,
                 Mail,
+                Phone,
                 Loading,
                 TextCard
         },
@@ -114,7 +118,7 @@ import TextCard from '../components/TextCard.vue'
                         readers, into moments of community building and social change.
                     </TextCard>
 
-                    <div class="hover:scale-105 transition duration-300 ">
+                    <div class="group hover:scale-105 transition duration-300 max-w-full">
                         
                         <div class="relative">
                             <!-- <div class="w-full rounded-t-lg h-full bg-black blur-b absolute bottom-0 z-0"></div> -->
@@ -130,27 +134,27 @@ import TextCard from '../components/TextCard.vue'
                             </div>
                         </div>
 
-                        <div class="flex flex-col gap-2 w-full rounded-b-lg p-8 pt-4 border-x-2 border-b-2 border-dotted border-black">
+                        <div class="flex flex-col items-center justify-center xl:items-start xl:justify-start gap-2 w-full rounded-b-lg p-8 pt-4 border-x-2 border-b-2 border-dotted border-black">
                             <h1 class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-maps-100 to-publishing-100"> Get in Touch </h1>
-                            <div class="flex justify-between">
+                            <address class="flex flex-col xl:flex-row justify-start gap-8">
                                 
-                                <div class="flex items-start justify-start gap-2">
-                                    <mail size="20"/>
+                                <a href="mailto:ankebootpublishing@gmail.com" class="flex items-center justify-center xl:items-start xl:justify-start gap-2">
+                                    <mail :size="20"/>
                                     <p>ankebootpublishing@gmail.com</p>
-                                </div>
+                                </a>
 
-                                <div class="flex flex-col items-end">
-                                    <div class="flex items-start justify-start gap-2">
-                                        <mail size="20"/>
+                                <div class="flex flex-col items-center xl:items-end">
+                                    <a href="tel:+251-924-35-64-74" class="flex items-start justify-start gap-2">
+                                        <phone :size="20" class=""/>
                                         <p>+251 924 35 64 74</p>
-                                    </div>
-                                    <div class="flex items-start justify-start gap-2">
-                                        <mail size="20"/>
+                                    </a>
+                                    <a href="tel:+251-966-21-53-42" class="flex items-start justify-start gap-2">
+                                        <phone :size="20" class=""/>
                                         <p>+251 966 21 53 42</p>
-                                    </div>
+                                    </a>
                                 </div>
 
-                            </div>
+                            </address>
                         </div>
 
                     </div>
@@ -159,7 +163,7 @@ import TextCard from '../components/TextCard.vue'
 
                 <section class="flex flex-col gap-4">
 
-                    <form v-on:submit.prevent="joinMailingList" class="relative w-full lg:col-span-1 overflow-hidden border-2 border-dotted border-black rounded-lg bg-white drop-shadow-sm">
+                    <form v-on:submit.prevent="joinMailingList" class=" max-w-full relative w-full lg:col-span-1 overflow-hidden border-2 border-dotted border-black rounded-lg bg-white drop-shadow-sm">
 
                         <Transition name="slide-fade">
                             <section v-if="notify" class="absolute w-full flex items-center justify-center drop-shadow-md">
@@ -201,7 +205,7 @@ import TextCard from '../components/TextCard.vue'
 
                     </form>
 
-                    <TextCard class="bg-gradient-to-r from-home-50 to-contact-50 text-white relative">
+                    <TextCard class="max-w-full bg-gradient-to-r from-home-50 to-contact-50 text-white relative">
                         <span class="uppercase font-hero text-lg">Ankeboot</span> is an Arabic word meaning
                         <i>Spider</i>. We are a women-led company inspired by the 
                         creativity and perseverance of a spider.  
