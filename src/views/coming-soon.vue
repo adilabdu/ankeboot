@@ -6,7 +6,9 @@ import { ref } from "vue"
 import Instagram from '../components/icons/instagram.vue'
 import Telegram from '../components/icons/telegram.vue'
 import Twitter from '../components/icons/twitter.vue'
-import Loading from "../components/icons/loading.vue"
+import Mail from '../components/icons/mail.vue'
+import Loading from '../components/icons/loading.vue'
+import TextCard from '../components/TextCard.vue'
 
     export default {
 
@@ -15,7 +17,9 @@ import Loading from "../components/icons/loading.vue"
                 Instagram,
                 Telegram,
                 Twitter,
-                Loading
+                Mail,
+                Loading,
+                TextCard
         },
 
         setup() {
@@ -91,86 +95,146 @@ import Loading from "../components/icons/loading.vue"
 
         <!-- <div class="h-32"></div> -->
 
-        <main class="flex h-full">
+        <div class="flex h-full">
 
+            <!-- gutter left -->
             <div class="grow"></div>
             
-            <div class="mx-2 flex flex-col lg:grid lg:grid-cols-2 gap-6 max-w-6xl">
 
-                <div class="flex flex-col items-center justify-start lg:col-span-1">
-                    <p class="font-sans font-medium p-8 bg-gradient-to-r from-publishing-50 to-maps-50 rounded-lg drop-shadow-md">
+            <main class="mx-2 flex flex-col md:grid md:grid-cols-2 gap-6 max-w-6xl">
+
+                <section class="flex flex-col gap-4 items-center justify-start lg:col-span-1">
+
+                    <TextCard>
                         <span class="uppercase font-hero text-lg">Ankeboot</span> is an Arabic word meaning
                         <i>Spider</i>. We are a women-led company inspired by the 
                         creativity and perseverance of a spider.  
                         A weaver’s tenacity & innovation permeates our pluriversal 
                         practice, transforming the simple act of providing books for 
                         readers, into moments of community building and social change.
-                    </p>
-                </div>
+                    </TextCard>
 
-                <form v-on:submit.prevent="joinMailingList" class="relative lg:col-span-1 overflow-hidden border-2 border-dotted border-black rounded-lg bg-white drop-shadow-sm">
+                    <div class="hover:scale-105 transition duration-300 ">
+                        
+                        <div class="relative">
+                            <!-- <div class="w-full rounded-t-lg h-full bg-black blur-b absolute bottom-0 z-0"></div> -->
+                            <div class="z-10 relative bg-gradient-to-r from-[#BDEFFF] to-[#CFDDFF] rounded-t-lg p-8 font-medium flex flex-col gap-4 items-start justify-start w-full">  
+                                <p>
+                                    We supply of a wide range of educational, referential, and supplementary books meeting
+                                    the needs of individual and institutions.
+                                </p>
+                                <p>
+                                    We make available a careful selection of scholastic materials from academic publishers 
+                                    in Global South. 
+                                </p>
+                            </div>
+                        </div>
 
-                    <Transition name="slide-fade">
-                        <section v-if="notify" class="absolute w-full flex items-center justify-center drop-shadow-md">
+                        <div class="flex flex-col gap-2 w-full rounded-b-lg p-8 pt-4 border-x-2 border-b-2 border-dotted border-black">
+                            <h1 class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-maps-100 to-publishing-100"> Get in Touch </h1>
+                            <div class="flex justify-between">
+                                
+                                <div class="flex items-start justify-start gap-2">
+                                    <mail size="20"/>
+                                    <p>ankebootpublishing@gmail.com</p>
+                                </div>
 
-                            <p v-if="submission === 'success' || submission === 'warning'" class="flex items-center justify-center w-full text-white p-8 py-4 h-20 bg-gradient-to-r from-[#FF9999] to-[#D583CD]">
-                                Thank you for signing up!
-                            </p>
+                                <div class="flex flex-col items-end">
+                                    <div class="flex items-start justify-start gap-2">
+                                        <mail size="20"/>
+                                        <p>+251 924 35 64 74</p>
+                                    </div>
+                                    <div class="flex items-start justify-start gap-2">
+                                        <mail size="20"/>
+                                        <p>+251 966 21 53 42</p>
+                                    </div>
+                                </div>
 
-                            <p v-else class="flex items-center justify-center w-full text-white p-8 py-4 bg-[#FFCCCC] h-20">
-                                Something went wrong. Please try again later.
-                            </p>
-
-                        </section>
-                    </Transition>
-
-                    <div class="p-8">
-
-                        <h1 class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-maps-100 to-publishing-100"> Join our mailing list </h1>
-                        <h1 class="text-sm"> Get our Catalogues + News on programs. </h1>
-
-                        <p class="flex flex-col mt-4">
-                            <label class="text-sm ml-1 font-medium">name</label>
-                            <input  required v-model="name" type="input" placeholder="John Doe" class="border p-2 rounded-lg text-sm h-12"/>
-                        </p>
-
-                        <p class="flex flex-col mt-4">
-                            <label class="text-sm ml-1 font-medium ">email</label>
-                            <input required v-model="email" type="email" placeholder="your@email.com" class="border p-2 rounded-lg text-sm h-12"/>
-                        </p>
-
-                        <p class="flex mt-4">
-                            <button type="submit" :disabled="!(!!name && !!email)" :class="!(!!name && !!email) ? 'opacity-50' : ''" class="flex items-center justify-center w-full border p-2 rounded-lg font-bold text-sm h-12 bg-black text-white">
-                                <loading :size="20" :styles="['fill-white mx-2 animate-spin', loading ? '' : 'hidden']"/>
-                                Submit
-                            </button>
-                        </p>
+                            </div>
+                        </div>
 
                     </div>
 
-                </form>
+                </section>
 
-                <article class="flex items-center justify-center gap-8 lg:hidden">
-                    <a href="https://instagram.com/ankeboot_publishing" target="_blank">
-                        <instagram styles="fill-white stroke-black hover:fill-black hover:stroke-inherit" :size="24"/>
-                    </a>
-                    <a href="https://t.me/ankeboot" target="_blank">
-                        <telegram styles="fill-white stroke-black hover:fill-black hover:stroke-none" :size="24"/>
-                    </a>
-                    <a href="https://twitter.com/ankeboot_books" target="_blank">
-                        <twitter styles="fill-white stroke-black hover:fill-black hover:stroke-none" :size="24"/>
-                    </a>
-                </article>
+                <section class="flex flex-col gap-4">
 
-            </div>
+                    <form v-on:submit.prevent="joinMailingList" class="relative w-full lg:col-span-1 overflow-hidden border-2 border-dotted border-black rounded-lg bg-white drop-shadow-sm">
 
+                        <Transition name="slide-fade">
+                            <section v-if="notify" class="absolute w-full flex items-center justify-center drop-shadow-md">
+
+                                <p v-if="submission === 'success' || submission === 'warning'" class="flex items-center justify-center w-full text-white p-8 py-4 h-20 bg-gradient-to-r from-[#FF9999] to-[#D583CD]">
+                                    Thank you for signing up!
+                                </p>
+
+                                <p v-else class="flex items-center justify-center w-full text-white p-8 py-4 bg-[#FFCCCC] h-20">
+                                    Something went wrong. Please try again later.
+                                </p>
+
+                            </section>
+                        </Transition>
+
+                        <div class="p-8">
+
+                            <h1 class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-maps-100 to-publishing-100"> Join our mailing list </h1>
+                            <h1 class="text-sm"> Get our Catalogues + News on programs. </h1>
+
+                            <p class="flex flex-col mt-4">
+                                <label class="text-sm ml-1 font-medium">name</label>
+                                <input  required v-model="name" type="input" placeholder="John Doe" class="border p-2 rounded-lg text-sm h-12"/>
+                            </p>
+
+                            <p class="flex flex-col mt-4">
+                                <label class="text-sm ml-1 font-medium ">email</label>
+                                <input required v-model="email" type="email" placeholder="your@email.com" class="border p-2 rounded-lg text-sm h-12"/>
+                            </p>
+
+                            <p class="flex mt-4">
+                                <button type="submit" :disabled="!(!!name && !!email)" :class="!(!!name && !!email) ? 'opacity-50' : ''" class="flex items-center justify-center w-full border p-2 rounded-lg font-bold text-sm h-12 bg-black text-white">
+                                    <loading :size="20" :styles="['fill-white mx-2 animate-spin', loading ? '' : 'hidden']"/>
+                                    Submit
+                                </button>
+                            </p>
+
+                        </div>
+
+                    </form>
+
+                    <TextCard class="bg-gradient-to-r from-home-50 to-contact-50 text-white relative">
+                        <span class="uppercase font-hero text-lg">Ankeboot</span> is an Arabic word meaning
+                        <i>Spider</i>. We are a women-led company inspired by the 
+                        creativity and perseverance of a spider.  
+                        A weaver’s tenacity & innovation permeates our pluriversal 
+                        practice, transforming the simple act of providing books for 
+                        readers, into moments of community building and social change.
+                    </TextCard>
+
+                </section>
+
+            </main>
+
+            <!-- gutter right -->
             <div class="grow"></div>
 
-        </main>
+        </div>
 
         <div class="grow min-h-[32px]"></div>
 
         <footer class="flex flex-col items-center justify-center">
+
+            <article class="flex items-center justify-center gap-8">
+                <a href="https://instagram.com/ankeboot_publishing" target="_blank">
+                    <instagram styles="fill-white stroke-black hover:fill-black hover:stroke-inherit" :size="24"/>
+                </a>
+                <a href="https://t.me/ankeboot" target="_blank">
+                    <telegram styles="fill-white stroke-black hover:fill-black hover:stroke-none" :size="24"/>
+                </a>
+                <a href="https://twitter.com/ankeboot_books" target="_blank">
+                    <twitter styles="fill-white stroke-black hover:fill-black hover:stroke-none" :size="24"/>
+                </a>
+            </article>
+
             <article class="items-center justify-center flex flex-col sm:flex-row py-2">
                 <p class="text-sm opacity-75">&copy; 2022</p>
                 <p class="text-sm opacity-75 mx-1">&bull;</p>
@@ -178,6 +242,7 @@ import Loading from "../components/icons/loading.vue"
                 <p class="sm:inline hidden mx-1 opacity-75">&bull;</p>
                 <p class="text-sm opacity-75">Online Book Market Coming Soon.</p>
             </article>
+
         </footer>
 
     </div>
