@@ -59,6 +59,18 @@ module.exports = {
                 'amh': ['Fantuwua'],
                 'sans': ['Roboto']
             },
+            animation: {
+                'tada': 'tada 0.5s ease infinite'
+            },
+            keyframes: {
+                tada: {
+                    '0%': { transform: 'scale3d(1, 1, 1)' },
+                    '10%, 20%': { transform: 'scale3d(.95, .95, .95) rotate3d(0, 0, 1, -10deg)' },
+                    '30% 50% 70% 90%': { transform: 'scale3d(1, 1, 1) rotate3d(0, 0, 1, 10deg)' },
+                    '40% 60% 80%': { transform: 'rotate3d(0, 0, 1, -10deg)' },
+                    '100%': { transform: 'scale3d(1, 1, 1)' },
+                }
+            }
         },
         screens: {
             'xs': '475px',
