@@ -70,11 +70,10 @@ module.exports = {
                     '40% 60% 80%': { transform: 'rotate3d(0, 0, 1, -10deg)' },
                     '100%': { transform: 'scale3d(1, 1, 1)' },
                 }
+            },
+            screens: {
+                'xs': '475px'
             }
-        },
-        screens: {
-            'xs': '475px',
-            ...defaultTheme.screens,
         },
         variants: {
             scrollbar: ['rounded'],
