@@ -98,7 +98,7 @@ import TextCard from '../components/TextCard.vue'
         <div class="flex h-full">
 
             <!-- gutter left -->
-            <div class="grow"></div>
+            <div class="grow sm:min-w-[10%] md:min-w-0"></div>
             
 
             <main class="mx-2 flex flex-col md:grid md:grid-cols-2 gap-6 max-w-6xl">
@@ -213,7 +213,7 @@ import TextCard from '../components/TextCard.vue'
             </main>
 
             <!-- gutter right -->
-            <div class="grow"></div>
+            <div class="grow sm:min-w-[10%] md:min-w-0"></div>
 
         </div>
 
