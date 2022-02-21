@@ -6,7 +6,10 @@ import { ref } from "vue"
 import Instagram from '../components/icons/instagram.vue'
 import Telegram from '../components/icons/telegram.vue'
 import Twitter from '../components/icons/twitter.vue'
-import Loading from "../components/icons/loading.vue"
+import Mail from '../components/icons/mail.vue'
+import Phone from '../components/icons/phone.vue'
+import Loading from '../components/icons/loading.vue'
+import TextCard from '../components/TextCard.vue'
 
     export default {
 
@@ -15,7 +18,10 @@ import Loading from "../components/icons/loading.vue"
                 Instagram,
                 Telegram,
                 Twitter,
-                Loading
+                Mail,
+                Phone,
+                Loading,
+                TextCard
         },
 
         setup() {
@@ -56,6 +62,7 @@ import Loading from "../components/icons/loading.vue"
                 .catch((error) => {
                     if(error.response.status === 422) {
                         if(error.response.data.status === "warn") {
+                            clearFormInputs()
                             submission.value = "warning"
                         } else {
                             submission.value = "error"
@@ -88,91 +95,154 @@ import Loading from "../components/icons/loading.vue"
             <h1 class="font-amh leading-3 text-2xl">አንከቡት መጻህፍት</h1>
         </header>
 
-        <main class="flex h-full">
+        <div class="flex h-full">
 
+            <!-- gutter left -->
             <div class="grow"></div>
             
-            <div class="mx-2 flex flex-col gap-6">
 
-                <div class="p-8 bg-gradient-to-r from-publishing-50 to-maps-50 rounded-lg drop-shadow-md">
-                    <p class="font-sans font-medium max-w-xl">
+            <main class="mx-2 flex flex-col md:grid md:grid-cols-2 gap-6 max-w-6xl">
+
+                <section class="flex flex-col gap-4 items-center justify-start lg:col-span-1">
+
+                    <TextCard class="max-w-full bg-gradient-to-t  hover:bg-about-50 from-about-50 to-programs-50 text-white relative">
                         <span class="uppercase font-hero text-lg">Ankeboot</span> is an Arabic word meaning
                         <i>Spider</i>. We are a women-led company inspired by the 
                         creativity and perseverance of a spider.  
                         A weaver’s tenacity & innovation permeates our pluriversal 
                         practice, transforming the simple act of providing books for 
                         readers, into moments of community building and social change.
-                    </p>
-                </div>
+                    </TextCard>
 
-                <form v-on:submit.prevent="joinMailingList" class="relative overflow-hidden border-2 border-dotted border-black rounded-lg bg-white drop-shadow-sm">
+                    <div class="group lg:hover:scale-105 transition duration-300 max-w-full">
+                        
+                        <div class="relative">
+                            <!-- <div class="w-full rounded-t-lg h-full bg-black blur-b absolute bottom-0 z-0"></div> -->
+                            <div class="z-10 relative bg-gradient-to-t to-maps-50 from-publishing-50 rounded-t-lg p-8 font-medium flex flex-col gap-4 items-start justify-start w-full">  
+                                <p>
+                                    We supply of a wide range of educational, referential, and supplementary books meeting
+                                    the needs of individual and institutions.
+                                </p>
+                                <p>
+                                    We make available a careful selection of scholastic materials from academic publishers 
+                                    in Global South. 
+                                </p>
+                            </div>
+                        </div>
 
-                    <Transition name="slide-fade">
-                        <section v-if="notify" class="absolute w-full flex items-center justify-center drop-shadow-md">
+                        <div class="flex flex-col items-center justify-center xl:items-start xl:justify-start gap-2 w-full rounded-b-lg p-4 xs:p-8 pt-4 border-x-2 border-b-2 border-dotted border-black">
+                            <h1 class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-maps-100 to-publishing-100"> Get in Touch </h1>
+                            <address class="flex flex-col xl:flex-row justify-start gap-8">
+                                
+                                <a href="mailto:ankebootpublishing@gmail.com" class="flex items-center justify-center xl:items-start xl:justify-start gap-2">
+                                    <mail :size="20"/>
+                                    <p>ankebootpublishing@gmail.com</p>
+                                </a>
 
-                            <p v-if="submission === 'success' || submission === 'warning'" class="flex items-center justify-center w-full text-white p-8 py-4 h-20 bg-gradient-to-r from-[#FF9999] to-[#D583CD]">
-                                Thank you for signing up!
-                            </p>
+                                <div class="flex flex-col items-center xl:items-end">
+                                    <a href="tel:+251-924-35-64-74" class="flex items-start justify-start gap-2">
+                                        <phone :size="20" class=""/>
+                                        <p>+251 924 35 64 74</p>
+                                    </a>
+                                    <a href="tel:+251-966-21-53-42" class="flex items-start justify-start gap-2">
+                                        <phone :size="20" class=""/>
+                                        <p>+251 966 21 53 42</p>
+                                    </a>
+                                </div>
 
-                            <p v-else class="flex items-center justify-center w-full text-white p-8 py-4 bg-[#FFCCCC] h-20">
-                                Something went wrong. Please try again later.
-                            </p>
-
-                        </section>
-                    </Transition>
-
-                    <div class="p-8">
-
-                        <h1 class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-maps-100 to-publishing-100"> Join our mailing list </h1>
-                        <h1 class="text-sm"> Get our Catalogues + News on programs. </h1>
-
-                        <p class="flex flex-col mt-4">
-                            <label class="text-sm ml-1 font-medium">name</label>
-                            <input  required v-model="name" type="input" placeholder="John Doe" class="border p-2 rounded-lg text-sm h-12"/>
-                        </p>
-
-                        <p class="flex flex-col mt-4">
-                            <label class="text-sm ml-1 font-medium ">email</label>
-                            <input required v-model="email" type="email" placeholder="your@email.com" class="border p-2 rounded-lg text-sm h-12"/>
-                        </p>
-
-                        <p class="flex mt-4">
-                            <button type="submit" :disabled="!(!!name && !!email)" :class="!(!!name && !!email) ? 'opacity-50' : ''" class="flex items-center justify-center w-full border p-2 rounded-lg font-bold text-sm h-12 bg-black text-white">
-                                <loading :size="20" :styles="['fill-white mx-2 animate-spin', loading ? '' : 'hidden']"/>
-                                Submit
-                            </button>
-                        </p>
+                            </address>
+                        </div>
 
                     </div>
 
-                </form>
+                </section>
 
-                <article class="flex items-center justify-center gap-8">
-                    <a href="https://instagram.com/ankeboot_publishing" target="_blank">
-                        <instagram styles="fill-white stroke-black hover:fill-black hover:stroke-inherit" :size="24"/>
-                    </a>
-                    <a href="https://t.me/ankeboot" target="_blank">
-                        <telegram styles="fill-white stroke-black hover:fill-black hover:stroke-none" :size="24"/>
-                    </a>
-                    <a href="https://twitter.com/ankeboot_books" target="_blank">
-                        <twitter styles="fill-white stroke-black hover:fill-black hover:stroke-none" :size="24"/>
-                    </a>
-                </article>
+                <section class="flex flex-col gap-4">
 
-            </div>
+                    <div class="overflow-hidden rounded-lg max-w-full bg-white p-2 border-2 border-black border-dotted">
+                        <p class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-maps-100 to-publishing-100 p-2 bg-white">Visit our shop</p>
+                        <div class="bg-white">
+                            <iframe class="w-full rounded-b-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.3230772720103!2d38.76034431523562!3d9.034264291392896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8f7933906a51%3A0x1fef98757fbf9fc9!2sAnkeboot%20Book%20Store!5e0!3m2!1sen!2skr!4v1645016197417!5m2!1sen!2skr" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
 
+                    <form v-on:submit.prevent="joinMailingList" class="max-w-full relative w-full lg:col-span-1 overflow-hidden border-2 border-dotted border-black rounded-lg bg-white drop-shadow-sm">
+
+                        <Transition name="slide-fade">
+                            <section v-if="notify" class="absolute w-full flex items-center justify-center drop-shadow-md">
+
+                                <p v-if="submission === 'success' || submission === 'warning'" class="flex items-center justify-center w-full text-white p-8 py-4 h-20 bg-gradient-to-r from-[#FF9999] to-[#D583CD]">
+                                    Thank you for signing up!
+                                </p>
+
+                                <p v-else class="flex items-center justify-center w-full text-white p-8 py-4 bg-[#FFCCCC] h-20">
+                                    Something went wrong. Please try again later.
+                                </p>
+
+                            </section>
+                        </Transition>
+
+                        <div class="p-8">
+
+                            <h1 class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-maps-100 to-publishing-100"> Join our mailing list </h1>
+                            <h1 class="text-sm"> Get our Catalogues + News on programs. </h1>
+
+                            <p class="flex flex-col mt-4">
+                                <label class="text-sm ml-1 font-medium">name</label>
+                                <input  required v-model="name" type="input" placeholder="John Doe" class="border p-2 rounded-lg text-sm h-12"/>
+                            </p>
+
+                            <p class="flex flex-col mt-4">
+                                <label class="text-sm ml-1 font-medium ">email</label>
+                                <input required v-model="email" type="email" placeholder="your@email.com" class="border p-2 rounded-lg text-sm h-12"/>
+                            </p>
+
+                            <p class="flex mt-4">
+                                <button type="submit" :disabled="!(!!name && !!email)" :class="!(!!name && !!email) ? 'opacity-50' : ''" class="flex items-center justify-center w-full border p-2 rounded-lg font-bold text-sm h-12 bg-black text-white">
+                                    <loading :size="20" :styles="['fill-white mx-2 animate-spin', loading ? '' : 'hidden']"/>
+                                    Submit
+                                </button>
+                            </p>
+
+                        </div>
+
+                    </form>
+
+                </section>
+
+            </main>
+
+            <!-- gutter right -->
             <div class="grow"></div>
 
-        </main>
+        </div>
 
         <div class="grow min-h-[32px]"></div>
 
         <footer class="flex flex-col items-center justify-center">
-            <article class="items-center justify-center flex flex-col sm:flex-row py-2">
-                <p class="text-sm opacity-75">Online Book Market Coming Soon.</p>
-                <p class="sm:inline hidden mx-1 opacity-75">|</p>
-                <p class="text-sm opacity-75">Ankeboot Books &copy; 2022</p>
+
+            <article class="flex items-center justify-center gap-8">
+                <a href="https://instagram.com/ankeboot_publishing" target="_blank">
+                    <instagram styles="fill-white stroke-black hover:fill-black hover:stroke-inherit hover:scale-125 transition duration-100 ease-in" :size="24"/>
+                </a>
+                <a href="https://t.me/ankeboot" target="_blank">
+                    <telegram styles="fill-white stroke-black hover:fill-black hover:stroke-none hover:scale-125 transition duration-100 ease-in" :size="24"/>
+                </a>
+                <a href="https://twitter.com/ankeboot_books" target="_blank">
+                    <twitter styles="fill-white stroke-black hover:fill-black hover:stroke-none hover:scale-125 transition duration-100 ease-in" :size="24"/>
+                </a>
             </article>
+
+            <article class="items-center justify-center flex flex-col sm:flex-row py-2">
+                <div class="flex">
+                    <p class="text-sm opacity-75">&copy; 2022</p>
+                    <p class="text-sm opacity-75 mx-1">&bull;</p>
+                    <p class="text-sm opacity-75">Ankeboot Books</p>
+                </div>
+                <p class="sm:inline hidden mx-1 opacity-75">&bull;</p>
+                <p class="text-sm opacity-75">Online Book Market Coming Soon.</p>
+            </article>
+
         </footer>
 
     </div>
