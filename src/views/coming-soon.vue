@@ -3,8 +3,6 @@
 import axios from "axios"
 import { ref } from "vue"
 
-// import "boxicons"
-
 import Instagram from '../components/icons/instagram.vue'
 import Telegram from '../components/icons/telegram.vue'
 import Twitter from '../components/icons/twitter.vue'
@@ -97,8 +95,6 @@ import TextCard from '../components/TextCard.vue'
             <h1 class="font-amh leading-3 text-2xl">አንከቡት መጻህፍት</h1>
         </header>
 
-        <!-- <div class="h-32"></div> -->
-
         <div class="flex h-full">
 
             <!-- gutter left -->
@@ -109,7 +105,7 @@ import TextCard from '../components/TextCard.vue'
 
                 <section class="flex flex-col gap-4 items-center justify-start lg:col-span-1">
 
-                    <TextCard class="max-w-full bg-gradient-to-r from-home-50 to-contact-50 text-white relative">
+                    <TextCard class="max-w-full bg-gradient-to-t  hover:bg-about-50 from-about-50 to-programs-50 text-white relative">
                         <span class="uppercase font-hero text-lg">Ankeboot</span> is an Arabic word meaning
                         <i>Spider</i>. We are a women-led company inspired by the 
                         creativity and perseverance of a spider.  
@@ -122,7 +118,7 @@ import TextCard from '../components/TextCard.vue'
                         
                         <div class="relative">
                             <!-- <div class="w-full rounded-t-lg h-full bg-black blur-b absolute bottom-0 z-0"></div> -->
-                            <div class="z-10 relative bg-gradient-to-r from-[#BDEFFF] to-[#CFDDFF] rounded-t-lg p-8 font-medium flex flex-col gap-4 items-start justify-start w-full">  
+                            <div class="z-10 relative bg-gradient-to-t to-maps-50 from-publishing-50 rounded-t-lg p-8 font-medium flex flex-col gap-4 items-start justify-start w-full">  
                                 <p>
                                     We supply of a wide range of educational, referential, and supplementary books meeting
                                     the needs of individual and institutions.
@@ -159,26 +155,12 @@ import TextCard from '../components/TextCard.vue'
 
                     </div>
 
-                    <!-- <div class="flex flex-col lg:flex-row gap-2 w-full">
-
-                        <div class="overflow-hidden rounded-lg max-w-full bg-white p-2 border-2 border-black">
-                            <p class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-home-50 to-contact-50 p-2 bg-white">Visit our shop</p>
-                            <div class="bg-white">
-                                <iframe class="w-full rounded-b-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.3230772720103!2d38.76034431523562!3d9.034264291392896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8f7933906a51%3A0x1fef98757fbf9fc9!2sAnkeboot%20Book%20Store!5e0!3m2!1sen!2skr!4v1645016197417!5m2!1sen!2skr" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                            </div>
-                        </div>
-
-                        <div class="lg:w-1/2 aspect-4/3 lg:aspect-auto w-full bg-gradient-to-r from-home-50 to-contact-50 p-1 rounded-lg">
-                        </div>
-
-                    </div> -->
-
                 </section>
 
                 <section class="flex flex-col gap-4">
 
                     <div class="overflow-hidden rounded-lg max-w-full bg-white p-2 border-2 border-black border-dotted">
-                        <p class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-home-50 to-contact-50 p-2 bg-white">Visit our shop</p>
+                        <p class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-maps-100 to-publishing-100 p-2 bg-white">Visit our shop</p>
                         <div class="bg-white">
                             <iframe class="w-full rounded-b-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.3230772720103!2d38.76034431523562!3d9.034264291392896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8f7933906a51%3A0x1fef98757fbf9fc9!2sAnkeboot%20Book%20Store!5e0!3m2!1sen!2skr!4v1645016197417!5m2!1sen!2skr" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
@@ -241,13 +223,13 @@ import TextCard from '../components/TextCard.vue'
 
             <article class="flex items-center justify-center gap-8">
                 <a href="https://instagram.com/ankeboot_publishing" target="_blank">
-                    <instagram styles="fill-white stroke-black hover:fill-black hover:stroke-inherit" :size="24"/>
+                    <instagram styles="fill-white stroke-black hover:fill-black hover:stroke-inherit hover:scale-125 transition duration-100 ease-in" :size="24"/>
                 </a>
                 <a href="https://t.me/ankeboot" target="_blank">
-                    <telegram styles="fill-white stroke-black hover:fill-black hover:stroke-none" :size="24"/>
+                    <telegram styles="fill-white stroke-black hover:fill-black hover:stroke-none hover:scale-125 transition duration-100 ease-in" :size="24"/>
                 </a>
                 <a href="https://twitter.com/ankeboot_books" target="_blank">
-                    <twitter styles="fill-white stroke-black hover:fill-black hover:stroke-none" :size="24"/>
+                    <twitter styles="fill-white stroke-black hover:fill-black hover:stroke-none hover:scale-125 transition duration-100 ease-in" :size="24"/>
                 </a>
             </article>
 
