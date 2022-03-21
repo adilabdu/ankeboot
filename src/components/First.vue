@@ -5,7 +5,7 @@
     <header class="h-16 w-full flex justify-between items-center shadow-md bg-white z-10 overflow-clip">
 
       <div class="hero-logo flex px-4 gap-2 min-w-fit">
-        <svg class="hover:scale-110 transition duration-300" width="42" height="42" viewBox="0 0 63 63" fill="black" xmlns="http://www.w3.org/2000/svg">
+        <svg @click="shareQR" class="hover:scale-110 transition duration-300" width="42" height="42" viewBox="0 0 63 63" fill="black" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 0H0V3H3V0Z" fill="black"/>
           <path d="M6 0H3V3H6V0Z" fill="black"/>
           <path d="M9 0H6V3H9V0Z" fill="black"/>
@@ -394,6 +394,7 @@
 <script>
 
   import light from "./icons/light.vue";
+  import ankebootSVG from "../assets/images/ankeboot.svg"
 
   export default {
 
@@ -404,7 +405,16 @@
 
     setup() {
 
+      function shareQR() {
+        navigator.share({
+          title: "Ankeboot bookstore + publishing",
+          // files: new File(ankebootSVG, 'ankeboot.svg')
+        })
+      }
+
       return {
+
+        shareQR
 
       }
 
