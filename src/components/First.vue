@@ -270,7 +270,7 @@
             <div class="absolute h-full w-full bg-contact-25 group-hover:bg-contact-50 -skew-x-12"></div>
             <a href="/contact" class="group-hover:scale-125 transition duration-300">contact</a>
           </li>
-          <li class="group relative xl:hidden flex items-center justify-center px-4 w-24">
+          <li class="group relative xl:hidden flex items-center justify-center px-4 sm:w-24">
             <div class="absolute h-full w-full -skew-x-12"></div>
             <button class="flex flex-col gap-1 grid">
               <div class="grid grid-rows-5 -skew-x-12">
