@@ -348,45 +348,6 @@
     <div class="hover:shadow-2xl transition duration-300"></div>
     <div class="hover:shadow-2xl transition duration-300"></div>
 
-<!--    <div class="bg-gradient-to-b from-white to-books-25 hover:shadow-2xl transition duration-300">1</div>-->
-<!--    <div class="bg-gradient-to-b from-white to-books-25 hover:shadow-2xl transition duration-300">2</div>-->
-<!--    <div class="bg-gradient-to-b from-books-25 to-books-25 lg:from-white lg:to-books-25 hover:shadow-2xl transition duration-300">3</div>-->
-<!--    <div class="bg-gradient-to-b from-books-25 to-books-25 lg:from-books-25 lg:to-programs-50 hover:shadow-2xl transition duration-300">4</div>-->
-<!--    <div class="bg-gradient-to-b from-books-25 to-programs-50 hover:shadow-2xl transition duration-300">5</div>-->
-<!--    <div class="bg-gradient-to-b from-books-25 to-programs-50 hover:shadow-2xl transition duration-300">6</div>-->
-
-<!--    <div class="relative h-full w-full -skew-x-12 grid grid-rows-2">-->
-<!--      <div class="h-full w-full bg-books-25"></div>-->
-<!--      <div class="h-full w-full bg-publishing-25"></div>-->
-<!--    </div>-->
-<!--    <div class="relative h-full w-full -skew-x-12 grid grid-rows-2">-->
-<!--      <div class="h-full w-full bg-resources-25"></div>-->
-<!--      <div class="h-full w-full bg-programs-25"></div>-->
-<!--    </div>-->
-<!--    <div class="relative h-full w-full -skew-x-12 grid grid-rows-2">-->
-<!--      <div class="h-full w-full bg-services-25"></div>-->
-<!--      <div class="h-full w-full bg-maps-25"></div>-->
-<!--    </div>-->
-
-<!--    <div class="relative">-->
-<!--      <div class="absolute h-full w-full bg-books-25 group-hover:bg-home-50 -skew-x-12"></div>-->
-<!--    </div>-->
-<!--    <div class="relative">-->
-<!--      <div class="absolute h-full w-full bg-publishing-25 group-hover:bg-home-50 -skew-x-12"></div>-->
-<!--    </div>-->
-<!--    <div class="relative">-->
-<!--      <div class="absolute h-full w-full bg-resources-25 group-hover:bg-home-50 -skew-x-12"></div>-->
-<!--    </div>-->
-<!--    <div class="relative">-->
-<!--      <div class="absolute h-full w-full bg-programs-25 group-hover:bg-home-50 -skew-x-12 -translate-x-[6.5rem]"></div>-->
-<!--    </div>-->
-<!--    <div class="relative">-->
-<!--      <div class="absolute h-full w-full bg-services-25 group-hover:bg-home-50 -skew-x-12 -translate-x-[6.5rem]"></div>-->
-<!--    </div>-->
-<!--    <div class="relative">-->
-<!--      <div class="absolute h-full w-full bg-maps-25 group-hover:bg-home-50 -skew-x-12 -translate-x-[6.5rem]"></div>-->
-<!--    </div>-->
-
   </div>
 
 </template>
@@ -408,7 +369,7 @@
       function shareQR() {
         navigator.share({
           title: "Ankeboot bookstore + publishing",
-          // files: new File(ankebootSVG, 'ankeboot.svg')
+          files: new File(ankebootSVG, 'ankeboot.svg')
         })
       }
 
