@@ -271,7 +271,7 @@
             <a href="/contact" class="group-hover:scale-125 transition duration-300">contact</a>
           </li>
           <li class="group relative xl:hidden flex items-center justify-center px-4">
-            <div class="absolute h-full w-full group-hover:bg-home-50 -skew-x-12"></div>
+            <div class="absolute h-full w-full -skew-x-12"></div>
             <button class="flex flex-col gap-1 grid">
               <div class="grid grid-rows-5 -skew-x-12">
                 <div class="border-2 h-1 bg-home-25 border w-6 border-home-50"></div>
