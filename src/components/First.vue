@@ -324,7 +324,7 @@
 
   </div>
 
-  <div class="h-screen grid grid-cols-3 grid-rows-2 w-full">
+  <div class="h-screen grid lg:grid-cols-3 lg:grid-rows-2 grid-cols-2 grid-rows-3 w-full">
 
     <div class="bg-gradient-to-b from-white to-books-25 hover:shadow-2xl transition duration-300"></div>
     <div class="bg-gradient-to-b from-white to-books-25 hover:shadow-2xl transition duration-300"></div>
