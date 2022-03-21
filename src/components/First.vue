@@ -313,7 +313,7 @@
           </span>
           </h3>
 
-          <h3 class="z-20 select-none hero-sub font-sans lowercase text-[6vw] sm:text-2xl md:text-3xl text-center my-12">
+          <h3 class="z-20 select-none hero-sub font-sans lowercase text-[5vw] sm:text-2xl md:text-3xl text-center my-12">
 
             inspired by the creativity and
             <br>perseverance of a <i><b>spider</b></i>
