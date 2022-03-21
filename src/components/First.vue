@@ -369,7 +369,9 @@
       function shareQR() {
         navigator.share({
           title: "Ankeboot bookstore + publishing",
-          files: new File(ankebootSVG, 'ankeboot.svg')
+          files: [
+            new File([ ankebootSVG ], 'ankeboot.svg')
+          ]
         })
       }
 
