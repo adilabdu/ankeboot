@@ -2,11 +2,13 @@
     import Home from "./components/Home.vue"
     import Landing from "./components/Landing.vue"
     import ComingSoon from "./views/coming-soon.vue"
+    import First from "./components/First.vue"
 </script>
 
 <template>
-    <!-- <Landing/> -->
-    <coming-soon/>
+<!--    <Landing/>-->
+    <First/>
+    <!-- <coming-soon/> -->
 </template>
 
 <style>
@@ -31,7 +33,7 @@
 }
 
 ::-webkit-scrollbar:hover {
-    width: 100px;
+    width: 6px;
 }
 
 </style>

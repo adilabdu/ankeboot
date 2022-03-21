@@ -90,15 +90,15 @@ import TextCard from '../components/TextCard.vue'
     
     <div class="flex flex-col min-h-screen">
         <header class="flex flex-col divide-black sm:flex-row justify-center items-center gap-2 py-4 shadow-sm mb-4">
-            <h1 class="font-hero uppercase text-2xl">Ankeboot Books</h1>
-            <h1 class="text-2xl font-bold hidden sm:inline">|</h1>
-            <h1 class="font-amh leading-3 text-2xl">አንከቡት መጻህፍት</h1>
+            <h1 class="font-hero uppercase text-2xl border-2 border-black px-2 py-1">Ankeboot Books</h1>
+            <h1 class="text-2xl font-bold hidden sm:inline">:</h1>
+            <h1 class="font-amh text-2xl border-2 border-black px-2 py-1">አንከቡት መጻህፍት</h1>
         </header>
 
         <div class="flex h-full">
 
             <!-- gutter left -->
-            <div class="grow"></div>
+            <div class="grow sm:min-w-[10%] md:min-w-0"></div>
             
 
             <main class="mx-2 flex flex-col md:grid md:grid-cols-2 gap-6 max-w-6xl">
@@ -159,13 +159,6 @@ import TextCard from '../components/TextCard.vue'
 
                 <section class="flex flex-col gap-4">
 
-                    <div class="overflow-hidden rounded-lg max-w-full bg-white p-2 border-2 border-black border-dotted">
-                        <p class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-maps-100 to-publishing-100 p-2 bg-white">Visit our shop</p>
-                        <div class="bg-white">
-                            <iframe class="w-full rounded-b-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.3230772720103!2d38.76034431523562!3d9.034264291392896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8f7933906a51%3A0x1fef98757fbf9fc9!2sAnkeboot%20Book%20Store!5e0!3m2!1sen!2skr!4v1645016197417!5m2!1sen!2skr" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
-                    </div>
-
                     <form v-on:submit.prevent="joinMailingList" class="max-w-full relative w-full lg:col-span-1 overflow-hidden border-2 border-dotted border-black rounded-lg bg-white drop-shadow-sm">
 
                         <Transition name="slide-fade">
@@ -208,12 +201,19 @@ import TextCard from '../components/TextCard.vue'
 
                     </form>
 
+                    <div class="overflow-hidden rounded-lg max-w-full bg-white p-2 border-2 border-black border-dotted">
+                        <p class="text-xl font-bold uppercase font-hero text-transparent bg-clip-text bg-gradient-to-r from-maps-100 to-publishing-100 p-2 bg-white">Visit our shop</p>
+                        <div class="bg-white">
+                            <iframe class="w-full rounded-b-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.3230772720103!2d38.76034431523562!3d9.034264291392896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8f7933906a51%3A0x1fef98757fbf9fc9!2sAnkeboot%20Book%20Store!5e0!3m2!1sen!2skr!4v1645016197417!5m2!1sen!2skr" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+
                 </section>
 
             </main>
 
             <!-- gutter right -->
-            <div class="grow"></div>
+            <div class="grow sm:min-w-[10%] md:min-w-0"></div>
 
         </div>
 

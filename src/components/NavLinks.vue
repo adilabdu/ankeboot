@@ -30,8 +30,8 @@ export default {
             `bg-${props.title.toLowerCase()}-25`
         )
         const borderColor = computed(() => !! props.colorClass ?
-            'outline-' + props.colorClass + '-100 outline-2 outline-dashed' :
-            'outline-' + props.title + '-100 outline-2 outline-dashed'
+            'outline-home-100 outline-2 outline-dashed' :
+            'outline-home-100 outline-2 outline-dashed'
         )
 
         const home = ref("home")
