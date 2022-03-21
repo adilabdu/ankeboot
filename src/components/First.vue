@@ -277,34 +277,35 @@
 
     <div class="grow flex flex-col items-center justify-end">
 
-<!--      <div class="sm:grow mt-32"></div>-->
-
       <div class="hero flex flex-col items-center justify-center relative h-full">
 
-        <div class="blur-3xl absolute top-1/4 left-0 animate-rotate-slow h-64 w-64 xs:h-96 xs:w-96 bg-books-50 absolute"></div>
-        <div class="blur-3xl absolute top-1/4 right-0 animate-pulse h-64 w-64 xs:h-96 xs:w-96 bg-publishing-50 absolute rounded-full"></div>
-        <div class="blur-3xl absolute bottom-0 animate-pulse h-64 w-64 xs:h-96 xs:w-96 bg-resources-50 absolute rounded-full"></div>
+        <div class="relative flex flex-col items-center justify-center">
+          <div class="blur-3xl absolute top-1/4 left-0 animate-rotate-slow h-64 w-64 xs:h-96 xs:w-96 bg-books-50 absolute"></div>
+          <div class="blur-3xl absolute top-1/4 right-0 animate-pulse h-64 w-64 xs:h-96 xs:w-96 bg-publishing-50 absolute rounded-full"></div>
+          <div class="blur-3xl absolute bottom-0 animate-pulse h-64 w-64 xs:h-96 xs:w-96 bg-resources-50 absolute rounded-full"></div>
 
           <h1 class="filter drop-shadow-xl z-20 select-none uppercase hero-title font-hero leading-none text-[15vw] sm:text-8xl md:text-9xl after:content-['*'] overflow-clip">
-          Ankeboot
-        </h1>
+            Ankeboot
+          </h1>
 
-        <h3 class="z-20 select-none hero-sub font-sans lowercase leading-none text-[6vw] sm:text-4xl md:text-5xl px-5 py-1">
-      <span class="">
-        bookstore
-      </span>
-          <span class="font-mono">x</span>
+          <h3 class="z-20 select-none hero-sub font-sans lowercase leading-none text-[6vw] sm:text-4xl md:text-5xl px-5 py-1">
           <span class="">
-        publishing
-      </span>
-        </h3>
+            bookstore
+          </span>
+            <span class="font-mono">x</span>
+            <span class="">
+            publishing
+          </span>
+          </h3>
 
-        <h3 class="z-20 select-none hero-sub font-sans lowercase text-[4vw] sm:text-2xl md:text-3xl text-center my-12">
+          <h3 class="z-20 select-none hero-sub font-sans lowercase text-[4vw] sm:text-2xl md:text-3xl text-center my-12">
 
-          inspired by the creativity and
-          <br>perseverance of a <i><b>spider</b></i>
+            inspired by the creativity and
+            <br>perseverance of a <i><b>spider</b></i>
 
-        </h3>
+          </h3>
+
+        </div>
 
       </div>
 
