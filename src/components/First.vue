@@ -270,6 +270,18 @@
             <div class="absolute h-full w-full bg-contact-25 group-hover:bg-contact-50 -skew-x-12"></div>
             <a href="/contact" class="group-hover:scale-125 transition duration-300">contact</a>
           </li>
+          <li class="group relative flex items-center justify-center px-4 w-36">
+            <div class="absolute h-full w-full group-hover:bg-home-50 -skew-x-12"></div>
+            <button class="flex flex-col gap-1 grid">
+              <div class="grid grid-rows-5 -skew-x-12">
+                <div class="border-2 h-1 bg-home-25 border w-6 border-home-50"></div>
+                <div class="w-6"></div>
+                <div class="border-2 h-1 bg-books-25 border w-6 border-books-50"></div>
+                <div class="w-6"></div>
+                <div class="border-2 h-1 bg-publishing-25 border w-6 border-publishing-50"></div>
+              </div>
+            </button>
+          </li>
         </ul>
       </nav>
 
