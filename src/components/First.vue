@@ -270,7 +270,7 @@
             <div class="absolute h-full w-full bg-contact-25 group-hover:bg-contact-50 -skew-x-12"></div>
             <a href="/contact" class="group-hover:scale-125 transition duration-300">contact</a>
           </li>
-          <li class="group relative xl:hidden flex items-center justify-center px-4">
+          <li class="group relative xl:hidden flex items-center justify-center px-4 w-24">
             <div class="absolute h-full w-full -skew-x-12"></div>
             <button class="flex flex-col gap-1 grid">
               <div class="grid grid-rows-5 -skew-x-12">
@@ -313,7 +313,7 @@
           </span>
           </h3>
 
-          <h3 class="z-20 select-none hero-sub font-sans lowercase text-[4vw] sm:text-2xl md:text-3xl text-center my-12">
+          <h3 class="z-20 select-none hero-sub font-sans lowercase text-[6vw] sm:text-2xl md:text-3xl text-center my-12">
 
             inspired by the creativity and
             <br>perseverance of a <i><b>spider</b></i>
@@ -341,12 +341,19 @@
 
   <div class="h-screen grid lg:grid-cols-3 lg:grid-rows-2 grid-cols-2 grid-rows-3 w-full">
 
-    <div class="bg-gradient-to-b from-white to-books-25 hover:shadow-2xl transition duration-300">1</div>
-    <div class="bg-gradient-to-b from-white to-books-25 hover:shadow-2xl transition duration-300">2</div>
-    <div class="bg-gradient-to-b from-books-25 to-books-25 lg:from-white lg:to-books-25 hover:shadow-2xl transition duration-300">3</div>
-    <div class="bg-gradient-to-b from-books-25 to-books-25 lg:from-books-25 lg:to-programs-50 hover:shadow-2xl transition duration-300">4</div>
-    <div class="bg-gradient-to-b from-books-25 to-programs-50 hover:shadow-2xl transition duration-300">5</div>
-    <div class="bg-gradient-to-b from-books-25 to-programs-50 hover:shadow-2xl transition duration-300">6</div>
+    <div class="hover:shadow-2xl transition duration-300"></div>
+    <div class="hover:shadow-2xl transition duration-300"></div>
+    <div class="hover:shadow-2xl transition duration-300"></div>
+    <div class="hover:shadow-2xl transition duration-300"></div>
+    <div class="hover:shadow-2xl transition duration-300"></div>
+    <div class="hover:shadow-2xl transition duration-300"></div>
+
+<!--    <div class="bg-gradient-to-b from-white to-books-25 hover:shadow-2xl transition duration-300">1</div>-->
+<!--    <div class="bg-gradient-to-b from-white to-books-25 hover:shadow-2xl transition duration-300">2</div>-->
+<!--    <div class="bg-gradient-to-b from-books-25 to-books-25 lg:from-white lg:to-books-25 hover:shadow-2xl transition duration-300">3</div>-->
+<!--    <div class="bg-gradient-to-b from-books-25 to-books-25 lg:from-books-25 lg:to-programs-50 hover:shadow-2xl transition duration-300">4</div>-->
+<!--    <div class="bg-gradient-to-b from-books-25 to-programs-50 hover:shadow-2xl transition duration-300">5</div>-->
+<!--    <div class="bg-gradient-to-b from-books-25 to-programs-50 hover:shadow-2xl transition duration-300">6</div>-->
 
 <!--    <div class="relative h-full w-full -skew-x-12 grid grid-rows-2">-->
 <!--      <div class="h-full w-full bg-books-25"></div>-->
