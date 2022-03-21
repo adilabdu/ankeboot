@@ -29,14 +29,14 @@ module.exports = {
                     100: '#7BDFFF'
                 },
                 maps: {
-                    25: 'rgba(160, 187, 255, 0.25)',
-                    50: 'rgba(160, 187, 255, 0.50)',
-                    100: '#A0BBFF'
-                },
-                programs: {
                     25: 'rgba(13, 159, 0, 0.25)',
                     50: 'rgba(13, 159, 0, 0.50)',
                     100: '#0D9F00'
+                },
+                programs: {
+                    25: 'rgba(160, 187, 255, 0.25)',
+                    50: 'rgba(160, 187, 255, 0.50)',
+                    100: '#A0BBFF'
                 },
                 services: {
                     25: 'rgba(202, 170, 1, 0.25)',
@@ -57,10 +57,11 @@ module.exports = {
             fontFamily: {
                 'hero': ['Rakkas'],
                 'amh': ['Fantuwua'],
-                'sans': ['Roboto']
+                'sans': ['Arial']
             },
             animation: {
-                'tada': 'tada 0.5s ease infinite'
+                'tada': 'tada 0.5s ease infinite',
+                'rotate-slow': 'rotate 10s linear infinite'
             },
             keyframes: {
                 tada: {
@@ -69,6 +70,10 @@ module.exports = {
                     '30% 50% 70% 90%': { transform: 'scale3d(1, 1, 1) rotate3d(0, 0, 1, 10deg)' },
                     '40% 60% 80%': { transform: 'rotate3d(0, 0, 1, -10deg)' },
                     '100%': { transform: 'scale3d(1, 1, 1)' },
+                },
+                rotate: {
+                    '0%': { transform: 'rotate(0deg)' },
+                    '100%': { transform: 'rotate(360deg)' },
                 }
             },
             screens: {
@@ -76,6 +81,10 @@ module.exports = {
             },
             aspectRatio: {
                 '4/3': '4 / 3'
+            },
+            scale: {
+                '60': '0.6',
+                '70': '0.7'
             }
         },
         variants: {

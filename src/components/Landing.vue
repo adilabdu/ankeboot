@@ -121,7 +121,7 @@
 
                         <p>
                             <a class="hover:bg-home-25 hover:px-2 
-                            hover:py-1 hover:no-underline cursor-pointer underline decoration-4
+                            p-0 transition duration-300 hover:no-underline cursor-pointer underline decoration-4
                             decoration-home-100">Ankeboot</a> is an Arabic word meaning <i>Spider</i>.
                             We are a woman-founded and woman-led company inspired by the creativity 
                             and perseverance of a spider. The tenacity and innovation of a weaver permeates 
@@ -131,11 +131,11 @@
                         <p class="my-3"></p>
                         <p>
                             Our organization operates in two streams focusing on 
-                            <a class="inline-block hover:bg-books-25 hover:px-2 
-                            hover:py-1 hover:no-underline cursor-pointer underline decoration-4
+                            <a class="inline-block hover:bg-books-25 hover:px-2 p-0 transition duration-300
+                            hover:no-underline cursor-pointer underline decoration-4
                             decoration-books-100">access to education materials</a> and exploring books as an 
                             <a class="inline-block hover:bg-publishing-25 hover:px-2 
-                            hover:py-1 hover:no-underline cursor-pointer underline decoration-4 
+                            p-0 transition duration-300 hover:no-underline cursor-pointer underline decoration-4
                             decoration-publishing-100">ever-changing site of knowledge and production and documentation</a> 
                         </p>
 
@@ -143,13 +143,13 @@
 
                     <!-- hero links -->
                     <div class="flex flex-col md:flex-row justify-start gap-4 mt-8">
-                        <a class="text-2xl font-hero flex items-center max-w-fit bg-books-25 px-2"> 
+                        <a class="group capitalize text-xl font-sans font-semibold flex items-center max-w-fit bg-books-25 px-2">
                             browse our books 
-                            <go :size="28" styles="my-1"/>
+                            <go :size="28" styles="group-hover:mx-2 inline-block mx-0 transition duration-300"/>
                         </a>
-                        <a class="text-2xl font-hero flex items-center max-w-fit bg-publishing-25 px-2"> 
+                        <a class="group capitalize text-xl font-sans font-semibold flex items-center max-w-fit bg-publishing-25 px-2">
                             view our publications 
-                            <go :size="28" styles="mx-1"/>
+                            <go :size="28" styles="my-1 mx-1 group-hover:mx-2"/>
                         </a>
                     </div>
 
@@ -202,28 +202,28 @@
                     <div class="lg:grow lg:min-h-[64px]"></div>
                     
                     <!-- socials -->
-                    <div class="text-right hidden lg:grid lg:gap-2 font-normal text-lg">
-                        <div class="flex justify-end items-center opacity-[60%]">
-                            <a class="mr-2">@ankebootbooks</a>
-                            <instagram :size="32"/>
-                        </div>
-                        <div class="flex justify-end items-center opacity-[60%]">
-                            <a class="mr-2">@ankebootbooks</a>
-                            <telegram :size="32"/>
-                        </div>
-                        <div class="flex justify-end items-center opacity-[60%]">
-                            <a class="mr-2">contact@ankebootbooks.com</a>
-                            <mail :size="32"/>
-                        </div>
-                        <div class="flex justify-end items-center opacity-[60%]">
-                            <a class="mr-2">/ankebootbooks</a>
-                            <facebook :size="32"/>
-                        </div>
-                        <div class="flex justify-end items-center opacity-[60%]">
-                            <a class="mr-2">@ankebootbooks</a>
-                            <twitter :size="32"/> 
-                        </div>
-                    </div>
+<!--                    <div class="text-right hidden lg:grid lg:gap-2 font-normal text-lg">-->
+<!--                        <div class="flex justify-end items-center opacity-[60%]">-->
+<!--                            <a class="mr-2">@ankebootbooks</a>-->
+<!--                            <instagram :size="32"/>-->
+<!--                        </div>-->
+<!--                        <div class="flex justify-end items-center opacity-[60%]">-->
+<!--                            <a class="mr-2">@ankebootbooks</a>-->
+<!--                            <telegram :size="32"/>-->
+<!--                        </div>-->
+<!--                        <div class="flex justify-end items-center opacity-[60%]">-->
+<!--                            <a class="mr-2">contact@ankebootbooks.com</a>-->
+<!--                            <mail :size="32"/>-->
+<!--                        </div>-->
+<!--                        <div class="flex justify-end items-center opacity-[60%]">-->
+<!--                            <a class="mr-2">/ankebootbooks</a>-->
+<!--                            <facebook :size="32"/>-->
+<!--                        </div>-->
+<!--                        <div class="flex justify-end items-center opacity-[60%]">-->
+<!--                            <a class="mr-2">@ankebootbooks</a>-->
+<!--                            <twitter :size="32"/> -->
+<!--                        </div>-->
+<!--                    </div>-->
 
 
                 </section>
@@ -242,7 +242,7 @@
 <style scoped lang="postcss">
 
     .grayscale-custom > li {
-        @apply lg:grayscale;
+        @apply transition duration-300 lg:grayscale;
     }
 
 </style>
