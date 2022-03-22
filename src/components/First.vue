@@ -344,12 +344,12 @@
 
     <main class="h-screen w-full grid lg:grid-cols-3 lg:grid-rows-2 grid-cols-2 grid-rows-3 gap-2">
 
-      <div class="blur-lg bg-books-25 hover:shadow-xl transition duration-300 hover:blur-0" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
-      <div class="blur-lg bg-publishing-25 hover:shadow-xl transition duration-500 hover:blur-0" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
-      <div class="blur-lg bg-resources-25 hover:shadow-xl transition duration-700 hover:blur-0" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
-      <div class="blur-lg bg-programs-25 hover:shadow-xl transition duration-1000 lg:duration-300 hover:blur-0" :class="[!taglineVisible && lgAndLarger ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', bottomGridVisible && mdAndSmaller ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
-      <div class="blur-lg bg-services-25 hover:shadow-xl transition duration-500 hover:blur-0" :class="[!taglineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
-      <div ref="bottomGrid" class="blur-lg bg-maps-25 hover:shadow-xl transition duration-700 hover:blur-0" :class="[!taglineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
+      <div class="blur-lg bg-books-25 hover:shadow-xl transition duration-300 lg:hover:blur-0" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
+      <div class="blur-lg bg-publishing-25 hover:shadow-xl transition duration-500 lg:hover:blur-0" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
+      <div class="blur-lg bg-resources-25 hover:shadow-xl transition duration-700 lg:hover:blur-0" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
+      <div class="blur-lg bg-programs-25 hover:shadow-xl transition duration-1000 lg:duration-300 lg:hover:blur-0" :class="[!taglineVisible && lgAndLarger ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', bottomGridVisible && mdAndSmaller ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
+      <div class="blur-lg bg-services-25 hover:shadow-xl transition duration-500 lg:hover:blur-0" :class="[!taglineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
+      <div ref="bottomGrid" class="blur-lg bg-maps-25 hover:shadow-xl transition duration-700 lg:hover:blur-0" :class="[!taglineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
 
     </main>
 
