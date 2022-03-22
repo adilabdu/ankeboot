@@ -40,12 +40,12 @@ export default {
 }
 
 ::-webkit-scrollbar-track {
-    background: #fff; 
+    background: rgba(255, 255, 255, 0);
 }
 
 ::-webkit-scrollbar-thumb {
     /* background: rgba(0,0,0,0.5); */
-    background: rgb(255, 255, 255); 
+    background: rgb(255, 255, 255);
     border-radius: 30px;
 }
 
