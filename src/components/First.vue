@@ -366,12 +366,28 @@
 
     setup() {
 
-      function shareQR() {
-        navigator.share({
-          title: "Check out Ankeboot Bookstore and Publishing",
-          text: "Ankeboot Bookstore and Publishing. Go to ankeboot.com for more.",
-          files: [ ankebootPNG ]
-        })
+      async function shareQR() {
+
+        const response = await fetch(ankebootPNG);
+        const blob = await response.blob();
+        const filesArray = [
+            new File(
+                [blob],
+                'ankeboot-qr.png',
+                {
+                  type: "image/png",
+                  lastModified: new Date().getTime()
+                }
+            )
+        ]
+
+        const shareData = {
+          files: filesArray,
+          title: "Check out Ankeboot Bookstore + Publishing",
+          text: "Ankeboot Bookstore and Publishing. Visit ankeboot.com for more"
+        }
+
+        await navigator.share(shareData)
       }
 
       return {
