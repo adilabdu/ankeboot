@@ -368,14 +368,9 @@
 
       function shareQR() {
         navigator.share({
-          title: "Share ankeboot.com to your friends",
-          text: "Ankeboot Bookstore + Publishing, ankeboot.com",
-          files: [
-            new File([ ankebootPNG ], 'ankeboot.png', {
-              type: "image/png",
-              lastModified: new Date().getTime()
-            })
-          ]
+          title: "Check out Ankeboot Bookstore and Publishing",
+          text: "Ankeboot Bookstore and Publishing. Go to ankeboot.com for more.",
+          files: [ ankebootPNG ]
         })
       }
 
