@@ -355,7 +355,7 @@
 <script>
 
   import light from "./icons/light.vue";
-  import ankebootSVG from "../assets/images/ankeboot.svg"
+  import ankebootPNG from "../assets/images/ankeboot.png"
 
   export default {
 
@@ -368,9 +368,13 @@
 
       function shareQR() {
         navigator.share({
-          title: "Ankeboot bookstore + publishing",
+          title: "Share ankeboot.com to your friends",
+          text: "Ankeboot Bookstore + Publishing, ankeboot.com",
           files: [
-            new File([ ankebootSVG ], 'ankeboot.svg')
+            new File([ ankebootPNG ], 'ankeboot.png', {
+              type: "image/png",
+              lastModified: new Date().getTime()
+            })
           ]
         })
       }
