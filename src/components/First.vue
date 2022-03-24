@@ -1,10 +1,12 @@
 <template>
 
+<!--  <div class="fixed w-full h-16 bg-home-25 flex items-center justify-center z-50"> {{ bottomGridVisible && mdAndSmaller }}</div>-->
+
   <div class="min-h-screen w-full flex flex-col items-center justify-center">
 
     <main class="h-screen w-full flex flex-col items-center justify-start">
 
-      <header class="z-30 h-16 w-full flex justify-between items-center shadow-md bg-white z-10 overflow-clip">
+      <header class="fixed z-30 h-16 w-full flex justify-between items-center shadow-md bg-white overflow-clip">
 
         <div class="hero-logo flex px-4 gap-2 min-w-fit">
           <svg @click="shareQR" class="hover:scale-110 transition duration-300" width="42" height="42" viewBox="0 0 63 63" fill="black" xmlns="http://www.w3.org/2000/svg">
@@ -292,17 +294,17 @@
 
       </header>
 
-      <div class="grow flex flex-col items-center justify-center">
+      <div class="grow z-20 flex flex-col items-center justify-center">
 
         <div class="hero flex flex-col items-center justify-center relative h-full">
 
-          <div class="grow min-h-24"></div>
+          <div class="z-0 grow min-h-24"></div>
           <div class="relative flex flex-col items-center justify-center">
             <div class="blur-3xl absolute top-0 sm:top-1/4 left-0 animate-rotate-slow h-64 w-64 xs:h-96 xs:w-96 bg-books-50 absolute"></div>
             <div class="blur-3xl absolute top-0 sm:top-1/4 right-0 animate-pulse h-64 w-64 xs:h-96 xs:w-96 bg-publishing-50 absolute rounded-full"></div>
             <div class="blur-3xl -translate-y-16 sm:translate-y-0 absolute bottom-0 animate-pulse h-64 w-64 xs:h-96 xs:w-96 bg-resources-50 absolute rounded-full"></div>
 
-            <h1 class="filter drop-shadow-xl z-20 select-none uppercase hero-title font-hero leading-none text-[15vw] sm:text-8xl md:text-9xl after:content-['*'] overflow-clip">
+            <h1 class="filter drop-shadow-xl z-10 select-none uppercase hero-title font-hero leading-none text-[15vw] sm:text-8xl md:text-9xl after:content-['*'] overflow-clip">
               Ankeboot
             </h1>
 
@@ -344,28 +346,29 @@
 
     <main class="h-screen w-full grid lg:grid-cols-3 lg:grid-rows-2 grid-cols-2 grid-rows-3 gap-2">
 
-      <div class="blur-lg bg-books-25 lg:hover:shadow-xl transition duration-300 lg:hover:blur-0" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
-      <div class="blur-lg bg-publishing-25 lg:hover:shadow-xl transition duration-500 lg:hover:blur-0" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
-      <div class="blur-lg bg-resources-25 lg:hover:shadow-xl transition duration-700 lg:hover:blur-0" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
-      <div class="blur-lg bg-programs-25 lg:hover:shadow-xl transition duration-1000 lg:duration-300 lg:hover:blur-0" :class="[!taglineVisible && lgAndLarger ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', bottomGridVisible && mdAndSmaller ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
-      <div class="blur-lg bg-services-25 lg:hover:shadow-xl transition duration-500 lg:hover:blur-0" :class="[!taglineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
-      <div ref="bottomGrid" class="blur-lg bg-maps-25 lg:hover:shadow-xl transition duration-700 lg:hover:blur-0" :class="[!taglineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
+      <div class="blur-lg bg-books-25 lg:hover:shadow-xl transition duration-150 lg:hover:blur-0" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
+      <div class="blur-lg bg-publishing-25 lg:hover:shadow-xl transition duration-300 lg:hover:blur-0" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
+      <div class="blur-lg bg-resources-25 lg:hover:shadow-xl transition duration-1000 lg:hover:blur-0" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
+      <div class="blur-lg bg-resources-25 lg:hover:shadow-xl transition duration-500 lg:duration-300 lg:hover:blur-0" :class="[!taglineVisible && lgAndLarger ? 'opacity-100 translate-y-0' : 'opacity-100 translate-y-0', bottomGridVisible && mdAndSmaller ? 'opacity-100 translate-y-0' : 'opacity-100 translate-y-0']"></div>
+      <div class="blur-lg bg-services-25 lg:hover:shadow-xl transition duration-700 lg:hover:blur-0" :class="[!taglineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
+      <div ref="bottomGrid" class="blur-lg bg-maps-25 lg:hover:shadow-xl transition duration-150 lg:hover:blur-0" :class="[!taglineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"></div>
 
     </main>
 
-<!--    <main class="min-h-12 w-full"></main>-->
-
   </div>
+
+  <div class="w-full h-screen bg-gray-100 blur" ref="gridBox"></div>
 
 </template>
 
 <script>
 
-  import { onMounted, ref } from "vue"
+  import { onMounted, ref, watch } from "vue"
   import { useElementVisibility, breakpointsTailwind, useBreakpoints } from "@vueuse/core"
 
   import light from "./icons/light.vue";
   import ankebootPNG from "../assets/images/ankeboot.png"
+  import {useScroll} from "@vueuse/core/index";
 
   export default {
 
@@ -384,6 +387,9 @@
       const tagline = ref(null)
       const bottomGridVisible = useElementVisibility(bottomGrid)
       const taglineVisible = useElementVisibility(tagline)
+
+      const gridBox = ref(null)
+      const { x, y, isScrolling, arrivedState, directions } = useScroll(gridBox)
 
       async function shareQR() {
 
@@ -410,7 +416,7 @@
       }
 
       return {
-        shareQR, bottomGrid, bottomGridVisible, tagline, taglineVisible, lgAndLarger, mdAndSmaller
+        shareQR, bottomGrid, bottomGridVisible, tagline, taglineVisible, lgAndLarger, mdAndSmaller, arrivedState
       }
 
     }
