@@ -9,49 +9,49 @@ module.exports = {
         extend: {
             colors: {
                 home: {
-                    25: 'rgba(255, 51, 51, 0.25)',
-                    50: 'rgba(255, 51, 51, 0.50)',
-                    100: '#FF3333'
+                    25: '#ffcccc',
+                    50: '#ff9999',
+                    100: '#ff3333'
                 },
                 about: {
-                    25: 'rgba(155, 209, 2, 0.25)',
-                    50: 'rgba(155, 209, 2, 0.50)',
-                    100: '#9BD102'
+                    25: '#e6f4c0',
+                    50: '#cde881',
+                    100: '#9bd102'
                 },
                 books: {
-                    25: 'rgba(158, 124, 255, 0.25)',
-                    50: 'rgba(158, 124, 255, 0.50)',
-                    100: '#9E7CFF'
+                    25: '#e7deff',
+                    50: '#cfbeff',
+                    100: '#9e7cff'
                 },
                 publishing: {
-                    25: 'rgba(123, 223, 255, 0.25)',
-                    50: 'rgba(123, 223, 255, 0.50)',
-                    100: '#7BDFFF'
+                    25: '#def7ff',
+                    50: '#bdefff',
+                    100: '#7bdfff'
                 },
                 maps: {
-                    25: 'rgba(13, 159, 0, 0.25)',
-                    50: 'rgba(13, 159, 0, 0.50)',
-                    100: '#0D9F00'
+                    25: '#c3e7bf',
+                    50: '#86cf80',
+                    100: '#0d9f00'
                 },
                 programs: {
-                    25: 'rgba(160, 187, 255, 0.25)',
-                    50: 'rgba(160, 187, 255, 0.50)',
-                    100: '#A0BBFF'
+                    25: '#e7eeff',
+                    50: '#d0ddff',
+                    100: '#a0bbff'
                 },
                 services: {
-                    25: 'rgba(202, 170, 1, 0.25)',
-                    50: 'rgba(202, 170, 1, 0.50)',
-                    100: '#CAAA01'
+                    25: '#f2eac0',
+                    50: '#e5d580',
+                    100: '#caaa01'
                 },
                 resources: {
-                    25: 'rgba(73, 126, 205, 0.25)',
-                    50: 'rgba(73, 126, 205, 0.50)',
-                    100: '#497ECD'
+                    25: '#d2dff3',
+                    50: '#a4bfe6',
+                    100: '#497ecd'
                 },
                 contact: {
-                    25: 'rgba(171, 8, 155, 0.25)',
-                    50: 'rgba(171, 8, 155, 0.50)',
-                    100: '#AB089B'
+                    25: '#eac1e6',
+                    50: '#d584cd',
+                    100: '#ab089b'
                 }
             },
             fontFamily: {
@@ -87,18 +87,18 @@ module.exports = {
                 '70': '0.7'
             }
         },
-        height: theme => ({
-            auto: 'auto',
-            ...theme('spacing'),
-            full: '100%',
-            screen: 'calc(var(--vh) * 100)',
-        }),
-        minHeight: theme => ({
-            '0': '0',
-            ...theme('spacing'),
-            full: '100%',
-            screen: 'calc(var(--vh) * 100)',
-        }),
+        // height: theme => ({
+        //     auto: 'auto',
+        //     ...theme('spacing'),
+        //     full: '100%',
+        //     screen: 'calc(var(--vh) * 100)',
+        // }),
+        // minHeight: theme => ({
+        //     '0': '0',
+        //     ...theme('spacing'),
+        //     full: '100%',
+        //     screen: 'calc(var(--vh) * 100)',
+        // }),
         variants: {
             scrollbar: ['rounded'],
         }
