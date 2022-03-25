@@ -1,5 +1,3 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
-
 module.exports = {
     content: [
         "./index.html",
@@ -80,33 +78,15 @@ module.exports = {
                 'xs': '475px'
             },
             aspectRatio: {
-                '4/3': '4 / 3'
+                '4/3': '4 / 3',
+                '3/2': '3 / 2',
+                '2/3': '2 / 3'
             },
             scale: {
                 '60': '0.6',
                 '70': '0.7'
             }
         },
-        // height: theme => ({
-        //     auto: 'auto',
-        //     ...theme('spacing'),
-        //     full: '100%',
-        //     screen: 'calc(var(--vh) * 100)',
-        // }),
-        // minHeight: theme => ({
-        //     '0': '0',
-        //     ...theme('spacing'),
-        //     full: '100%',
-        //     screen: 'calc(var(--vh) * 100)',
-        // }),
-        variants: {
-            scrollbar: ['rounded'],
-        }
     },
-    plugins: [
-        require('tailwind-scrollbar'),
-        require('tailwindcss-scoped-groups')({
-            groups: ['one', ]
-        })
-    ],
+    plugins: [],
 }
