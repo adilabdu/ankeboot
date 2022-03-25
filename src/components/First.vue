@@ -1,12 +1,12 @@
 <template>
 
-  <div ref="homepage" class="flex flex-col items-center">
+  <div ref="background" class="-translate-y-1/20 w-full h-screen fixed items-center justify-center flex z-10">
+    <div class="blur-3xl translate-x-1/2 translate-y-1/5 animate-pulse h-64 w-64 xs:h-96 xs:w-96 bg-publishing-50 rounded-full"></div>
+    <div class="blur-3xl animate-rotate-slow h-64 w-64 xs:h-96 xs:w-96 bg-books-50"></div>
+    <div class="blur-3xl -translate-x-1/2 translate-y-1/5 animate-pulse h-64 w-64 xs:h-96 xs:w-96 bg-resources-50 rounded-full"></div>
+  </div>
 
-    <div class="background -translate-y-1/20 w-full h-screen fixed items-center justify-center flex z-10">
-      <div class="blur-3xl translate-x-1/2 translate-y-1/5 animate-pulse h-64 w-64 xs:h-96 xs:w-96 bg-publishing-50 rounded-full"></div>
-      <div class="blur-3xl animate-rotate-slow h-64 w-64 xs:h-96 xs:w-96 bg-books-50"></div>
-      <div class="blur-3xl -translate-x-1/2 translate-y-1/5 animate-pulse h-64 w-64 xs:h-96 xs:w-96 bg-resources-50 rounded-full"></div>
-    </div>
+  <div ref="homepage" class="flex flex-col items-center">
 
     <header class="fixed z-100 h-16 w-full flex justify-between items-center shadow-md bg-white overflow-clip">
 
@@ -437,7 +437,7 @@
 
       </section>
 
-      <section class="z-0 w-full h-screen bg-gradient-to-b from-white to-gray-200"></section>
+      <section class="z-20 w-full h-screen bg-gradient-to-b from-transparent to-gray-200"></section>
 
     </main>
 
@@ -498,6 +498,11 @@
         return array;
       }
 
+      const DOMLoaded = ref(false)
+      window.addEventListener('DOMContentLoaded', (event) => {
+        DOMLoaded.value = true
+      });
+
       const order = ref([1, 2, 3, 4, 5])
       order.value = shuffle(order.value)
       console.log(order.value)
@@ -527,7 +532,7 @@
       }
 
       return {
-        shareQR, bottomGrid, bottomGridVisible, tagline, taglineVisible, top, durations, order
+        shareQR, bottomGrid, bottomGridVisible, tagline, taglineVisible, top, durations, order, DOMLoaded
       }
 
     }
