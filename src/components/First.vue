@@ -1,6 +1,7 @@
 <template>
 
-  <div ref="background" class="-translate-y-1/20 w-full h-screen fixed items-center justify-center flex z-10">
+  <div ref="background" class="-translate-y-1/20 w-full h-screen fixed items-center justify-center flex z-10 transition ease-in-out duration-[2100ms]"
+        :class="[DOMLoaded ? 'scale-100' : 'scale-0']">
     <div class="blur-3xl translate-x-1/2 translate-y-1/5 animate-pulse h-64 w-64 xs:h-96 xs:w-96 bg-publishing-50 rounded-full"></div>
     <div class="blur-3xl animate-rotate-slow h-64 w-64 xs:h-96 xs:w-96 bg-books-50"></div>
     <div class="blur-3xl -translate-x-1/2 translate-y-1/5 animate-pulse h-64 w-64 xs:h-96 xs:w-96 bg-resources-50 rounded-full"></div>
@@ -8,7 +9,8 @@
 
   <div ref="homepage" class="flex flex-col items-center">
 
-    <header class="fixed z-100 h-16 w-full flex justify-between items-center shadow-md bg-white overflow-clip">
+    <header class="fixed z-100 h-16 w-full flex justify-between items-center overflow-clip transition delay-[1800ms] duration-300"
+            :class="[DOMLoaded ? 'shadow-md bg-white' : 'shadow-none bg-transparent']">
 
       <div class="hero-logo flex px-4 gap-2 min-w-fit">
         <svg @click="shareQR" class="hover:scale-110 transition duration-300" width="42" height="42" viewBox="0 0 63 63" fill="black" xmlns="http://www.w3.org/2000/svg">
@@ -248,31 +250,38 @@
 
       <nav class="flex h-full">
         <ul class="font-hero font-bold uppercase flex justify-center h-full">
-          <li class="hidden group relative md:flex items-center justify-center px-4 w-32">
+          <li class="hidden group relative md:flex items-center justify-center px-4 w-32"
+              :class="[DOMLoaded ? 'opacity-100 translate-x-0 transition duration-300 delay-[100ms]' : 'opacity-0 -translate-x-0.5']">
             <div class="z-0 absolute h-full w-full bg-home-25 group-hover:bg-home-50 -skew-x-12"></div>
             <a href="/home" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">home</a>
           </li>
-          <li class="hidden group relative lg:flex items-center justify-center px-4 w-32">
+          <li class="hidden group relative lg:flex items-center justify-center px-4 w-32"
+              :class="[DOMLoaded ? 'opacity-100 translate-x-0 transition duration-300 delay-[200ms]' : 'opacity-0 -translate-x-0.5']">
             <div class="z-0 absolute h-full w-full bg-about-25 group-hover:bg-about-50 -skew-x-12"></div>
             <a href="/about" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">about</a>
           </li>
-          <li class="hidden group relative md:flex items-center justify-center px-4 w-32">
+          <li class="hidden group relative md:flex items-center justify-center px-4 w-32"
+              :class="[DOMLoaded ? 'opacity-100 translate-x-0 transition duration-300 delay-[300ms]' : 'opacity-0 -translate-x-0.5']">
             <div class="z-0 absolute h-full w-full bg-books-25 group-hover:bg-books-50 -skew-x-12"></div>
             <a href="/books" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">books</a>
           </li>
-          <li class="hidden group relative md:flex items-center justify-center px-4 w-32">
+          <li class="hidden group relative md:flex items-center justify-center px-4 w-32"
+              :class="[DOMLoaded ? 'opacity-100 translate-x-0 transition duration-300 delay-[400ms]' : 'opacity-0 -translate-x-0.5']">
             <div class="z-0 absolute h-full w-full bg-publishing-25 group-hover:bg-publishing-50 -skew-x-12"></div>
             <a href="/publishing" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">publishing</a>
           </li>
-          <li class="hidden group relative xl:flex items-center justify-center px-4 w-32">
+          <li class="hidden group relative xl:flex items-center justify-center px-4 w-32"
+              :class="[DOMLoaded ? 'opacity-100 translate-x-0 transition duration-300 delay-[500ms]' : 'opacity-0 -translate-x-0.5']">
             <div class="z-0 absolute h-full w-full bg-maps-25 group-hover:bg-maps-50 -skew-x-12"></div>
             <a href="/maps" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">maps</a>
           </li>
-          <li class="hidden group relative xl:flex items-center justify-center px-4 w-32">
+          <li class="hidden group relative xl:flex items-center justify-center px-4 w-32"
+              :class="[DOMLoaded ? 'opacity-100 translate-x-0 transition duration-300 delay-[600ms]' : 'opacity-0 -translate-x-0.5']">
             <div class="z-0 absolute h-full w-full bg-programs-25 group-hover:bg-programs-50 -skew-x-12"></div>
             <a href="/programs" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">programs</a>
           </li>
-          <li class="hidden group relative lg:flex items-center justify-center px-4 w-32">
+          <li class="hidden group relative lg:flex items-center justify-center px-4 w-32"
+              :class="[DOMLoaded ? 'opacity-100 translate-x-0 transition duration-300 delay-[700ms]' : 'opacity-0 -translate-x-0.5']">
             <div class="z-0 absolute h-full w-full bg-contact-25 group-hover:bg-contact-50 -skew-x-12"></div>
             <a href="/contact" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">contact</a>
           </li>
@@ -288,8 +297,13 @@
               </div>
             </button>
           </li>
-          <li class="group relative hidden xl:flex items-center justify-center px-4">
-            <light :size="24"/>
+          <li class="group relative hidden xl:flex flex-col items-center justify-center px-4 transition duration-1000 delay-[1100ms]"
+              :class="[DOMLoaded ?
+                        'scale-100 rotate-0 translate-y-0' :
+                        lightMode ? 'scale-125 rotate-270 -translate-y-full' : 'scale-125 -rotate-180 translate-y-full']"
+              @click="changeTheme">
+            <light :class="[lightMode ? 'visible' : 'hidden']" :size="24"/>
+            <dark :class="[lightMode ? 'hidden' : 'visible']" :size="24"/>
           </li>
         </ul>
       </nav>
@@ -300,7 +314,8 @@
 
       <section class="z-20 h-screen w-full flex flex-col items-center justify-start">
 
-        <div class="grow z-20 flex flex-col items-center justify-center">
+        <div class="grow z-20 flex flex-col items-center justify-center transition duration-500"
+              :class="[DOMLoaded ? 'scale-100 opacity-100' : 'scale-90 opacity-0']">
 
           <div class="hero flex flex-col items-center justify-center relative h-full">
 
@@ -447,17 +462,19 @@
 
 <script>
 
-  import { ref, toRefs } from "vue"
+import {onMounted, ref, toRefs} from "vue"
   import { useElementVisibility, breakpointsTailwind, useBreakpoints, useScroll } from "@vueuse/core"
 
   import light from "./icons/light.vue";
+  import dark from "./icons/dark.vue"
   import ankebootPNG from "../assets/images/ankeboot.png"
 
   export default {
 
     name: "First",
     components: {
-      light
+      light,
+      dark
     },
 
     setup() {
@@ -470,6 +487,11 @@
       const tagline = ref(null)
       const bottomGridVisible = useElementVisibility(bottomGrid)
       const taglineVisible = useElementVisibility(tagline)
+
+      const lightMode = ref(false)
+      function changeTheme() {
+        lightMode.value = !lightMode.value
+      }
 
       const durations = {
         1: "duration-150",
@@ -532,7 +554,7 @@
       }
 
       return {
-        shareQR, bottomGrid, bottomGridVisible, tagline, taglineVisible, top, durations, order, DOMLoaded
+        shareQR, bottomGrid, bottomGridVisible, tagline, taglineVisible, top, durations, order, DOMLoaded, lightMode, changeTheme
       }
 
     }

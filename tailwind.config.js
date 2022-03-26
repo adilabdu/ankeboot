@@ -93,6 +93,10 @@ module.exports = {
             },
             zIndex: {
                 '100': '100'
+            },
+            rotate: {
+                '270': '270deg',
+                '360': '360deg'
             }
         },
     },
