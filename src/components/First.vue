@@ -247,34 +247,34 @@
       </div>
 
       <nav class="flex h-full">
-        <ul class="font-sans font-bold uppercase flex justify-center h-full">
+        <ul class="font-hero font-bold uppercase flex justify-center h-full">
           <li class="hidden group relative md:flex items-center justify-center px-4 w-32">
             <div class="z-0 absolute h-full w-full bg-home-25 group-hover:bg-home-50 -skew-x-12"></div>
-            <a href="/home" class="z-10 group-hover:scale-125 transition duration-300">home</a>
+            <a href="/home" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">home</a>
           </li>
           <li class="hidden group relative lg:flex items-center justify-center px-4 w-32">
             <div class="z-0 absolute h-full w-full bg-about-25 group-hover:bg-about-50 -skew-x-12"></div>
-            <a href="/about" class="z-10 group-hover:scale-125 transition duration-300">about</a>
+            <a href="/about" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">about</a>
           </li>
           <li class="hidden group relative md:flex items-center justify-center px-4 w-32">
             <div class="z-0 absolute h-full w-full bg-books-25 group-hover:bg-books-50 -skew-x-12"></div>
-            <a href="/books" class="z-10 group-hover:scale-125 transition duration-300">books</a>
+            <a href="/books" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">books</a>
           </li>
           <li class="hidden group relative md:flex items-center justify-center px-4 w-32">
             <div class="z-0 absolute h-full w-full bg-publishing-25 group-hover:bg-publishing-50 -skew-x-12"></div>
-            <a href="/publishing" class="z-10 group-hover:scale-125 transition duration-300">publishing</a>
+            <a href="/publishing" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">publishing</a>
           </li>
           <li class="hidden group relative xl:flex items-center justify-center px-4 w-32">
             <div class="z-0 absolute h-full w-full bg-maps-25 group-hover:bg-maps-50 -skew-x-12"></div>
-            <a href="/maps" class="z-10 group-hover:scale-125 transition duration-300">maps</a>
+            <a href="/maps" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">maps</a>
           </li>
           <li class="hidden group relative xl:flex items-center justify-center px-4 w-32">
             <div class="z-0 absolute h-full w-full bg-programs-25 group-hover:bg-programs-50 -skew-x-12"></div>
-            <a href="/programs" class="z-10 group-hover:scale-125 transition duration-300">programs</a>
+            <a href="/programs" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">programs</a>
           </li>
           <li class="hidden group relative lg:flex items-center justify-center px-4 w-32">
             <div class="z-0 absolute h-full w-full bg-contact-25 group-hover:bg-contact-50 -skew-x-12"></div>
-            <a href="/contact" class="z-10 group-hover:scale-125 transition duration-300">contact</a>
+            <a href="/contact" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">contact</a>
           </li>
           <li class="group relative xl:hidden flex items-center justify-center px-4 sm:w-24">
             <div class="absolute h-full w-full -skew-x-12"></div>
