@@ -59,7 +59,14 @@ module.exports = {
             },
             animation: {
                 'tada': 'tada 0.5s ease infinite',
-                'rotate-slow': 'rotate 10s linear infinite'
+                'rotate-slow': 'rotate 10s linear infinite',
+                'scale-up-down': 'scaleUpBack 2100ms ease-in-out',
+                'somersault-up': 'somersaultUp 2100ms ease-in-out',
+                'scale-up': 'scaleUp 500ms',
+                'somersault-down': 'somersaultDown 2100ms ease-in-out',
+                'appear': 'appear 2100ms',
+                'slide-in': 'slideIn 300ms',
+                'grow-skew': 'growSkew 500ms 1600ms forwards'
             },
             keyframes: {
                 tada: {
@@ -72,6 +79,39 @@ module.exports = {
                 rotate: {
                     '0%': { transform: 'rotate(0deg)' },
                     '100%': { transform: 'rotate(360deg)' },
+                },
+                scaleUpBack: {
+                    '0%': { transform: 'scale(0) translateY(0%)' },
+                    '50%': { transform: 'scale(1.75)' },
+                    '100%': { transform: 'scale(1) translateY(-5%);' }
+                },
+                scaleUp: {
+                    '0%': { transform: 'scale(0.75)', opacity: '0' },
+                    '100%': { transform: 'scale(1)', opacity: '1' }
+                },
+                somersaultUp: {
+                    '0%': { transform: 'translateY(100%) rotate(-270deg) scale(125%)', '-webkit-transform': 'translateY(100%) rotate(-270deg) scale(125%)' },
+                    '55%': { transform: 'translateY(100%) rotate(-270deg) scale(125%)', '-webkit-transform': 'translateY(100%) rotate(-270deg) scale(125%)' },
+                    '100%': { transform: 'translateY(0%) rotate(0deg) scale(100%)', '-webkit-transform': 'translateY(0%) rotate(0deg) scale(100%)' }
+                },
+                somersaultDown: {
+                    '0%': { transform: 'translateY(-100%) rotate(270deg) scale(125%)', '-webkit-transform': 'translateY(-100%) rotate(270deg) scale(125%)' },
+                    '55%': { transform: 'translateY(-100%) rotate(270deg) scale(125%)', '-webkit-transform': 'translateY(-100%) rotate(270deg) scale(125%)' },
+                    '100%': { transform: 'translateY(0%) rotate(0deg) scale(100%)', '-webkit-transform': 'translateY(0%) rotate(0deg) scale(100%)' }
+                },
+                appear: {
+                    '0%': { boxShadow: '0 0 #0000', backgroundColor: 'transparent' },
+                    '85%': { boxShadow: '0 0 #0000', backgroundColor: 'transparent' },
+                    '100%': { boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)', backgroundColor: 'white' }
+                },
+                slideIn: {
+                    '0%': { opacity: '0', transform: 'translateX(-0.75rem)' },
+                    '100%': { opacity: '1', transform: 'translateX(0%)' }
+                },
+                growSkew: {
+                    '0%': { transform: 'skewX(0deg) scaleY(0)', opacity: '1' },
+                    '50%': { transform: 'skewX(0deg) scaleY(1)', opacity: '1' },
+                    '100%': { transform: 'skewX(-12deg) scaleY(1)', opacity: '1' }
                 }
             },
             screens: {
@@ -92,7 +132,8 @@ module.exports = {
                 '1/20': '5%'
             },
             zIndex: {
-                '100': '100'
+                '100': '100',
+                'max': '1000'
             },
             rotate: {
                 '270': '270deg',
