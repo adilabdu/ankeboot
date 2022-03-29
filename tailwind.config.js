@@ -119,7 +119,7 @@ module.exports = {
                 grow: {
                     '0%': {transform: 'scale(0)', opacity: '1'},
                     '100%': {transform: 'scale(1)', opacity: '1'}
-                }
+                },
                 growUp: {
                     '0%': { transform: 'scale(0)' },
                     // '50%': { transform: 'scale(1)'},
