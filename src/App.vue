@@ -1,9 +1,11 @@
 <script setup>
     import First from "./components/First.vue"
+    import SplashScreen from "./components/Splash.vue"
 </script>
 
 <template>
 
+    <SplashScreen class="animate-fadeout"/>
     <First/>
 
 </template>
@@ -25,7 +27,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: #555;
 }
 
 ::-webkit-scrollbar:hover {
