@@ -66,7 +66,8 @@ module.exports = {
                 'somersault-down': 'somersaultDown 2100ms ease-in-out',
                 'appear': 'appear 2100ms',
                 'slide-in': 'slideIn 300ms',
-                'grow-skew': 'growSkew 500ms 1600ms forwards'
+                'grow-skew': 'growSkew 500ms 1600ms forwards',
+                'grow': 'grow 500ms forwards'
             },
             keyframes: {
                 tada: {
@@ -112,6 +113,10 @@ module.exports = {
                     '0%': { transform: 'skewX(0deg) scaleY(0)', opacity: '1' },
                     '50%': { transform: 'skewX(0deg) scaleY(1)', opacity: '1' },
                     '100%': { transform: 'skewX(-12deg) scaleY(1)', opacity: '1' }
+                },
+                grow: {
+                    '0%': { transform: 'scale(0)', opacity: '1' },
+                    '100%': { transform: 'scale(1)', opacity: '1' }
                 }
             },
             screens: {

@@ -11,7 +11,7 @@
     <header class="fixed z-100 h-16 w-full flex justify-between items-center overflow-clip animate-appear shadow-md bg-white">
 
       <div class="hero-logo flex px-4 gap-2 min-w-fit">
-        <svg @click="shareQR" class="hover:scale-110 transition duration-300" width="42" height="42" viewBox="0 0 63 63" fill="black" xmlns="http://www.w3.org/2000/svg">
+        <svg @click="shareQR" class="hover:scale-110 hover:transition hover:duration-300 opacity-0 animate-grow" width="42" height="42" viewBox="0 0 63 63" fill="black" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 0H0V3H3V0Z" fill="black"/>
           <path d="M6 0H3V3H6V0Z" fill="black"/>
           <path d="M9 0H6V3H9V0Z" fill="black"/>
@@ -237,8 +237,8 @@
         </svg>
 
         <p class="select-none flex flex-col items-start justify-center">
-          <span class="font-hero uppercase text-2xl leading-none">Ankeboot</span>
-          <span class="font-sans lowercase text-base leading-none">
+          <span class="font-hero uppercase text-2xl leading-none animate-slide-in">Ankeboot</span>
+          <span class="font-sans lowercase text-base leading-none animate-slide-in">
             bookstore
             <span class="font-mono">x</span>
             publishing
@@ -431,7 +431,15 @@
 
       </section>
 
-      <section class="z-20 w-full h-screen bg-gradient-to-b from-transparent to-gray-200"></section>
+      <section class="z-20 w-full h-screen items-center justify-center flex bg-gradient-to-b from-transparent to-gray-200">
+
+        <div class="relative flex items-center justify-center h-[42rem] aspect-square">
+
+          <div class="absolute h-full w-full bg-white bg-opacity-75 rounded-md hover:translate-x-2 hover:-translate-y-2 hover:bg-opacity-100 transition duration-500 hover:drop-shadow-lg"></div>
+
+        </div>
+
+      </section>
 
     </main>
 
@@ -441,7 +449,7 @@
 
 <script>
 
-import {onMounted, ref, toRefs} from "vue"
+import { onMounted, ref, toRefs } from "vue"
   import { useElementVisibility, breakpointsTailwind, useBreakpoints, useScroll } from "@vueuse/core"
 
   import light from "./icons/light.vue";
