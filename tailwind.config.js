@@ -60,15 +60,15 @@ module.exports = {
             animation: {
                 'tada': 'tada 0.5s ease infinite',
                 'rotate-slow': 'rotate 10s linear infinite',
-                'scale-up-down': 'scaleUpBack 2100ms 1200ms ease-in-out',
-                'somersault-up': 'somersaultUp 2100ms 1200ms ease-in-out',
-                'scale-up': 'scaleUp 500ms 1200ms',
-                'somersault-down': 'somersaultDown 2100ms 1200ms ease-in-out',
-                'appear': 'appear 2100ms 1200ms',
-                'slide-in': 'slideIn 300ms 1200ms',
-                'grow-skew': 'growSkew 500ms 2800ms forwards',
+                'scale-up-down': 'scaleUpBack 2100ms 2000ms ease-in-out',
+                'somersault-up': 'somersaultUp 2100ms 2000ms ease-in-out',
+                'scale-up': 'scaleUp 500ms 2000ms',
+                'somersault-down': 'somersaultDown 2100ms 2000ms ease-in-out',
+                'appear': 'appear 2100ms 2000ms',
+                'slide-in': 'slideIn 300ms 2000ms',
+                'grow-skew': 'growSkew 500ms 3600ms forwards',
                 'grow-up': 'growUp 1000ms forwards',
-                'fadeout': 'fadeout 1000ms 1200ms forwards',
+                'fadeout': 'fadeout 500ms 2000ms forwards',
             },
             keyframes: {
                 tada: {
@@ -117,6 +117,7 @@ module.exports = {
                 },
                 growUp: {
                     '0%': { transform: 'scale(0)' },
+                    // '50%': { transform: 'scale(1)'},
                     '100%': { transform: 'scale(1)' },
                 },
                 fadeout: {
@@ -142,6 +143,7 @@ module.exports = {
             },
             zIndex: {
                 '100': '100',
+                '900': '900',
                 'max': '1000'
             },
             rotate: {
