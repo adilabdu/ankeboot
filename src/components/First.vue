@@ -1,5 +1,7 @@
 <template>
 
+  <MobileNavigation :opened="mobileNavigationOpened"/>
+
   <div ref="background" class="animate-scale-up-down -translate-y-1/20 w-full h-screen fixed items-center justify-center flex z-10">
     <div class="blur-3xl translate-x-1/2 translate-y-1/5 animate-pulse h-64 w-64 xs:h-96 xs:w-96 bg-publishing-50 rounded-full"></div>
     <div class="blur-3xl animate-rotate-slow h-64 w-64 xs:h-96 xs:w-96 bg-books-50"></div>
@@ -8,7 +10,7 @@
 
   <div ref="homepage" class="flex flex-col items-center">
 
-    <header class="fixed z-100 h-16 w-full flex justify-between items-center overflow-clip animate-appear shadow-md bg-white">
+    <header class="fixed z-900 h-16 w-full flex justify-between items-center overflow-clip animate-appear shadow-md bg-white">
 
       <div class="hero-logo flex px-4 gap-2 min-w-fit">
         <svg @click="shareQR" class="hover:scale-110 hover:transition hover:duration-300 opacity-0 animate-grow" width="42" height="42" viewBox="0 0 63 63" fill="black" xmlns="http://www.w3.org/2000/svg">
@@ -236,7 +238,7 @@
           <path d="M60 60H57V63H60V60Z" fill="black"/>
         </svg>
 
-        <p class="select-none flex flex-col items-start justify-center">
+        <p class="select-none flex flex-col items-start justify-center transition duration-300">
           <span class="font-hero uppercase text-2xl leading-none animate-slide-in">Ankeboot</span>
           <span class="font-sans lowercase text-base leading-none animate-slide-in">
             bookstore
@@ -248,43 +250,43 @@
 
       <nav class="flex h-full">
         <ul class="font-hero font-bold uppercase flex justify-center h-full">
-          <li class="hidden group relative md:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_100ms_forwards]">
+          <li class="hidden group relative md:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_2100ms_forwards]">
             <div class="z-0 absolute h-full w-full bg-home-25 group-hover:bg-home-50 -skew-x-12"></div>
             <a href="/home" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">home</a>
           </li>
-          <li class="hidden group relative lg:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_200ms_forwards]">
+          <li class="hidden group relative lg:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_2200ms_forwards]">
             <div class="z-0 absolute h-full w-full bg-about-25 group-hover:bg-about-50 -skew-x-12"></div>
             <a href="/about" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">about</a>
           </li>
-          <li class="hidden group relative md:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_300ms_forwards]">
+          <li class="hidden group relative md:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_2300ms_forwards]">
             <div class="z-0 absolute h-full w-full bg-books-25 group-hover:bg-books-50 -skew-x-12"></div>
             <a href="/books" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">books</a>
           </li>
-          <li class="hidden group relative md:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_400ms_forwards]">
+          <li class="hidden group relative md:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_2400ms_forwards]">
             <div class="z-0 absolute h-full w-full bg-publishing-25 group-hover:bg-publishing-50 -skew-x-12"></div>
             <a href="/publishing" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">publishing</a>
           </li>
-          <li class="hidden group relative xl:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_500ms_forwards]">
+          <li class="hidden group relative xl:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_2500ms_forwards]">
             <div class="z-0 absolute h-full w-full bg-maps-25 group-hover:bg-maps-50 -skew-x-12"></div>
             <a href="/maps" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">maps</a>
           </li>
-          <li class="hidden group relative xl:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_600ms_forwards]">
+          <li class="hidden group relative xl:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_2600ms_forwards]">
             <div class="z-0 absolute h-full w-full bg-programs-25 group-hover:bg-programs-50 -skew-x-12"></div>
             <a href="/programs" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">programs</a>
           </li>
-          <li class="hidden group relative lg:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_700ms_forwards]">
+          <li class="hidden group relative lg:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_2700ms_forwards]">
             <div class="z-0 absolute h-full w-full bg-contact-25 group-hover:bg-contact-50 -skew-x-12"></div>
             <a href="/contact" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">contact</a>
           </li>
           <li class="group relative xl:hidden flex items-center justify-center px-4 sm:w-24">
             <div class="absolute h-full w-full"></div>
-            <button class="flex flex-col gap-1 grid">
+            <button @click="toggleMobileNavigation" class="flex flex-col gap-1 grid">
               <div class="grid grid-rows-5 opacity-0 animate-grow-skew">
-                <div class="border-2 h-1 bg-home-25 border w-6 border-home-100"></div>
+                <div class="border-2 h-1 bg-books-50 border w-6 border-books-100"></div>
                 <div class="w-6"></div>
-                <div class="border-2 h-1 bg-books-25 border w-6 border-books-100"></div>
+                <div class="border-2 h-1 bg-publishing-50 border w-6 border-publishing-100"></div>
                 <div class="w-6"></div>
-                <div class="border-2 h-1 bg-publishing-25 border w-6 border-publishing-100"></div>
+                <div class="border-2 h-1 bg-programs-50 border w-6 border-programs-100"></div>
               </div>
             </button>
           </li>
@@ -299,7 +301,8 @@
 
     </header>
 
-    <main class="min-h-screen w-full flex flex-col items-center justify-center">
+    <main class="min-h-screen w-full flex flex-col items-center justify-center z-20"
+          :class="[mobileNavigationOpened ? 'blur' : 'blur-0']">
 
       <section class="z-20 h-screen w-full flex flex-col items-center justify-start">
 
@@ -310,7 +313,7 @@
             <div class="z-0 grow min-h-24"></div>
             <div class="relative flex flex-col items-center justify-center">
 
-              <h1 class="filter drop-shadow-xl z-10 select-none uppercase hero-title font-hero leading-none text-[15vw] sm:text-8xl md:text-9xl after:content-['*'] overflow-clip">
+              <h1 class="filter drop-shadow-xl z-10 select-none uppercase hero-title font-hero leading-none text-[15vw] sm:text-8xl md:text-9xl overflow-clip">
                 Ankeboot
               </h1>
 
@@ -449,8 +452,11 @@
 
 <script>
 
-import { onMounted, ref, toRefs } from "vue"
+  import { onMounted, ref, toRefs } from "vue"
+
   import { useElementVisibility, breakpointsTailwind, useBreakpoints, useScroll } from "@vueuse/core"
+
+  import MobileNavigation from "./MobileNavigation.vue";
 
   import light from "./icons/light.vue";
   import dark from "./icons/dark.vue"
@@ -460,6 +466,7 @@ import { onMounted, ref, toRefs } from "vue"
 
     name: "First",
     components: {
+      MobileNavigation,
       light,
       dark
     },
@@ -540,8 +547,16 @@ import { onMounted, ref, toRefs } from "vue"
         await navigator.share(shareData)
       }
 
+      const mobileNavigationOpened = ref(false)
+      function toggleMobileNavigation() {
+
+        mobileNavigationOpened.value = !mobileNavigationOpened.value
+
+      }
+
       return {
-        shareQR, bottomGrid, bottomGridVisible, tagline, taglineVisible, top, durations, order, DOMLoaded, lightMode, changeTheme
+        shareQR, bottomGrid, bottomGridVisible, tagline, taglineVisible, top, durations, order, DOMLoaded, lightMode, changeTheme,
+        mobileNavigationOpened, toggleMobileNavigation
       }
 
     }

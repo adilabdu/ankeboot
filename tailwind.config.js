@@ -60,14 +60,16 @@ module.exports = {
             animation: {
                 'tada': 'tada 0.5s ease infinite',
                 'rotate-slow': 'rotate 10s linear infinite',
-                'scale-up-down': 'scaleUpBack 2100ms ease-in-out',
-                'somersault-up': 'somersaultUp 2100ms ease-in-out',
-                'scale-up': 'scaleUp 500ms',
-                'somersault-down': 'somersaultDown 2100ms ease-in-out',
-                'appear': 'appear 2100ms',
-                'slide-in': 'slideIn 300ms',
-                'grow-skew': 'growSkew 500ms 1600ms forwards',
-                'grow': 'grow 500ms forwards'
+                'scale-up-down': 'scaleUpBack 2100ms 2000ms ease-in-out',
+                'somersault-up': 'somersaultUp 2100ms 2000ms ease-in-out',
+                'scale-up': 'scaleUp 500ms 2000ms',
+                'somersault-down': 'somersaultDown 2100ms 2000ms ease-in-out',
+                'appear': 'appear 2100ms 2000ms',
+                'slide-in': 'slideIn 300ms 2000ms',
+                'grow': 'grow 500ms forwards',
+                'grow-skew': 'growSkew 500ms 3600ms forwards',
+                'grow-up': 'growUp 1000ms forwards',
+                'fadeout': 'fadeout 500ms 2000ms forwards',
             },
             keyframes: {
                 tada: {
@@ -115,8 +117,16 @@ module.exports = {
                     '100%': { transform: 'skewX(-12deg) scaleY(1)', opacity: '1' }
                 },
                 grow: {
-                    '0%': { transform: 'scale(0)', opacity: '1' },
-                    '100%': { transform: 'scale(1)', opacity: '1' }
+                    '0%': {transform: 'scale(0)', opacity: '1'},
+                    '100%': {transform: 'scale(1)', opacity: '1'}
+                }
+                growUp: {
+                    '0%': { transform: 'scale(0)' },
+                    // '50%': { transform: 'scale(1)'},
+                    '100%': { transform: 'scale(1)' },
+                },
+                fadeout: {
+                    '100%': { opacity: '0', visibility: 'hidden' }
                 }
             },
             screens: {
@@ -138,6 +148,7 @@ module.exports = {
             },
             zIndex: {
                 '100': '100',
+                '900': '900',
                 'max': '1000'
             },
             rotate: {
