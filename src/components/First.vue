@@ -1,6 +1,6 @@
 <template>
 
-  <MobileNavigation :opened="mobileNavigationOpened"/>
+  <MobileNavigation @closeNavigation="toggleMobileNavigation" :opened="mobileNavigationOpened"/>
 
   <div ref="background" class="animate-scale-up-down -translate-y-1/20 w-full h-screen fixed items-center justify-center flex z-10">
     <div class="blur-3xl translate-x-1/2 translate-y-1/5 animate-pulse h-64 w-64 xs:h-96 xs:w-96 bg-publishing-50 rounded-full"></div>
@@ -280,13 +280,17 @@
           </li>
           <li class="group relative xl:hidden flex items-center justify-center px-4 sm:w-24">
             <div class="absolute h-full w-full"></div>
-            <button @click="toggleMobileNavigation" class="flex flex-col gap-1 grid">
-              <div class="grid grid-rows-5 opacity-0 animate-grow-skew">
-                <div class="border-2 h-1 bg-books-50 border w-6 border-books-100"></div>
+            <button @click="toggleMobileNavigation" class="flex flex-col gap-1 grid"
+                    :class="[mobileNavigationOpened ? 'skew-x-12' : '']">
+              <div class="grid grid-rows-5 opacity-0 animate-grow-skew transition delay-300 duration-300">
+                <div class="border-2 h-1 bg-books-50 border w-6 border-books-100 transition duration-300"
+                      :class="[mobileNavigationOpened ? 'translate-y-2 -rotate-45' : '']"></div>
                 <div class="w-6"></div>
-                <div class="border-2 h-1 bg-publishing-50 border w-6 border-publishing-100"></div>
+                <div class="border-2 h-1 bg-publishing-50 border w-6 border-publishing-100 transition duration-300"
+                     :class="[mobileNavigationOpened ? 'opacity-0' : '']"></div>
                 <div class="w-6"></div>
-                <div class="border-2 h-1 bg-programs-50 border w-6 border-programs-100"></div>
+                <div class="border-2 h-1 bg-programs-50 border w-6 border-programs-100 transition duration-300"
+                     :class="[mobileNavigationOpened ? '-translate-y-2 rotate-45' : '']"></div>
               </div>
             </button>
           </li>
@@ -301,8 +305,8 @@
 
     </header>
 
-    <main class="min-h-screen w-full flex flex-col items-center justify-center z-20"
-          :class="[mobileNavigationOpened ? 'blur' : 'blur-0']">
+    <main class="min-h-screen w-full flex flex-col items-center justify-center z-20 transition duration-300"
+          :class="[mobileNavigationOpened ? 'blur-xl' : 'blur-0']">
 
       <section class="z-20 h-screen w-full flex flex-col items-center justify-start">
 
@@ -343,7 +347,7 @@
 
       </section>
 
-      <section class="z-20 grid grid-cols-2 grid-rows-3 lg:grid-cols-3 lg:grid-rows-2 -translate-y-1/4 lg:-translate-y-1/5 w-full md:w-3/4 xl:w-1/2 aspect-2/3 lg:aspect-3/2 lg:gap-2">
+      <section class="z-20 grid grid-cols-2 grid-rows-3 lg:grid-cols-3 lg:grid-rows-2 lg:-translate-y-1/5 w-full md:w-3/4 xl:w-1/2 aspect-2/3 lg:aspect-3/2 lg:gap-2">
 
         <a href="/books" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-books-25 flex flex-col items-center justify-center" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[0]]]">
 
@@ -431,16 +435,6 @@
           <div class="lg:opacity-0 lg:translate-y-1.5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:transition lg:duration-300 font-bold uppercase text-lg lg:text-xl font-hero text-center">Maps</div>
 
         </a>
-
-      </section>
-
-      <section class="z-20 w-full h-screen items-center justify-center flex bg-gradient-to-b from-transparent to-gray-200">
-
-        <div class="relative flex items-center justify-center h-[42rem] aspect-square">
-
-          <div class="absolute h-full w-full bg-white bg-opacity-75 rounded-md hover:translate-x-2 hover:-translate-y-2 hover:bg-opacity-100 transition duration-500 hover:drop-shadow-lg"></div>
-
-        </div>
 
       </section>
 
@@ -566,16 +560,20 @@
 
 <style scoped>
 
-.path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: dash 5s linear forwards;
-}
-
-@keyframes dash {
-  to {
-    stroke-dashoffset: 0;
+  .path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 5s linear forwards;
   }
-}
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .skew-x-0-custom {
+    transform: skewX(0deg) !important;
+  }
 
 </style>
