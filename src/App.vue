@@ -12,26 +12,26 @@
 
 <style>
 
+/* width */
 ::-webkit-scrollbar {
-    width: 7px;
+  width: 8px;
+  height: 8px;
 }
 
+/* Track */
 ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0);
+  background: rgba(255, 255, 255, 0);
 }
 
+/* Handle */
 ::-webkit-scrollbar-thumb {
-    /* background: rgba(0,0,0,0.5); */
-    background: rgb(255, 255, 255);
-    border-radius: 30px;
+  background: #a0aec0;
+  border: 3px solid white;
 }
 
+/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-::-webkit-scrollbar:hover {
-    width: 6px;
+  background: #a0aec0;
 }
 
 </style>

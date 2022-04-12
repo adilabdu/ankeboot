@@ -249,7 +249,7 @@
       </div>
 
       <nav class="flex h-full">
-        <ul class="font-hero font-bold uppercase flex justify-center h-full">
+        <ul class="font-sans font-bold uppercase flex justify-center h-full">
           <li class="hidden group relative md:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_2100ms_forwards]">
             <div class="z-0 absolute h-full w-full bg-home-25 group-hover:bg-home-50 -skew-x-12"></div>
             <a href="/home" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">home</a>
@@ -347,9 +347,9 @@
 
       </section>
 
-      <section class="z-20 grid grid-cols-2 grid-rows-3 lg:grid-cols-3 lg:grid-rows-2 lg:-translate-y-1/5 w-full md:w-3/4 xl:w-1/2 aspect-2/3 lg:aspect-3/2 lg:gap-2">
+      <section class="z-20 grid grid-cols-2 grid-rows-3 lg:grid-cols-3 lg:grid-rows-2 lg:-translate-y-1/5 w-full md:w-3/4 xl:w-1/2 aspect-2/3 lg:aspect-3/2">
 
-        <a href="/books" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-books-25 flex flex-col items-center justify-center" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[0]]]">
+        <a href="/books" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-books-25 flex flex-col items-center justify-center lg:rounded-tl-md" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[0]]]">
 
           <div class="group-hover:scale-125 transition duration-300 flex flex-col items-center justify-center w-3/4 h-3/4">
 
@@ -360,7 +360,7 @@
 
           </div>
 
-          <div class="lg:opacity-0 lg:translate-y-1.5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:transition lg:duration-300 font-bold uppercase text-lg lg:text-xl font-hero text-center">Books</div>
+          <div class="lg:opacity-0 lg:translate-y-1.5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:transition lg:duration-300 font-bold uppercase text-lg lg:text-xl font-sans text-center">Books</div>
 
         </a>
 
@@ -376,11 +376,11 @@
 
           </div>
 
-          <div class="lg:opacity-0 lg:translate-y-1.5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:transition lg:duration-300 font-bold uppercase text-lg lg:text-xl font-hero text-center">Publishing</div>
+          <div class="lg:opacity-0 lg:translate-y-1.5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:transition lg:duration-300 font-bold uppercase text-lg lg:text-xl font-sans text-center">Publishing</div>
 
         </a>
 
-        <a href="/resources" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-resources-25 flex flex-col items-center justify-center" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[2]]]">
+        <a href="/resources" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-resources-25 flex flex-col items-center justify-center lg:rounded-tr-md" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[2]]]">
 
           <div class="group-hover:scale-125 transition duration-300 flex flex-col items-center justify-center w-3/4 h-3/4 overflow-clip">
 
@@ -390,11 +390,11 @@
 
           </div>
 
-          <div class="lg:opacity-0 lg:translate-y-1.5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:transition lg:duration-300 font-bold uppercase text-lg lg:text-xl font-hero text-center">Resources</div>
+          <div class="lg:opacity-0 lg:translate-y-1.5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:transition lg:duration-300 font-bold uppercase text-lg lg:text-xl font-sans text-center">Resources</div>
 
         </a>
 
-        <a href="/programs" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-programs-25 flex flex-col items-center justify-center" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[3]]]">
+        <a href="/programs" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-programs-25 flex flex-col items-center justify-center lg:rounded-bl-md" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[3]]]">
 
           <div class="group-hover:scale-125 transition duration-300 flex flex-col items-center justify-center w-3/4 h-3/4 overflow-clip">
 
@@ -404,7 +404,7 @@
 
           </div>
 
-          <div class="lg:opacity-0 lg:translate-y-1.5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:transition lg:duration-300 font-bold uppercase text-lg lg:text-xl font-hero text-center">Programs</div>
+          <div class="lg:opacity-0 lg:translate-y-1.5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:transition lg:duration-300 font-bold uppercase text-lg lg:text-xl font-sans text-center">Programs</div>
 
         </a>
 
@@ -418,11 +418,11 @@
 
           </div>
 
-          <div class="lg:opacity-0 lg:translate-y-1.5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:transition lg:duration-300 font-bold uppercase text-lg lg:text-xl font-hero text-center">Services</div>
+          <div class="lg:opacity-0 lg:translate-y-1.5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:transition lg:duration-300 font-bold uppercase text-lg lg:text-xl font-sans text-center">Services</div>
 
         </a>
 
-        <a href="/maps" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-maps-25 flex flex-col items-center justify-center" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[5]]]" ref="bottomGrid">
+        <a href="/maps" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-maps-25 flex flex-col items-center justify-center lg:rounded-br-md" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[5]]]" ref="bottomGrid">
 
           <div class="group-hover:scale-125 transition duration-300 flex flex-col items-center justify-center w-3/4 h-3/4 overflow-clip">
 
@@ -432,9 +432,72 @@
 
           </div>
 
-          <div class="lg:opacity-0 lg:translate-y-1.5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:transition lg:duration-300 font-bold uppercase text-lg lg:text-xl font-hero text-center">Maps</div>
+          <div class="lg:opacity-0 lg:translate-y-1.5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:transition lg:duration-300 font-bold uppercase text-lg lg:text-xl font-sans text-center">Maps</div>
 
         </a>
+
+      </section>
+
+      <section class="relative h-screen w-full flex items-center justify-center bg-gradient-to-b from-transparent via-white to-white">
+
+        <div class="z-0 absolute w-1/3 aspect-square -translate-x-12 translate-y-10 bg-services-25 rounded-md">
+          <h2 class="font-sans font-bold uppercase text-2xl px-4 py-2 origin-bottom-left inline-flex rotate-90 -translate-y-full">Distributors</h2>
+        </div>
+
+        <div class="relative z-10 w-1/3 aspect-square rounded-md bg-neutral-50 drop-shadow-md flex flex-col-reverse p-4">
+
+          <div class="relative h-1/2 w-full overflow-auto flex gap-2 snap-x snap-mandatory">
+            <div class="min-w-full h-full rounded-md drop-shadow-md snap-center">
+              <img src="../assets/images/photo-1.jpg" alt="Distributors Image" class="object-cover w-full h-full rounded-md">
+            </div>
+            <div class="min-w-full h-full rounded-md drop-shadow-md snap-center">
+              <img src="../assets/images/photo-2.jpg" alt="Distributors Image" class="object-cover w-full h-full rounded-md">
+            </div>
+            <div class="min-w-full h-full rounded-md drop-shadow-md snap-center">
+              <img src="../assets/images/photo-3.jpg" alt="Distributors Image" class="object-cover w-full h-full rounded-md">
+            </div>
+          </div>
+
+          <div class="h-1/2 w-full relative z-0">
+            <div class="absolute rounded-full w-32 aspect-square border-4 border-white"></div>
+            <div class="absolute rounded-full w-48 right-24 top-24 rotate-45 aspect-half-height border-4 border-white"></div>
+
+            <article class="relative z-10 font-sans font-bold flex">
+              <p class="p-8 text-center">Our collection curated from international and locally dignified publications</p>
+            </article>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="relative h-screen w-full flex items-center justify-center bg-white">
+
+        <div class="z-0 absolute w-1/3 aspect-square -translate-x-12 -translate-y-10 bg-services-25 rounded-md flex flex-col">
+          <h2 class="font-sans font-bold uppercase text-2xl px-4 py-1 text-right">Distributors</h2>
+        </div>
+
+        <div class="relative z-10 w-1/3 aspect-square rounded-md bg-white drop-shadow-md flex flex-col-reverse p-4">
+
+          <div class="relative h-1/2 w-full overflow-auto flex gap-2 snap-x snap-mandatory">
+            <div class="min-w-full h-full rounded-md drop-shadow-md snap-center">
+              <img src="../assets/images/photo-1.jpg" alt="Distributors Image" class="object-cover w-full h-full rounded-md">
+            </div>
+            <div class="min-w-full h-full rounded-md drop-shadow-md snap-center">
+              <img src="../assets/images/photo-2.jpg" alt="Distributors Image" class="object-cover w-full h-full rounded-md">
+            </div>
+            <div class="min-w-full h-full rounded-md drop-shadow-md snap-center">
+              <img src="../assets/images/photo-3.jpg" alt="Distributors Image" class="object-cover w-full h-full rounded-md">
+            </div>
+          </div>
+
+          <div class="h-1/2 w-full relative">
+            <div class="absolute rounded-full w-32 aspect-square border-4 border-white"></div>
+            <div class="absolute rounded-full w-48 right-24 top-24 rotate-45 aspect-half-height border-4 border-white"></div>
+          </div>
+
+        </div>
 
       </section>
 

@@ -70,6 +70,7 @@ module.exports = {
                 'grow-skew': 'growSkew 500ms 3600ms forwards',
                 'grow-up': 'growUp 1000ms forwards',
                 'fadeout': 'fadeout 500ms 2000ms forwards',
+                'skew-x': 'skewSideways 3000ms linear infinite alternate forwards'
             },
             keyframes: {
                 tada: {
@@ -127,6 +128,10 @@ module.exports = {
                 },
                 fadeout: {
                     '100%': { opacity: '0', visibility: 'hidden' }
+                },
+                skewSideways : {
+                    '0%': { transform: 'skewX(3deg)' },
+                    '100%': { transform: 'skewX(-3deg)' },
                 }
             },
             screens: {
@@ -135,7 +140,8 @@ module.exports = {
             aspectRatio: {
                 '4/3': '4 / 3',
                 '3/2': '3 / 2',
-                '2/3': '2 / 3'
+                '2/3': '2 / 3',
+                'half-height': '2 / 1'
             },
             scale: {
                 '60': '0.6',
