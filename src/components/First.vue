@@ -617,14 +617,13 @@
 
 <script>
 
-  import { onMounted, ref, toRefs } from "vue"
-
-  import { useElementVisibility, breakpointsTailwind, useBreakpoints, useScroll, useElementSize } from "@vueuse/core"
+  import { onMounted, ref } from "vue"
+  import { useElementVisibility, breakpointsTailwind, useBreakpoints, useElementSize } from "@vueuse/core"
 
   import MobileNavigation from "./MobileNavigation.vue";
 
   import light from "./icons/light.vue";
-  import dark from "./icons/dark.vue"
+  import dark from "./icons/dark.vue";
   import ankebootPNG from "../assets/images/ankeboot.png"
 
   export default {
@@ -642,6 +641,7 @@
         nextImage()
       })
 
+      // Detect Window Size with JS
       const breakpoints = useBreakpoints(breakpointsTailwind)
       const lgAndLarger = breakpoints.greater('lg')
       const mdAndSmaller = breakpoints.smaller('lg')
@@ -673,14 +673,11 @@
       function shuffle(array) {
         let currentIndex = array.length, randomIndex;
 
-        // While there remain elements to shuffle...
         while (currentIndex !== 0) {
 
-          // Pick a remaining element...
           randomIndex = Math.floor(Math.random() * currentIndex);
           currentIndex--;
 
-          // And swap it with the current element.
           [array[currentIndex], array[randomIndex]] = [
             array[randomIndex], array[currentIndex]];
         }
@@ -688,14 +685,8 @@
         return array;
       }
 
-      const DOMLoaded = ref(false)
-      window.addEventListener('DOMContentLoaded', (event) => {
-        DOMLoaded.value = true
-      });
-
       const order = ref([1, 2, 3, 4, 5])
       order.value = shuffle(order.value)
-      console.log(order.value)
 
       async function shareQR() {
 
@@ -751,7 +742,7 @@
       }
 
       return {
-        shareQR, width, height, bottomGrid, bottomGridVisible, partnerVisible, clientsVisible, clients, partners, tagline, taglineVisible, top, durations, order, DOMLoaded, lightMode, changeTheme,
+        shareQR, width, height, bottomGrid, bottomGridVisible, partnerVisible, clientsVisible, clients, partners, tagline, taglineVisible, top, durations, order, lightMode, changeTheme,
         mobileNavigationOpened, toggleMobileNavigation, nextImage, lastImage, imageSlider, imageIndex
       }
 
@@ -762,25 +753,9 @@
 
 <style scoped>
 
-  .path {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: dash 5s linear forwards;
-  }
-
-  @keyframes dash {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-
-  .skew-x-0-custom {
-    transform: skewX(0deg) !important;
-  }
-
   .image-slide::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
   }
 
 </style>
