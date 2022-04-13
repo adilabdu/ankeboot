@@ -264,7 +264,7 @@
           </li>
           <li class="hidden group relative md:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_2400ms_forwards]">
             <div class="z-0 absolute h-full w-full bg-publishing-25 group-hover:bg-publishing-50 -skew-x-12"></div>
-            <a href="/publishing" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">publishing</a>
+            <a href="#publishing" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">publishing</a>
           </li>
           <li class="hidden group relative xl:flex items-center justify-center px-4 w-32 opacity-0 animate-[slideIn_300ms_2500ms_forwards]">
             <div class="z-0 absolute h-full w-full bg-maps-25 group-hover:bg-maps-50 -skew-x-12"></div>
@@ -365,7 +365,7 @@
 
           </a>
 
-          <a href="/publishing" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-publishing-25 flex flex-col items-center justify-center" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[1]]]">
+          <a href="#publishing" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-publishing-25 flex flex-col items-center justify-center" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[1]]]">
 
             <div class="group-hover:scale-125 transition duration-300 flex flex-col items-center justify-center w-3/4 h-3/4 overflow-clip">
 
@@ -440,7 +440,7 @@
         </section>
       </section>
 
-      <section class="pb-16 gap-8 relative max-h-screen w-full flex flex-col justify-center items-center bg-gradient-to-b from-transparent via-white to-white">
+      <section id="publishing" class="scroll-mt-16 pb-16 gap-8 relative max-h-screen w-full flex flex-col justify-center items-center bg-gradient-to-b from-transparent via-white to-white">
 
         <h1 class="font-sans text-[5vw] sm:text-2xl md:text-3xl max-w-lg text-center py-12 lowercase">
           Accelerating Access and Reach with
@@ -477,7 +477,95 @@
                     </p>
                     <p class="text-center">
                       Our working model bridges access gaps, fuels growth, and expands reach in
-                      the Global south and beyond.
+                      the Global South and beyond.
+                    </p>
+                  </div>
+                </article>
+
+                <div class="grayscale relative z-20 flex flex-row-reverse grow max-w-full justify-around items-center py-4">
+                  <img class="w-1/4 scale-50 z-20 relative aspect-auto hover:invert-0 transition duration-300" src="../assets/images/partners/MIT.png"/>
+                  <img class="w-1/4 scale-50 z-20 relative aspect-auto hover:grayscale-0 transition duration-300" src="../assets/images/partners/PHI.png"/>
+                  <img class="w-1/4 scale-50 z-20 relative aspect-auto hover:grayscale-0 transition duration-300" src="../assets/images/partners/OSSREA.png"/>
+                  <img class="w-1/4 scale-50 z-20 relative aspect-auto hover:grayscale-0 transition duration-300" src="../assets/images/partners/AAU.png"/>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <div class="w-2/5 max-w-lg relative group"
+               :style="{ 'height': (height + 8 + 3 + 32) + 'px' }">
+
+            <div class="z-10 absolute left-0 h-full flex items-center group-hover:opacity-100 opacity-0 transition duration-300">
+              <button class="h-full w-12 group hover:scale-125 opacity-70 hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <svg class="scale-75 group-hover:scale-100 transition duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(255,255,255);transform: ;msFilter:;"><path d="m4.431 12.822 13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z"></path></svg>
+              </button>
+            </div>
+
+            <div class="z-10 absolute right-0 h-full flex items-center group-hover:opacity-100 opacity-0 transition duration-300">
+              <button class="h-full w-12 group hover:scale-125 opacity-70 hover:opacity-100 transition duration-300 aspect-square flex items-center justify-center">
+                <svg class="scale-75 group-hover:scale-100 transition duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(255,255,255);transform: ;msFilter:;"><path d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z"></path></svg>
+              </button>
+            </div>
+
+            <div class="relative w-full h-full overflow-auto flex gap-2 snap-x snap-mandatory transition duration-1000"
+                 :class="[partnerVisible ? 'opacity-100' : 'opacity-0']">
+              <div class="min-w-full h-full snap-center">
+                <img src="../assets/images/photo-2.jpg" alt="Partners Image" class="object-cover w-full h-full pb-1">
+              </div>
+              <div class="min-w-full h-full snap-center">
+                <img src="../assets/images/photo-1.jpg" alt="Partners Image" class="object-cover w-full h-full pb-1">
+              </div>
+              <div class="min-w-full h-full snap-center">
+                <img src="../assets/images/photo-3.jpg" alt="Partners Image" class="object-cover w-full h-full pb-1">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="pb-16 gap-8 relative max-h-screen w-full flex flex-col justify-center items-center bg-gradient-to-b from-white to-transparent">
+
+        <h1 class="font-sans text-[5vw] sm:text-2xl md:text-3xl max-w-lg text-center py-12 lowercase">
+          Accelerating Access and Reach with
+          <span class="italic font-bold">
+            Publishing Partnerships
+          </span>
+        </h1>
+
+        <div class="flex justify-center w-full h-full gap-2">
+          <div class="w-3/5 max-w-lg relative">
+            <div class="z-0 absolute w-full transition duration-1000 bg-publishing-25"
+                 :class="[clientsVisible ? '-translate-x-12 -translate-y-10' : 'translate-x-0 translate-y-0']"
+                 :style="{'height': height + 'px'}">
+              <h2 class="font-sans font-bold uppercase text-2xl px-4 py-2 origin-top-right -translate-x-full -rotate-90 inline-flex">Publications</h2>
+            </div>
+
+            <div ref="clients" class="relative z-10 w-full transition duration-1000 bg-neutral-50 bg-opacity-80 drop-shadow-md flex flex-col-reverse p-4">
+
+              <div class="h-1/2 w-full flex flex-col relative z-0">
+                <div class="absolute rounded-full w-32 aspect-square border-4 border-white"></div>
+                <div class="absolute rounded-full w-48 right-24 top-24 rotate-45 aspect-half-height border-4 border-white"></div>
+
+                <article class="relative z-10 font-sans font-bold flex justify-center">
+                  <div class="flex gap-8 flex-col px-8 pt-8">
+                    <p class="text-center">
+                      Our selection of books comes from world’s leading publishers,
+                      who are revolutionising the industry with a focused approach to meet the growing needs
+                      of academic publishing.
+                    </p>
+                    <p class="text-center">
+                      <span class="font-hero uppercase">Ankeboot</span> works with forerunners in academic
+                      publishing providing high-quality scholastic
+                      research and reference books with affordable prices.
+                    </p>
+                    <p class="text-center">
+                      Our working model bridges access gaps, fuels growth, and expands reach in
+                      the Global South and beyond.
                     </p>
                   </div>
                 </article>
@@ -511,6 +599,7 @@
         </div>
 
       </section>
+
 
     </main>
 
