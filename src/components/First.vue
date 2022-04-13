@@ -449,15 +449,16 @@
           </span>
         </h1>
 
-        <div class="flex justify-center w-full h-full">
-          <div class="w-3/5 max-w-lg relative">
+        <div class="flex lg:flex-row flex-col items-center justify-center w-full h-full">
+          <div class="w-full lg:w-3/5 max-w-lg relative">
+
             <div class="z-0 absolute transition duration-1000 bg-services-25"
-                 :class="[partnerVisible ? 'opacity-100 -translate-x-12 -translate-y-10' : 'opacity-0 translate-x-0 translate-y-0']"
-                 :style="{'height': (height + 32 + 40) + 'px', 'width': (width + 32 + 40 + 8) + 'px'}">
-              <h2 class="font-sans font-bold uppercase text-2xl px-4 py-2 origin-top-right -translate-x-full -rotate-90 inline-flex">Partners</h2>
+                 :class="[partnerVisible ? 'opacity-100 lg:-translate-x-12 -translate-y-10' : 'opacity-0 translate-x-0 translate-y-0']"
+                 :style="{ height: (height + 32 + 40) + 'px', width: [lgAndLarger ? (width + 32 + 40 + 8) + 'px' : (width + 32) + 'px'] }">
+              <h2 class="font-sans font-bold uppercase text-2xl px-4 py-2 lg:origin-top-right lg:-translate-x-full lg:-rotate-90 lg:inline-flex flex justify-end items-center">Partners</h2>
             </div>
 
-            <div ref="partners" class="relative z-10 w-full transition duration-1000 bg-neutral-50 bg-opacity-80 drop-shadow-md flex flex-col-reverse p-4">
+            <div ref="partners" class=" relative z-10 w-full transition duration-1000 bg-neutral-50 bg-opacity-80 drop-shadow-md flex flex-col-reverse p-4">
 
               <div class="h-1/2 w-full flex flex-col relative z-0">
                 <div class="absolute rounded-full w-3/12 aspect-square border-4 border-white"></div>
@@ -494,8 +495,8 @@
             </div>
           </div>
 
-          <div class="w-2/5 max-w-lg relative group shadow-md"
-               :style="{ 'height': (height + 32) + 'px' }">
+          <div class="w-full lg:w-2/5 max-w-lg relative group shadow-md"
+               :style="{ height: lgAndLarger ? (height + 32) + 'px' : ((height + 32) / 3) + 'px' }">
 
             <div class="z-10 absolute left-0 h-full flex items-center group-hover:opacity-100 opacity-0 transition duration-300">
               <button @click="lastImage()" class="h-full w-12 group opacity-70 transition duration-300 flex items-center justify-center"
@@ -743,7 +744,7 @@
 
       return {
         shareQR, width, height, bottomGrid, bottomGridVisible, partnerVisible, clientsVisible, clients, partners, tagline, taglineVisible, top, durations, order, lightMode, changeTheme,
-        mobileNavigationOpened, toggleMobileNavigation, nextImage, lastImage, imageSlider, imageIndex
+        mobileNavigationOpened, toggleMobileNavigation, nextImage, lastImage, imageSlider, imageIndex, lgAndLarger
       }
 
     }
