@@ -440,31 +440,47 @@
 
       <section class="relative h-screen w-full flex items-center justify-center bg-gradient-to-b from-transparent via-white to-white">
 
-        <div class="z-0 absolute w-1/3 aspect-square -translate-x-12 translate-y-10 bg-services-25 rounded-md">
-          <h2 class="font-sans font-bold uppercase text-2xl px-4 py-2 origin-bottom-left inline-flex rotate-90 -translate-y-full">Distributors</h2>
+        <div class="z-0 absolute w-1/3 aspect-square transition duration-1000 bg-services-25"
+          :class="[distroVisible ? '-translate-x-12 -translate-y-10' : 'translate-x-0 translate-y-0']">
+          <h2 class="font-sans font-bold uppercase text-2xl px-4 py-2 origin-top-right -translate-x-full -rotate-90 inline-flex">Distributors</h2>
         </div>
 
-        <div class="relative z-10 w-1/3 aspect-square rounded-md bg-neutral-50 drop-shadow-md flex flex-col-reverse p-4">
+        <div ref="distributors" class="relative z-10 w-1/3 transition duration-1000 aspect-square bg-neutral-50 bg-opacity-80 drop-shadow-md flex flex-col-reverse p-4">
 
           <div class="relative h-1/2 w-full overflow-auto flex gap-2 snap-x snap-mandatory">
-            <div class="min-w-full h-full rounded-md drop-shadow-md snap-center">
-              <img src="../assets/images/photo-1.jpg" alt="Distributors Image" class="object-cover w-full h-full rounded-md">
+            <div class="min-w-full h-full  snap-center">
+              <img src="../assets/images/photo-1.jpg" alt="Distributors Image" class="object-cover w-full h-full pb-1">
             </div>
-            <div class="min-w-full h-full rounded-md drop-shadow-md snap-center">
-              <img src="../assets/images/photo-2.jpg" alt="Distributors Image" class="object-cover w-full h-full rounded-md">
+            <div id="focusedImage" tabindex="0" class="min-w-full h-full  snap-center focus:outline-0">
+              <img src="../assets/images/photo-2.jpg" alt="Distributors Image" class="object-cover w-full h-full pb-1">
             </div>
-            <div class="min-w-full h-full rounded-md drop-shadow-md snap-center">
-              <img src="../assets/images/photo-3.jpg" alt="Distributors Image" class="object-cover w-full h-full rounded-md">
+            <div class="min-w-full h-full  snap-center">
+              <img src="../assets/images/photo-3.jpg" alt="Distributors Image" class="object-cover w-full h-full pb-1">
             </div>
           </div>
 
-          <div class="h-1/2 w-full relative z-0">
+          <div class="h-1/2 w-full flex flex-col relative z-0">
             <div class="absolute rounded-full w-32 aspect-square border-4 border-white"></div>
             <div class="absolute rounded-full w-48 right-24 top-24 rotate-45 aspect-half-height border-4 border-white"></div>
 
-            <article class="relative z-10 font-sans font-bold flex">
-              <p class="p-8 text-center">Our collection curated from international and locally dignified publications</p>
+            <article class="relative z-10 font-sans font-bold flex justify-center">
+              <flex class="flex gap-8 flex-col px-8 pt-8">
+                <p class="text-center">Our collection curated from international and locally dignified publications.</p>
+                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                  ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                  eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                  mollit anim id est laborum.
+                </p>
+              </flex>
             </article>
+
+            <div class="relative z-10 flex flex-row-reverse grow w-full justify-around items-center">
+              <img class="scale-70 w-32 aspect-auto hover:invert-0 transition duration-300" src="../assets/images/distributors/MIT.png"/>
+              <img class="scale-70 w-32 aspect-auto hover:grayscale-0 transition duration-300" src="../assets/images/distributors/PHI.png"/>
+              <img class="scale-70 w-32 aspect-auto hover:grayscale-0 transition duration-300" src="../assets/images/distributors/OSSREA.png"/>
+              <img class="scale-70 w-32 aspect-auto hover:grayscale-0 transition duration-300" src="../assets/images/distributors/AAU.png"/>
+            </div>
 
           </div>
 
@@ -472,29 +488,50 @@
 
       </section>
 
-      <section class="relative h-screen w-full flex items-center justify-center bg-white">
+      <section class="relative h-screen w-full flex items-center justify-center bg-gradient-to-b from-white to-transparent">
 
-        <div class="z-0 absolute w-1/3 aspect-square -translate-x-12 -translate-y-10 bg-services-25 rounded-md flex flex-col">
-          <h2 class="font-sans font-bold uppercase text-2xl px-4 py-1 text-right">Distributors</h2>
+        <div class="z-0 absolute w-1/3 aspect-square transition duration-1000 bg-resources-25"
+             :class="[clientsVisible ? '-translate-x-12 -translate-y-10' : 'translate-x-0 translate-y-0']">
+          <h2 class="font-sans font-bold uppercase text-2xl px-4 py-2 origin-top-right -translate-x-full -rotate-90 inline-flex">Clients</h2>
         </div>
 
-        <div class="relative z-10 w-1/3 aspect-square rounded-md bg-white drop-shadow-md flex flex-col-reverse p-4">
+        <div ref="clients" class="relative z-10 w-1/3 transition duration-1000 aspect-square bg-neutral-50 bg-opacity-80 drop-shadow-md flex flex-col-reverse p-4">
 
           <div class="relative h-1/2 w-full overflow-auto flex gap-2 snap-x snap-mandatory">
-            <div class="min-w-full h-full rounded-md drop-shadow-md snap-center">
-              <img src="../assets/images/photo-1.jpg" alt="Distributors Image" class="object-cover w-full h-full rounded-md">
+            <div class="min-w-full h-full  snap-center">
+              <img src="../assets/images/photo-1.jpg" alt="Distributors Image" class="object-cover w-full h-full pb-1">
             </div>
-            <div class="min-w-full h-full rounded-md drop-shadow-md snap-center">
-              <img src="../assets/images/photo-2.jpg" alt="Distributors Image" class="object-cover w-full h-full rounded-md">
+            <div tabindex="0" class="min-w-full h-full  snap-center focus:outline-0">
+              <img src="../assets/images/photo-2.jpg" alt="Distributors Image" class="object-cover w-full h-full pb-1">
             </div>
-            <div class="min-w-full h-full rounded-md drop-shadow-md snap-center">
-              <img src="../assets/images/photo-3.jpg" alt="Distributors Image" class="object-cover w-full h-full rounded-md">
+            <div class="min-w-full h-full  snap-center">
+              <img src="../assets/images/photo-3.jpg" alt="Distributors Image" class="object-cover w-full h-full pb-1">
             </div>
           </div>
 
-          <div class="h-1/2 w-full relative">
+          <div class="h-1/2 w-full flex flex-col relative z-0">
             <div class="absolute rounded-full w-32 aspect-square border-4 border-white"></div>
             <div class="absolute rounded-full w-48 right-24 top-24 rotate-45 aspect-half-height border-4 border-white"></div>
+
+            <article class="relative z-10 font-sans font-bold flex justify-center">
+              <flex class="flex gap-8 flex-col px-8 pt-8">
+                <p class="text-center">Our collection curated from international and locally dignified publications.</p>
+                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                  ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                  eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                  mollit anim id est laborum.
+                </p>
+              </flex>
+            </article>
+
+            <div class="relative z-10 flex flex-row-reverse grow w-full justify-around items-center">
+              <img class="scale-70 w-32 aspect-auto hover:invert-0 transition duration-300" src="../assets/images/distributors/MIT.png"/>
+              <img class="scale-70 w-32 aspect-auto hover:grayscale-0 transition duration-300" src="../assets/images/distributors/PHI.png"/>
+              <img class="scale-70 w-32 aspect-auto hover:grayscale-0 transition duration-300" src="../assets/images/distributors/OSSREA.png"/>
+              <img class="scale-70 w-32 aspect-auto hover:grayscale-0 transition duration-300" src="../assets/images/distributors/AAU.png"/>
+            </div>
+
           </div>
 
         </div>
@@ -530,14 +567,22 @@
 
     setup() {
 
+      onMounted(() => {
+        document.getElementById("focusedImage").focus();
+      })
+
       const breakpoints = useBreakpoints(breakpointsTailwind)
       const lgAndLarger = breakpoints.greater('lg')
       const mdAndSmaller = breakpoints.smaller('lg')
 
       const bottomGrid = ref(null)
       const tagline = ref(null)
+      const distributors = ref(null)
+      const clients = ref(null)
       const bottomGridVisible = useElementVisibility(bottomGrid)
       const taglineVisible = useElementVisibility(tagline)
+      const distroVisible = useElementVisibility(distributors)
+      const clientsVisible = useElementVisibility(clients)
 
       const lightMode = ref(true)
       function changeTheme() {
@@ -612,7 +657,7 @@
       }
 
       return {
-        shareQR, bottomGrid, bottomGridVisible, tagline, taglineVisible, top, durations, order, DOMLoaded, lightMode, changeTheme,
+        shareQR, bottomGrid, bottomGridVisible, distroVisible, clientsVisible, clients, distributors, tagline, taglineVisible, top, durations, order, DOMLoaded, lightMode, changeTheme,
         mobileNavigationOpened, toggleMobileNavigation
       }
 
