@@ -449,19 +449,19 @@
           </span>
         </h1>
 
-        <div class="flex justify-center w-full h-full gap-2">
+        <div class="flex justify-center w-full h-full">
           <div class="w-3/5 max-w-lg relative">
-            <div class="z-0 absolute w-full transition duration-1000 bg-services-25"
-                 :class="[partnerVisible ? '-translate-x-12 -translate-y-10' : 'translate-x-0 translate-y-0']"
-                 :style="{'height': height + 'px'}">
+            <div class="z-0 absolute transition duration-1000 bg-services-25"
+                 :class="[partnerVisible ? 'opacity-100 -translate-x-12 -translate-y-10' : 'opacity-0 translate-x-0 translate-y-0']"
+                 :style="{'height': (height + 32 + 40) + 'px', 'width': (width + 32 + 40 + 8) + 'px'}">
               <h2 class="font-sans font-bold uppercase text-2xl px-4 py-2 origin-top-right -translate-x-full -rotate-90 inline-flex">Partners</h2>
             </div>
 
             <div ref="partners" class="relative z-10 w-full transition duration-1000 bg-neutral-50 bg-opacity-80 drop-shadow-md flex flex-col-reverse p-4">
 
               <div class="h-1/2 w-full flex flex-col relative z-0">
-                <div class="absolute rounded-full w-32 aspect-square border-4 border-white"></div>
-                <div class="absolute rounded-full w-48 right-24 top-24 rotate-45 aspect-half-height border-4 border-white"></div>
+                <div class="absolute rounded-full w-3/12 aspect-square border-4 border-white"></div>
+                <div class="absolute rounded-full w-5/12 right-1/4 top-1/3 rotate-45 aspect-half-height border-4 border-white"></div>
 
                 <article class="relative z-10 font-sans font-bold flex justify-center">
                   <div class="flex gap-8 flex-col px-8 pt-8">
@@ -482,7 +482,7 @@
                   </div>
                 </article>
 
-                <div class="grayscale relative z-20 flex flex-row-reverse grow max-w-full justify-around items-center py-4">
+                <div class="relative z-20 flex flex-row-reverse grow max-w-full justify-around items-center py-4">
                   <img class="w-1/4 scale-50 z-20 relative aspect-auto hover:invert-0 transition duration-300" src="../assets/images/partners/MIT.png"/>
                   <img class="w-1/4 scale-50 z-20 relative aspect-auto hover:grayscale-0 transition duration-300" src="../assets/images/partners/PHI.png"/>
                   <img class="w-1/4 scale-50 z-20 relative aspect-auto hover:grayscale-0 transition duration-300" src="../assets/images/partners/OSSREA.png"/>
@@ -494,31 +494,39 @@
             </div>
           </div>
 
-          <div class="w-2/5 max-w-lg relative group"
-               :style="{ 'height': (height + 8 + 3 + 32) + 'px' }">
+          <div class="w-2/5 max-w-lg relative group shadow-md"
+               :style="{ 'height': (height + 32) + 'px' }">
 
             <div class="z-10 absolute left-0 h-full flex items-center group-hover:opacity-100 opacity-0 transition duration-300">
-              <button class="h-full w-12 group hover:scale-125 opacity-70 hover:opacity-100 transition duration-300 flex items-center justify-center">
+              <button @click="lastImage()" class="h-full w-12 group opacity-70 transition duration-300 flex items-center justify-center"
+                      :class="imageIndex === 0 ? 'cursor-auto' : 'hover:scale-125 hover:opacity-100'">
                 <svg class="scale-75 group-hover:scale-100 transition duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(255,255,255);transform: ;msFilter:;"><path d="m4.431 12.822 13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z"></path></svg>
               </button>
             </div>
 
             <div class="z-10 absolute right-0 h-full flex items-center group-hover:opacity-100 opacity-0 transition duration-300">
-              <button class="h-full w-12 group hover:scale-125 opacity-70 hover:opacity-100 transition duration-300 aspect-square flex items-center justify-center">
+              <button @click="nextImage()" class="h-full w-12 group opacity-70 transition duration-300 flex items-center justify-center"
+                      :class="imageIndex === 2 ? 'cursor-auto' : 'hover:scale-125 hover:opacity-100'">
                 <svg class="scale-75 group-hover:scale-100 transition duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(255,255,255);transform: ;msFilter:;"><path d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z"></path></svg>
               </button>
             </div>
 
-            <div class="relative w-full h-full overflow-auto flex gap-2 snap-x snap-mandatory transition duration-1000"
+            <div class="z-10 absolute bottom-0 w-full flex justify-center items-center gap-2 py-2">
+              <div class="w-2 aspect-square bg-white rounded-full transition duration-300" :class="imageIndex === 0 ? 'opacity-100' : 'opacity-70'"></div>
+              <div class="w-2 aspect-square bg-white rounded-full transition duration-300" :class="imageIndex === 1 ? 'opacity-100' : 'opacity-70'"></div>
+              <div class="w-2 aspect-square bg-white rounded-full transition duration-300" :class="imageIndex === 2 ? 'opacity-100' : 'opacity-70'"></div>
+            </div>
+
+            <div ref="imageSlider" class="image-slide relative w-full h-full overflow-auto flex gap-2 snap-x snap-mandatory transition duration-1000"
                  :class="[partnerVisible ? 'opacity-100' : 'opacity-0']">
-              <div class="min-w-full h-full snap-center">
-                <img src="../assets/images/photo-2.jpg" alt="Partners Image" class="object-cover w-full h-full pb-1">
+              <div ref="imageOne" class="min-w-full h-full snap-center">
+                <img src="../assets/images/photo-2.jpg" alt="Partners Image" class="object-cover w-full h-full">
               </div>
               <div class="min-w-full h-full snap-center">
-                <img src="../assets/images/photo-1.jpg" alt="Partners Image" class="object-cover w-full h-full pb-1">
+                <img src="../assets/images/photo-1.jpg" alt="Partners Image" class="object-cover w-full h-full">
               </div>
               <div class="min-w-full h-full snap-center">
-                <img src="../assets/images/photo-3.jpg" alt="Partners Image" class="object-cover w-full h-full pb-1">
+                <img src="../assets/images/photo-3.jpg" alt="Partners Image" class="object-cover w-full h-full">
               </div>
             </div>
 
@@ -630,6 +638,10 @@
 
     setup() {
 
+      onMounted(() => {
+        nextImage()
+      })
+
       const breakpoints = useBreakpoints(breakpointsTailwind)
       const lgAndLarger = breakpoints.greater('lg')
       const mdAndSmaller = breakpoints.smaller('lg')
@@ -716,9 +728,31 @@
 
       }
 
+      const imageSlider = ref(null)
+      const imageIndex = ref(0);
+      function nextImage() {
+        if (imageIndex.value !== 2) {
+          imageSlider.value.scrollBy({
+            left: 10,
+            behavior: 'smooth'
+          })
+          imageIndex.value += 1
+        }
+      }
+
+      function lastImage() {
+        if (imageIndex.value !== 0) {
+          imageSlider.value.scrollBy({
+            left: -10,
+            behavior: 'smooth'
+          })
+          imageIndex.value -= 1
+        }
+      }
+
       return {
         shareQR, width, height, bottomGrid, bottomGridVisible, partnerVisible, clientsVisible, clients, partners, tagline, taglineVisible, top, durations, order, DOMLoaded, lightMode, changeTheme,
-        mobileNavigationOpened, toggleMobileNavigation
+        mobileNavigationOpened, toggleMobileNavigation, nextImage, lastImage, imageSlider, imageIndex
       }
 
     }
@@ -742,6 +776,11 @@
 
   .skew-x-0-custom {
     transform: skewX(0deg) !important;
+  }
+
+  .image-slide::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
   }
 
 </style>
