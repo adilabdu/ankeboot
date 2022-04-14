@@ -241,11 +241,12 @@
         <p class=" flex flex-col items-start justify-center transition duration-300">
           <span class="uppercase text-2xl leading-none animate-slide-in"
               :class="[language === 'am' ? 'font-amh' : 'font-hero']">{{ words['title'] }}</span>
-          <span class="font-sans lowercase text-base leading-none animate-slide-in">
-            bookstore
-            <span class="font-mono">x</span>
-            publishing
-          </span>
+            <div class="inline" :class="[language === 'am' ? 'font-ebrima' : 'font-sans', 'animate-slide-in', 'leading-none']"  v-html="words['subtitle']"></div>
+<!--          <span class="font-sans lowercase text-base leading-none animate-slide-in">-->
+<!--            bookstore-->
+<!--            <span class="font-mono">x</span>-->
+<!--            publishing-->
+<!--          </span>-->
         </p>
       </div>
 
@@ -327,25 +328,29 @@
             <div class="z-0 grow min-h-24"></div>
             <div class="relative flex flex-col items-center justify-center">
 
-              <h1 class="filter drop-shadow-xl z-10  uppercase hero-title leading-none text-[15vw] sm:text-8xl md:text-9xl overflow-clip"
+              <h1 class="filter drop-shadow-xl z-10 uppercase hero-title leading-none overflow-clip"
                   :class="[language === 'am' ? 'font-amh' : 'font-hero']">
-                {{ words['title'] }}
+                <div class="inline transition duration-1000"
+                     :class="[language === 'am' ? 'font-amh text-[15vw] sm:text-8xl md:text-[10rem]' : 'font-hero text-[15vw] sm:text-8xl md:text-9xl']"
+                     v-html="words['title']">
+                </div>
               </h1>
 
               <h3 class="z-20  hero-sub font-sans lowercase leading-none text-[6vw] sm:text-4xl md:text-5xl px-5 py-1">
-          <span class="">
-            bookstore
-          </span>
-                <span class="font-mono">x</span>
-                <span class="">
-            publishing
-          </span>
+                <div class="inline" :class="[language === 'am' ? 'font-ebrima' : 'font-sans']"  v-html="words['subtitle']"></div>
+<!--          <span class="">-->
+<!--            bookstore-->
+<!--          </span>-->
+<!--                <span class="font-mono">x</span>-->
+<!--                <span class="">-->
+<!--            publishing-->
+<!--          </span>-->
               </h3>
 
               <h3 ref="tagline" class="z-20 hero-sub lowercase text-[5vw] sm:text-2xl md:text-3xl text-center mt-12"
                   :class="[language === 'am' ? 'font-ebrima' : 'font-sans']">
 
-                {{ words['hero_tag'] }}
+                <div class="inline" v-html="words['hero_tag']"></div>
 
               </h3>
 
@@ -358,10 +363,11 @@
 
       </section>
 
-      <section class="max-h-screen w-full flex items-start justify-center">
-        <section class="z-20 grid grid-cols-2 grid-rows-3 lg:grid-cols-3 lg:grid-rows-2 lg:-translate-y-1/5 w-full md:w-3/4 xl:w-1/2 aspect-2/3 lg:aspect-3/2">
+      <section class="lg:max-h-screen w-full flex items-start justify-center -translate-y-1/5 lg:-translate-y-0">
 
-          <a href="/books" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-books-25 flex flex-col items-center justify-center lg:rounded-tl-md" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[0]]]">
+        <div class="px-2 lg:px-2 z-20 grid grid-cols-2 grid-rows-3 lg:grid-cols-3 lg:grid-rows-2 -translate-y-1/5 w-full md:w-3/4 xl:w-1/2">
+
+          <a href="/books" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-books-25 flex flex-col items-center justify-center rounded-tl-md lg:rounded-tl-md" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[0]]]">
 
             <div class="group-hover:scale-125 transition duration-300 flex flex-col items-center justify-center w-3/4 h-3/4">
 
@@ -376,7 +382,7 @@
 
           </a>
 
-          <a href="#publishing" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-publishing-25 flex flex-col items-center justify-center" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[1]]]">
+          <a href="#publishing" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-publishing-25 flex flex-col items-center justify-center rounded-tr-md lg:rounded-none" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[1]]]">
 
             <div class="group-hover:scale-125 transition duration-300 flex flex-col items-center justify-center w-3/4 h-3/4 overflow-clip">
 
@@ -420,7 +426,7 @@
 
           </a>
 
-          <a href="/services" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-services-25 flex flex-col items-center justify-center" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[4]]]">
+          <a href="/services" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-services-25 flex flex-col items-center justify-center rounded-bl-md lg:rounded-none" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[4]]]">
 
             <div class="group-hover:scale-125 transition duration-300 flex flex-col items-center justify-center w-3/4 h-3/4 overflow-clip">
 
@@ -434,7 +440,7 @@
 
           </a>
 
-          <a href="/maps" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-maps-25 flex flex-col items-center justify-center lg:rounded-br-md" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[5]]]" ref="bottomGrid">
+          <a href="/maps" class="group lg:hover:drop-shadow-xl transition duration-150 w-full aspect-square bg-maps-25 flex flex-col items-center justify-center rounded-br-md lg:rounded-br-md" :class="[bottomGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12', durations[order[5]]]" ref="bottomGrid">
 
             <div class="group-hover:scale-125 transition duration-300 flex flex-col items-center justify-center w-3/4 h-3/4 overflow-clip">
 
@@ -448,20 +454,22 @@
 
           </a>
 
-        </section>
+        </div>
+
       </section>
 
-      <section class="scroll-mt-16 pb-32 gap-8 relative max-h-screen w-full flex flex-col justify-center items-center bg-gradient-to-b from-transparent via-white to-white">
+      <section id="partners" class="-translate-y-1/5 lg:-translate-y-0 -scroll-mt-16 lg:scroll-mt-16 pb-32 gap-8 relative lg:max-h-screen w-full flex flex-col justify-center items-center bg-gradient-to-b from-transparent via-white to-white">
 
-        <h1 class="font-sans text-[5vw] sm:text-2xl md:text-3xl max-w-lg text-center py-12 lowercase">
+        <h1 class="font-sans text-[5vw] sm:text-2xl md:text-3xl max-w-lg text-center pt-36 pb-12 lg:py-12 lowercase">
           Accelerating Access and Reach with
           <div class="font-bold transition duration-1000 inline-block" :class="[partnerVisible ? '-skew-x-12' : '']">
             Publishing Partnerships
           </div>
         </h1>
 
-        <div class="flex lg:flex-row flex-col items-center justify-center w-full h-full">
-          <div class="w-full lg:w-3/5 max-w-lg relative">
+        <div class="flex lg:flex-row flex-col gap-0 items-center justify-center w-full h-full">
+
+          <div class="w-full px-2 lg:px-0 lg:w-3/5 max-w-lg relative">
 
             <div class="z-0 absolute transition duration-1000 bg-services-25"
                  :class="[partnerVisible ? 'opacity-100 lg:-translate-x-12 -translate-y-10' : 'opacity-0 translate-x-0 translate-y-0']"
@@ -476,7 +484,7 @@
                 <div class="absolute rounded-full w-5/12 right-1/4 top-1/3 rotate-45 aspect-half-height border-4 border-white"></div>
 
                 <article class="relative z-10 font-sans font-bold flex justify-center">
-                  <div class="flex gap-8 flex-col px-8 pt-8">
+                  <div class="flex gap-8 flex-col lg:px-8 pt-8">
                     <p class="text-center">
                       Our selection of books comes from world’s leading publishers,
                       who are revolutionising the industry with a focused approach to meet the growing needs
@@ -506,31 +514,31 @@
             </div>
           </div>
 
-          <div class="w-full lg:w-2/5 max-w-lg relative group shadow-md"
-               :style="{ height: lgAndLarger ? (height + 32) + 'px' : ((height + 32) / 3) + 'px' }">
+          <div class="w-full px-2 lg:px-0 lg:w-2/5 max-w-lg relative group"
+               :style="{ height: lgAndLarger ? (height + 32) + 'px' : ((height + 32) / 2) + 'px' }">
 
-            <div class="z-10 absolute left-0 h-full flex items-center group-hover:opacity-100 opacity-0 transition duration-300">
+            <div class="z-10 absolute left-2 h-full flex items-center lg:group-hover:opacity-100 lg:opacity-0 transition duration-300">
               <button @click="lastImage()" class="h-full w-12 group opacity-70 transition duration-300 flex items-center justify-center"
-                      :class="imageIndex === 0 ? 'cursor-auto' : 'hover:scale-125 hover:opacity-100'">
+                      :class="imageIndex === 0 ? 'cursor-auto' : 'lg:hover:scale-125 lg:hover:opacity-100'">
                 <svg class="transition duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(255,255,255);transform: ;msFilter:;"><path d="m4.431 12.822 13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z"></path></svg>
               </button>
             </div>
 
-            <div class="z-10 absolute right-0 h-full flex items-center group-hover:opacity-100 opacity-0 transition duration-300">
+            <div class="z-10 absolute right-2 h-full flex items-center lg:group-hover:opacity-100 lg:opacity-0 transition duration-300">
               <button @click="nextImage()" class="h-full w-12 group opacity-70 transition duration-300 flex items-center justify-center"
-                      :class="imageIndex === 2 ? 'cursor-auto' : 'hover:scale-125 hover:opacity-100'">
+                      :class="imageIndex === 2 ? 'cursor-auto' : 'lg:hover:scale-125 lg:hover:opacity-100'">
                 <svg class="transition duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(255,255,255);transform: ;msFilter:;"><path d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z"></path></svg>
               </button>
             </div>
 
-            <div class="z-10 absolute bottom-0 w-full flex justify-center items-center gap-2 py-2">
+            <div class="z-10 absolute bottom-0 w-full left-0 right-0 flex justify-center items-center gap-2 py-2">
               <div class="w-2 aspect-square bg-white rounded-full transition duration-300" :class="imageIndex === 0 ? 'opacity-100' : 'opacity-70'"></div>
               <div class="w-2 aspect-square bg-white rounded-full transition duration-300" :class="imageIndex === 1 ? 'opacity-100' : 'opacity-70'"></div>
               <div class="w-2 aspect-square bg-white rounded-full transition duration-300" :class="imageIndex === 2 ? 'opacity-100' : 'opacity-70'"></div>
             </div>
 
-            <div ref="imageSlider" class="image-slide relative w-full h-full overflow-auto flex gap-2 snap-x snap-mandatory transition duration-1000"
-                 :class="[partnerVisible ? 'opacity-100' : 'opacity-0']">
+            <div ref="imageSlider" class="image-slide relative w-full h-full overflow-auto flex gap-2 snap-x snap-mandatory shadow-md transition duration-1000"
+                 :class="[partnerVisible ? 'lg:opacity-100' : 'lg:opacity-0']">
               <div ref="imageOne" class="min-w-full h-full snap-center">
                 <img src="../assets/images/photo-2.jpg" alt="Partners Image" class="object-cover w-full h-full">
               </div>
@@ -548,7 +556,7 @@
 
       </section>
 
-      <section id="publishing" class="scroll-mt-16 pb-32 gap-8 relative w-full flex flex-col justify-center items-center bg-gradient-to-b from-white to-transparent">
+      <section id="publishing" class="-translate-y-1/5 lg:-translate-y-0 scroll-mt-16 pb-32 gap-8 relative w-full flex flex-col justify-center items-center bg-gradient-to-b from-white to-transparent">
 
         <h1 class="font-sans text-[5vw] sm:text-2xl md:text-3xl max-w-lg text-center py-12 lowercase">
           Defining Educational Frontiers with
@@ -562,7 +570,7 @@
             <div class="z-0 absolute w-full transition duration-1000 bg-publishing-25"
                  :class="[clientsVisible ? '-translate-x-12 -translate-y-10' : 'translate-x-0 translate-y-0']"
                  :style="{ height: (clientsHeight + 32) + 'px' }">
-              <h2 class="font-sans font-bold uppercase text-2xl px-4 py-2 origin-top-right -translate-x-full -rotate-90 inline-flex">Publications</h2>
+              <h2 class="font-sans font-bold uppercase text-2xl px-4 py-2 origin-top-right -translate-x-full -rotate-90 inline-flex">Publishing</h2>
             </div>
 
             <div ref="clients" class="relative z-10 w-full transition duration-1000 bg-neutral-50 bg-opacity-80 drop-shadow-md flex flex-col-reverse p-4">
@@ -608,7 +616,6 @@
 
       </section>
 
-
     </main>
 
   </div>
@@ -617,8 +624,10 @@
 
 <script>
 
-import { onMounted, ref, watch, computed } from "vue"
+  import { onMounted, ref, watch, computed } from "vue"
   import { useElementVisibility, breakpointsTailwind, useBreakpoints, useElementSize, useScroll } from "@vueuse/core"
+
+  import {marked} from 'marked'
 
   import MobileNavigation from "./MobileNavigation.vue";
 
@@ -759,7 +768,7 @@ import { onMounted, ref, watch, computed } from "vue"
 
       return {
         shareQR, width, height, bottomGrid, bottomGridVisible, partnerVisible, clientsVisible, clients, partners, tagline, taglineVisible, top, durations, order, lightMode, changeTheme,
-        mobileNavigationOpened, toggleMobileNavigation, nextImage, lastImage, imageSlider, imageIndex, lgAndLarger, clientsSize, clientsHeight, words, language, changeLanguage
+        mobileNavigationOpened, toggleMobileNavigation, nextImage, lastImage, imageSlider, imageIndex, lgAndLarger, clientsSize, clientsHeight, words, language, changeLanguage, marked
       }
 
     }
