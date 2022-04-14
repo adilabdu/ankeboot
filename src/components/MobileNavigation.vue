@@ -24,7 +24,7 @@
           <li class="group relative flex items-center justify-center px-4 py-3 w-32 opacity-0"
                 :class="[opened ? 'animate-[slideIn_300ms_400ms_forwards]' : '']">
             <div class="z-0 absolute h-full w-full bg-publishing-25 group-hover:bg-publishing-50 -skew-x-12"></div>
-            <a href="/publishing" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">publishing</a>
+            <a href="#partners" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">publishing</a>
           </li>
           <li class="group relative flex items-center justify-center px-4 py-3 w-32 opacity-0"
                 :class="[opened ? 'animate-[slideIn_300ms_500ms_forwards]' : '']">
