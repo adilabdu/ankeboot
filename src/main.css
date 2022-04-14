@@ -17,10 +17,11 @@
     }
 
     @font-face {
+        font-family: "Ebrima";
+        src: url('assets/fonts/ebrima-big/ebrima.ttf') format('truetype');
+    }
+
+    @font-face {
         font-family: "Roboto", sans-serif;
     }
-}
-
-* {
-    @apply select-none;
 }

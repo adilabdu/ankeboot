@@ -55,7 +55,8 @@ module.exports = {
             fontFamily: {
                 'hero': ['Rakkas'],
                 'amh': ['Fantuwua'],
-                'sans': ['Arial']
+                'sans': ['Arial'],
+                'ebrima': ['Ebrima']
             },
             animation: {
                 'tada': 'tada 0.5s ease infinite',
