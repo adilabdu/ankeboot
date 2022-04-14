@@ -627,8 +627,6 @@
   import { onMounted, ref, watch, computed } from "vue"
   import { useElementVisibility, breakpointsTailwind, useBreakpoints, useElementSize, useScroll } from "@vueuse/core"
 
-  import {marked} from 'marked'
-
   import MobileNavigation from "./MobileNavigation.vue";
 
   import light from "./icons/light.vue";
@@ -768,7 +766,7 @@
 
       return {
         shareQR, width, height, bottomGrid, bottomGridVisible, partnerVisible, clientsVisible, clients, partners, tagline, taglineVisible, top, durations, order, lightMode, changeTheme,
-        mobileNavigationOpened, toggleMobileNavigation, nextImage, lastImage, imageSlider, imageIndex, lgAndLarger, clientsSize, clientsHeight, words, language, changeLanguage, marked
+        mobileNavigationOpened, toggleMobileNavigation, nextImage, lastImage, imageSlider, imageIndex, lgAndLarger, clientsSize, clientsHeight, words, language, changeLanguage
       }
 
     }
