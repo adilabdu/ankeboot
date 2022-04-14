@@ -238,8 +238,9 @@
           <path d="M60 60H57V63H60V60Z" fill="black"/>
         </svg>
 
-        <p class="select-none flex flex-col items-start justify-center transition duration-300">
-          <span class="font-hero uppercase text-2xl leading-none animate-slide-in">Ankeboot</span>
+        <p class=" flex flex-col items-start justify-center transition duration-300">
+          <span class="uppercase text-2xl leading-none animate-slide-in"
+              :class="[language === 'am' ? 'font-amh' : 'font-hero']">{{ words['title'] }}</span>
           <span class="font-sans lowercase text-base leading-none animate-slide-in">
             bookstore
             <span class="font-mono">x</span>
@@ -294,12 +295,21 @@
               </div>
             </button>
           </li>
-          <li class="group relative hidden xl:flex flex-col items-center justify-center px-4"
-              :class="[lightMode ? 'animate-somersault-down' : 'animate-somersault-up']"
-              @click="changeTheme">
-            <light v-if="lightMode" class="" :size="24"/>
-            <dark v-else class="" :size="24"/>
-          </li>
+          <div class="flex flex-col items-center justify-center gap-2">
+            <li class="group relative hidden xl:flex flex-col items-center justify-center px-4"
+                @click="changeTheme">
+              <light v-if="lightMode" class="" :size="24"/>
+              <dark v-else class="" :size="24"/>
+            </li>
+            <li class="group relative hidden xl:flex flex-col items-center justify-center px-4 hover:scale-125 transition duration-300 cursor-pointer"
+                @click="changeLanguage">
+              <p class="text-xs">
+                <span :class="[language === 'en' ? 'opacity-50' : 'opacity-100', 'lowercase']">en</span>
+                /
+                <span :class="[language === 'am' ? 'opacity-50' : 'opacity-100']">አማ</span>
+              </p>
+            </li>
+          </div>
         </ul>
       </nav>
 
@@ -317,11 +327,12 @@
             <div class="z-0 grow min-h-24"></div>
             <div class="relative flex flex-col items-center justify-center">
 
-              <h1 class="filter drop-shadow-xl z-10 select-none uppercase hero-title font-hero leading-none text-[15vw] sm:text-8xl md:text-9xl overflow-clip">
-                Ankeboot
+              <h1 class="filter drop-shadow-xl z-10  uppercase hero-title leading-none text-[15vw] sm:text-8xl md:text-9xl overflow-clip"
+                  :class="[language === 'am' ? 'font-amh' : 'font-hero']">
+                {{ words['title'] }}
               </h1>
 
-              <h3 class="z-20 select-none hero-sub font-sans lowercase leading-none text-[6vw] sm:text-4xl md:text-5xl px-5 py-1">
+              <h3 class="z-20  hero-sub font-sans lowercase leading-none text-[6vw] sm:text-4xl md:text-5xl px-5 py-1">
           <span class="">
             bookstore
           </span>
@@ -331,10 +342,10 @@
           </span>
               </h3>
 
-              <h3 ref="tagline" class="z-20 select-none hero-sub font-sans lowercase text-[5vw] sm:text-2xl md:text-3xl text-center mt-12">
+              <h3 ref="tagline" class="z-20 hero-sub lowercase text-[5vw] sm:text-2xl md:text-3xl text-center mt-12"
+                  :class="[language === 'am' ? 'font-ebrima' : 'font-sans']">
 
-                inspired by the creativity and
-                <br>perseverance of a <i><b>spider</b></i>
+                {{ words['hero_tag'] }}
 
               </h3>
 
@@ -440,13 +451,13 @@
         </section>
       </section>
 
-      <section id="publishing" class="scroll-mt-16 pb-16 gap-8 relative max-h-screen w-full flex flex-col justify-center items-center bg-gradient-to-b from-transparent via-white to-white">
+      <section class="scroll-mt-16 pb-32 gap-8 relative max-h-screen w-full flex flex-col justify-center items-center bg-gradient-to-b from-transparent via-white to-white">
 
         <h1 class="font-sans text-[5vw] sm:text-2xl md:text-3xl max-w-lg text-center py-12 lowercase">
           Accelerating Access and Reach with
-          <span class="italic font-bold">
+          <div class="font-bold transition duration-1000 inline-block" :class="[partnerVisible ? '-skew-x-12' : '']">
             Publishing Partnerships
-          </span>
+          </div>
         </h1>
 
         <div class="flex lg:flex-row flex-col items-center justify-center w-full h-full">
@@ -501,14 +512,14 @@
             <div class="z-10 absolute left-0 h-full flex items-center group-hover:opacity-100 opacity-0 transition duration-300">
               <button @click="lastImage()" class="h-full w-12 group opacity-70 transition duration-300 flex items-center justify-center"
                       :class="imageIndex === 0 ? 'cursor-auto' : 'hover:scale-125 hover:opacity-100'">
-                <svg class="scale-75 group-hover:scale-100 transition duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(255,255,255);transform: ;msFilter:;"><path d="m4.431 12.822 13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z"></path></svg>
+                <svg class="transition duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(255,255,255);transform: ;msFilter:;"><path d="m4.431 12.822 13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z"></path></svg>
               </button>
             </div>
 
             <div class="z-10 absolute right-0 h-full flex items-center group-hover:opacity-100 opacity-0 transition duration-300">
               <button @click="nextImage()" class="h-full w-12 group opacity-70 transition duration-300 flex items-center justify-center"
                       :class="imageIndex === 2 ? 'cursor-auto' : 'hover:scale-125 hover:opacity-100'">
-                <svg class="scale-75 group-hover:scale-100 transition duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(255,255,255);transform: ;msFilter:;"><path d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z"></path></svg>
+                <svg class="transition duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(255,255,255);transform: ;msFilter:;"><path d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z"></path></svg>
               </button>
             </div>
 
@@ -537,20 +548,20 @@
 
       </section>
 
-      <section class="pb-16 gap-8 relative max-h-screen w-full flex flex-col justify-center items-center bg-gradient-to-b from-white to-transparent">
+      <section id="publishing" class="scroll-mt-16 pb-32 gap-8 relative w-full flex flex-col justify-center items-center bg-gradient-to-b from-white to-transparent">
 
         <h1 class="font-sans text-[5vw] sm:text-2xl md:text-3xl max-w-lg text-center py-12 lowercase">
-          Accelerating Access and Reach with
+          Defining Educational Frontiers with
           <span class="italic font-bold">
-            Publishing Partnerships
+            Innovative Publishing
           </span>
         </h1>
 
-        <div class="flex justify-center w-full h-full gap-2">
+        <div class="flex justify-center w-full gap-2">
           <div class="w-3/5 max-w-lg relative">
             <div class="z-0 absolute w-full transition duration-1000 bg-publishing-25"
                  :class="[clientsVisible ? '-translate-x-12 -translate-y-10' : 'translate-x-0 translate-y-0']"
-                 :style="{'height': height + 'px'}">
+                 :style="{ height: (clientsHeight + 32) + 'px' }">
               <h2 class="font-sans font-bold uppercase text-2xl px-4 py-2 origin-top-right -translate-x-full -rotate-90 inline-flex">Publications</h2>
             </div>
 
@@ -561,50 +572,38 @@
                 <div class="absolute rounded-full w-48 right-24 top-24 rotate-45 aspect-half-height border-4 border-white"></div>
 
                 <article class="relative z-10 font-sans font-bold flex justify-center">
-                  <div class="flex gap-8 flex-col px-8 pt-8">
+                  <div class="flex gap-8 flex-col p-8">
                     <p class="text-center">
-                      Our selection of books comes from world’s leading publishers,
-                      who are revolutionising the industry with a focused approach to meet the growing needs
-                      of academic publishing.
+                      <span class="uppercase font-hero">Ankeboot</span> Publishing provides a platform
+                      for Ethiopia’s leading researchers,
+                      academicians, intellectuals, educators, storytellers to share their infinite
+                      wisdom in the form of a book.
                     </p>
                     <p class="text-center">
-                      <span class="font-hero uppercase">Ankeboot</span> works with forerunners in academic
-                      publishing providing high-quality scholastic
-                      research and reference books with affordable prices.
+                      We provide strategic marketing and rapid distribution lines across the
+                      country and online.
                     </p>
                     <p class="text-center">
-                      Our working model bridges access gaps, fuels growth, and expands reach in
-                      the Global South and beyond.
+                      We work with authors who are at different stages of the publishing cycle:
+                      from manuscript editing, illustration, lay-out design all the way to marketing
+                      and distribution.
+                    </p>
+                    <p class="text-center">
+                      Our work is founded on ethical publishing practices, ensuring the
+                      legal and moral right of the author.
+                    </p>
+                    <p class="text-center">
+                      We consider books as an ever-changing site of knowledge production and documentation.
+                      Our role is to ease the process of widely sharing valuable knowledge coming from the
+                      heart of Ethiopian educational, societal, and cultural landscape.
                     </p>
                   </div>
                 </article>
-
-                <div class="relative z-20 flex flex-row-reverse grow max-w-full justify-around items-center py-4">
-                  <img class="w-1/4 scale-50 z-20 relative aspect-auto hover:invert-0 transition duration-300" src="../assets/images/partners/MIT.png"/>
-                  <img class="w-1/4 scale-50 z-20 relative aspect-auto hover:grayscale-0 transition duration-300" src="../assets/images/partners/PHI.png"/>
-                  <img class="w-1/4 scale-50 z-20 relative aspect-auto hover:grayscale-0 transition duration-300" src="../assets/images/partners/OSSREA.png"/>
-                  <img class="w-1/4 scale-50 z-20 relative aspect-auto hover:grayscale-0 transition duration-300" src="../assets/images/partners/AAU.png"/>
-                </div>
 
               </div>
 
             </div>
           </div>
-
-          <div class="relative h-1/2 w-2/5 max-w-lg overflow-auto flex gap-2 snap-x snap-mandatory transition duration-1000"
-               :class="[partnerVisible ? 'opacity-100' : 'opacity-0']"
-               :style="{ 'height': (height + 8 + 3 + 32) + 'px' }">
-            <div class="min-w-full h-full snap-center">
-              <img src="../assets/images/photo-2.jpg" alt="Partners Image" class="object-cover w-full h-full pb-1">
-            </div>
-            <div class="min-w-full h-full snap-center">
-              <img src="../assets/images/photo-1.jpg" alt="Partners Image" class="object-cover w-full h-full pb-1">
-            </div>
-            <div class="min-w-full h-full snap-center">
-              <img src="../assets/images/photo-3.jpg" alt="Partners Image" class="object-cover w-full h-full pb-1">
-            </div>
-          </div>
-
         </div>
 
       </section>
@@ -618,14 +617,16 @@
 
 <script>
 
-  import { onMounted, ref } from "vue"
-  import { useElementVisibility, breakpointsTailwind, useBreakpoints, useElementSize } from "@vueuse/core"
+import { onMounted, ref, watch, computed } from "vue"
+  import { useElementVisibility, breakpointsTailwind, useBreakpoints, useElementSize, useScroll } from "@vueuse/core"
 
   import MobileNavigation from "./MobileNavigation.vue";
 
   import light from "./icons/light.vue";
   import dark from "./icons/dark.vue";
   import ankebootPNG from "../assets/images/ankeboot.png"
+
+  import { text } from "../assets/text/first.js"
 
   export default {
 
@@ -638,9 +639,14 @@
 
     setup() {
 
-      onMounted(() => {
-        nextImage()
-      })
+      const language = ref('en')
+      const words = ref(text[language.value])
+
+      function changeLanguage() {
+        language.value === 'am' ? language.value = 'en' : language.value = 'am'
+        words.value = text[language.value]
+      }
+
 
       // Detect Window Size with JS
       const breakpoints = useBreakpoints(breakpointsTailwind)
@@ -656,6 +662,8 @@
       const partnerVisible = useElementVisibility(partners)
       const clientsVisible = useElementVisibility(clients)
       const { width, height } = useElementSize(partners)
+      const clientsSize = useElementSize(clients)
+      const clientsHeight = computed(() => clientsSize.height.value)
 
       const lightMode = ref(true)
       function changeTheme() {
@@ -728,7 +736,6 @@
             left: 10,
             behavior: 'smooth'
           })
-          imageIndex.value += 1
         }
       }
 
@@ -738,13 +745,21 @@
             left: -10,
             behavior: 'smooth'
           })
-          imageIndex.value -= 1
         }
       }
 
+      const { x, y, isScrolling, arrivedState, directions } = useScroll(imageSlider)
+      const imageSliderSize = useElementSize(imageSlider)
+
+      watch(x, () => {
+        imageIndex.value = Math.floor(x.value / imageSliderSize.width.value)
+      })
+
+
+
       return {
         shareQR, width, height, bottomGrid, bottomGridVisible, partnerVisible, clientsVisible, clients, partners, tagline, taglineVisible, top, durations, order, lightMode, changeTheme,
-        mobileNavigationOpened, toggleMobileNavigation, nextImage, lastImage, imageSlider, imageIndex, lgAndLarger
+        mobileNavigationOpened, toggleMobileNavigation, nextImage, lastImage, imageSlider, imageIndex, lgAndLarger, clientsSize, clientsHeight, words, language, changeLanguage
       }
 
     }
