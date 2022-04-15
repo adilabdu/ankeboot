@@ -1,11 +1,11 @@
 <template>
 
-  <div @click="closeNavigation" class="min-h-screen      w-full fixed flex items-center justify-end z-100 transition duration-300"
+  <div @click="closeNavigation" class="min-h-screen w-full fixed flex items-center justify-end z-100 transition duration-300"
        :class="[opened ? 'translate-x-0' : 'translate-x-full']">
     <div class="absolute h-full w-3/4 bg-white flex items-end justify-end">
 
       <nav class="flex items-center justify-center w-full h-full">
-        <ul class="relative font-hero font-bold uppercase flex flex-col gap-4 justify-center h-full">
+        <ul class="relative font-hero font-bold uppercase flex flex-col gap-4 justify-center h-full mt-16">
           <li class="group relative flex items-center justify-center px-4 py-3 w-32 opacity-0"
                 :class="[opened ? 'animate-[slideIn_300ms_100ms_forwards]' : '']">
             <div class="z-0 absolute h-full w-full bg-home-25 group-hover:bg-home-50 -skew-x-12"></div>
@@ -41,8 +41,18 @@
             <div class="z-0 absolute h-full w-full bg-contact-25 group-hover:bg-contact-50 -skew-x-12"></div>
             <a href="/contact" class="h-full w-full flex justify-center items-center z-10 group-hover:scale-125 transition duration-300">contact</a>
           </li>
-          <li class="group flex flex-col items-center justify-center px-4 absolute w-full mb-24 bottom-0">
+          <li class="group relative flex items-center justify-between px-4 py-3 w-full">
+
             <dark class="" :size="24"/>
+
+            <div class="group relative flex items-center justify-center transition duration-300"
+                 @click="changeLanguageClicked">
+              <p class="text-xs">
+                <span class="font-hero">en</span>
+                /
+                <span class="font-amh">አማ</span>
+              </p>
+            </div>
           </li>
         </ul>
       </nav>
@@ -75,8 +85,12 @@ export default {
       emit('closeNavigation')
     }
 
+    function changeLanguageClicked() {
+      emit('changeLanguage')
+    }
+
     return {
-      closeNavigation
+      closeNavigation, changeLanguageClicked
     }
   }
 }
