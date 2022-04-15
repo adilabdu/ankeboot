@@ -105,8 +105,8 @@ module.exports = {
                     '100%': { transform: 'translateY(0%) rotate(0deg) scale(100%)', '-webkit-transform': 'translateY(0%) rotate(0deg) scale(100%)' }
                 },
                 appear: {
-                    '0%': { boxShadow: '0 0 #0000', backgroundColor: 'transparent' },
-                    '85%': { boxShadow: '0 0 #0000', backgroundColor: 'transparent' },
+                    '0%': { boxShadow: '0 0 #0000', backgroundColor: 'white' },
+                    '85%': { boxShadow: '0 0 #0000', backgroundColor: 'white' },
                     '100%': { boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)', backgroundColor: 'white' }
                 },
                 slideIn: {
