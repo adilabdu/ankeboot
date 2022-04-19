@@ -424,8 +424,7 @@
                  :style="{ height: lgAndLarger ? (height + 32) + 'px' : ((height + 32) / 2) + 'px' }">
 
               <!-- carousel -->
-              <div class="absolute z-10 h-full w-full">
-
+              <div id="carousel" ref="carousel">
                 <!-- left-button -->
                 <div class="z-10 absolute left-2 h-full flex items-center lg:group-hover:opacity-100 lg:opacity-0 transition duration-300">
                   <button @click="lastImage()" class="h-full w-12 group opacity-70 transition duration-300 flex items-center justify-center"
@@ -936,7 +935,7 @@
 <script>
 
   import { onMounted, ref, watch, computed } from "vue"
-  import { useElementVisibility, breakpointsTailwind, useBreakpoints, useElementSize, useScroll } from "@vueuse/core"
+  import { useStorage, useElementVisibility, breakpointsTailwind, useBreakpoints, useElementSize, useScroll } from "@vueuse/core"
 
   import MobileNavigation from "./MobileNavigation.vue";
 
@@ -968,7 +967,7 @@
 
     setup() {
 
-      const language = ref('en')
+      const language = useStorage('lang', 'en')
       const words = ref(text[language.value])
 
       function changeLanguage() {
