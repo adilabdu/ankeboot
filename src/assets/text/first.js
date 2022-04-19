@@ -7,7 +7,7 @@ export const text = {
 
     "am": {
         title: "አንከቡት",
-        subtitle: "መጻሕፍት ፤ ህትመት",
+        subtitle: "መጻሕፍት ፤ ሕትመት",
         hero_tag: "<b>በሸረሪት</b> ፈጠራ እና ጽናት ተመስጦ"
     }
 }
