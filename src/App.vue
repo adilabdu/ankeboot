@@ -1,12 +1,12 @@
 <script setup>
-    import First from "./components/First.vue"
-    import SplashScreen from "./components/Splash.vue"
+  import First from "./components/First.vue"
+  import SplashScreen from "./components/Splash.vue"
 </script>
 
 <template>
 
-    <SplashScreen class="animate-fadeout"/>
-    <First/>
+  <SplashScreen class="animate-fadeout"/>
+  <First/>
 
 </template>
 
