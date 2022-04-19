@@ -429,20 +429,19 @@
                :style="{ height: lgAndLarger ? (height + 32) + 'px' : ((height + 32) / 2) + 'px' }">
 
             <!-- carousel -->
-            <div class="absolute z-10 h-full w-full">
-
+            <div id="carousel" ref="carousel">
               <!-- left-button -->
               <div class="z-10 absolute left-2 h-full flex items-center lg:group-hover:opacity-100 lg:opacity-0 transition duration-300">
                 <button @click="lastImage()" class="h-full w-12 group opacity-70 transition duration-300 flex items-center justify-center"
                         :class="imageIndex === 0 ? 'cursor-auto' : 'lg:hover:scale-125 lg:hover:opacity-100'">
-                  <svg class="transition duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(255,255,255);transform: ;msFilter:;"><path d="m4.431 12.822 13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z"></path></svg>
+                  <svg class="transition duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(255,255,255);"><path d="m4.431 12.822 13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z"></path></svg>
                 </button>
               </div>
               <!-- right-button -->
               <div class="z-10 absolute right-2 h-full flex items-center lg:group-hover:opacity-100 lg:opacity-0 transition duration-300">
                 <button @click="nextImage()" class="h-full w-12 group opacity-70 transition duration-300 flex items-center justify-center"
                         :class="imageIndex === 2 ? 'cursor-auto' : 'lg:hover:scale-125 lg:hover:opacity-100'">
-                  <svg class="transition duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(255,255,255);transform: ;msFilter:;"><path d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z"></path></svg>
+                  <svg class="transition duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(255,255,255);"><path d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z"></path></svg>
                 </button>
               </div>
               <!-- three-dots -->
@@ -638,7 +637,7 @@
 <script>
 
   import { onMounted, ref, watch, computed } from "vue"
-  import { useElementVisibility, breakpointsTailwind, useBreakpoints, useElementSize, useScroll } from "@vueuse/core"
+  import { useStorage, useElementVisibility, breakpointsTailwind, useBreakpoints, useElementSize, useScroll } from "@vueuse/core"
 
   import MobileNavigation from "./MobileNavigation.vue";
 
@@ -660,7 +659,7 @@
 
     setup() {
 
-      const language = ref('en')
+      const language = useStorage('lang', 'en')
       const words = ref(text[language.value])
 
       function changeLanguage() {
