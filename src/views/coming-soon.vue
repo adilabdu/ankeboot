@@ -46,7 +46,7 @@ import TextCard from '../components/TextCard.vue'
                 loading.value = true
                 console.log("loading", loading.value)
 
-                axios.post(import.meta.env.VITE_API_BASE_URL + "join-mailing-list", {
+                axios.post(import.meta.env.VITE_API_BASE_URL + "mailing-list", {
                     "name": name.value,
                     "email": email.value
                 }, {
