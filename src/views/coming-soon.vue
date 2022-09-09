@@ -51,7 +51,8 @@ import TextCard from '../components/TextCard.vue'
                     "email": email.value
                 }, {
                     headers: {
-                        "Accept": "application/json"
+                        "Accept": "application/json",
+                        "database": "mysql"
                     }
                 })
                 .then((response) => {
