@@ -1,7 +1,5 @@
 <script setup>
-    import Home from "./components/Home.vue"
-    import Landing from "./components/Landing.vue"
-    import ComingSoon from "./views/coming-soon.vue"
+    import ComingSoon from "./views/coming-soon/index.vue"
 </script>
 
 <template>

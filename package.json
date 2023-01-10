@@ -7,11 +7,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.0.13",
     "axios": "^0.25.0",
     "tailwindcss-scoped-groups": "^2.0.0",
     "vue": "^3.2.25"
   },
   "devDependencies": {
+    "@rollup/plugin-dsv": "^3.0.1",
     "@vitejs/plugin-vue": "^2.0.0",
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.5",
