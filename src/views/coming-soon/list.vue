@@ -3,14 +3,20 @@
 	<div class="w-[72rem]">
 
 		<input
+			autofocus
 			id="searchBar"
 			type="text"
-			class="text-2xl px-4 font-medium text-gray-600 w-full h-14 focus:outline-none mb-2"
+			class="text-2xl px-4 font-medium text-black w-full h-14 focus:outline-none mb-2 font-light"
 			placeholder="Search for book title or author... "
 			v-model="searchQuery"
 		/>
 
-		<ul class="flex flex-col gap-4">
+		<div class="flex items-center gap-2 px-4">
+			<input id="filterStock" type="checkbox" class="accent-transparent w-4 h-4" v-model="onlyInStock">
+			<label class="mt-0.5" for="filterStock">Only in Stock</label>
+		</div>
+
+		<ul class="flex flex-col gap-4 mt-4">
 			<li v-for="book in paginated(filteredList, 10)" :class="{'opacity-50' : book.balance <= 0}" class="w-full flex items-center gap-8 p-4 border border-gray-100 rounded-xl">
 
 				<div
@@ -42,6 +48,11 @@
 			</li>
 		</ul>
 
+		<div class="flex justify-between items-center mt-4">
+			<button :disabled="page===0" @click="page--" class="disabled:opacity-25 px-2 py-1.5 rounded-lg border border-black">Previous</button>
+			<button :disabled="last_page" @click="page++" class="disabled:opacity-25 px-2 py-1.5 rounded-lg border border-black">Next</button>
+		</div>
+
 	</div>
 
 </template>
@@ -52,13 +63,13 @@
 	import list from "../../assets/title-quantity-category-price.csv"
 
 	const searchQuery = ref('')
-	const withSoldOut = ref(true)
+	const onlyInStock = ref(true)
 
 	const filteredList = computed(() => {
 
 		let primaryList = list
 
-		if (!withSoldOut.value) {
+		if (onlyInStock.value) {
 			primaryList = list.filter(book => {
 				return book.balance > 0
 			})
@@ -72,8 +83,10 @@
 	})
 
 	const page = ref(0)
+	const last_page = ref(false)
 	function paginated(list, per_page) {
 
+		last_page.value = list.length < ((page.value + 1) * per_page)
 		return list.slice((page.value * per_page), Math.min((page.value + 1) * per_page), list.length);
 
 	}
@@ -83,7 +96,7 @@
 <style scoped>
 
 	input::placeholder {
-		@apply text-gray-300 font-medium text-2xl;
+		@apply text-gray-400 font-light text-2xl;
 	}
 
 </style>

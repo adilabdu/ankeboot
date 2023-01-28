@@ -20,16 +20,18 @@
 
 ::-webkit-scrollbar-thumb {
     /* background: rgba(0,0,0,0.5); */
-    background: rgb(255, 255, 255); 
-    border-radius: 30px;
+	background: #55555550;
+    border-radius: 2px;
+	transition: all;
+	transition-duration: 150s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: #55555550;
 }
 
 ::-webkit-scrollbar:hover {
-    width: 100px;
+    width: 6px;
 }
 
 </style>

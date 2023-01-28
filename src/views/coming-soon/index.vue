@@ -1,5 +1,6 @@
 <script setup>
 
+	import { ref } from "vue"
 	import Instagram from '../../components/icons/instagram.vue'
 	import Telegram from '../../components/icons/telegram.vue'
 	import Twitter from '../../components/icons/twitter.vue'
@@ -7,22 +8,28 @@
 	import BookList from "./list.vue"
 	import { ArrowSmallRightIcon } from "@heroicons/vue/24/solid"
 
+	const page = ref('home')
+
+	function goto(to) {
+		page.value = to
+	}
+
 </script>
 
 <template>
     
     <div class="flex flex-col min-h-screen">
 
-		<header class="mt-16 mb-6 container max-w-6xl mx-auto flex justify-between items-center">
+		<header :class="{'bg-white z-10 sticky top-0': page==='search'}" class="mt-10 pt-6 mb-2 pb-4 container max-w-6xl mx-auto flex justify-between items-center">
 
-			<div class="hero flex flex-col">
+			<div @click="goto('home')" class="cursor-pointer hero flex flex-col">
 				<h1 class="font-hero text-2xl uppercase">Ankeboot Books</h1>
 				<h1 class="font-amh text-2xl">አንከቡት መጻህፍት</h1>
 			</div>
 
-			<button class="px-4 py-2.5 h-fit rounded-xl transition-colors duration-150 hover:bg-gray-200 flex items-center gap-2 group">
+			<button v-if="page!=='search'" @click="goto('search')" class="px-4 py-2.5 h-fit rounded-xl transition-all transition-colors duration-150 hover:bg-gray-200 flex items-center gap-2 group">
 				<span>Browse our books</span>
-				<ArrowSmallRightIcon class="w-4 h-4 group-hover:translate-x-0 -translate-x-full scale-x-0 group-hover:scale-x-100 transition-transform duration-150" />
+				<ArrowSmallRightIcon class="w-0 group-hover:w-4 h-4 group-hover:translate-x-0 -translate-x-full scale-x-0 group-hover:scale-x-100 transition-[width] transition-transform duration-150" />
 			</button>
 
 		</header>
@@ -37,8 +44,8 @@
 
 				<main class="mx-2 flex flex-col md:grid md:grid-cols-2 gap-6 max-w-6xl">
 
-<!--					<Home />-->
-					<BookList />
+					<Home v-if="page==='home'" />
+					<BookList v-if="page==='search'" />
 
 				</main>
 
