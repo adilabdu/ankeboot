@@ -5,10 +5,12 @@
     import Landing from "./components/Landing.vue"
     import ComingSoon from "./views/coming-soon.vue"
     import PrivacyPolicy from "./views/privacy-policy.vue"
+    import TermsAndConditions from "./views/terms-and-conditions.vue"
 
     const routes = {
         '/': ComingSoon,
-        '/privacypolicy': PrivacyPolicy
+        '/privacypolicy': PrivacyPolicy,
+        '/termsandconditions': TermsAndConditions
     }
 
     const currentPath = ref(window.location.hash)
@@ -19,12 +21,6 @@
 
     const currentView = computed(() => {
         return routes[currentPath.value.slice(1) || '/'] || ComingSoon
-    })
-
-    onMounted(() => {
-
-        alert(`Hello ${window.location.hash}`)
-
     })
 
 </script>

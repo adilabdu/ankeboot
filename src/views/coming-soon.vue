@@ -243,6 +243,7 @@ import TextCard from '../components/TextCard.vue'
                 <p class="sm:inline hidden mx-1 opacity-75">&bull;</p>
                 <p class="text-sm opacity-75">Online Book Market Coming Soon.</p>
                 <a class="underline text-sm opacity-75 ml-1" href="/#/privacypolicy">Privacy Policy</a>
+                <a class="underline text-sm opacity-75 ml-1" href="/#/termsandconditions">Terms and Conditions</a>
             </article>
 
         </footer>
